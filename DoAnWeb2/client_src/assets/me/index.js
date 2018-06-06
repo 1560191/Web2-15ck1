@@ -13,10 +13,10 @@ $('#btnLoadAll').on('click', function() {
             // console.log(item.CatName);
             var tr = '<tr>' +
                 '<td>' +
-                item.CatID +
+                item.ID +
                 '</td>' +
                 '<td>' +
-                item.CatName +
+                item.Ten +
                 '</td>' +
                 '<td>&nbsp;</td>' +
             '</tr>';
