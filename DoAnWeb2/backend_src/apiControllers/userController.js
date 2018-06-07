@@ -1,5 +1,5 @@
 var express = require('express');
-var sanphamRepo = require('../repos/userRepo');
+var userRepo = require('../repos/userRepo');
 
 var router = express.Router();
 
@@ -16,45 +16,39 @@ router.get('/', (req, res) => {
 // 
 // categories/5
 
-router.get('/:id', (req, res) => {
-	if (req.params.id) {
-		var id = req.params.id;
+// router.get('/:id', (req, res) => {
+// 	if (req.params.id) {
+// 		var id = req.params.id;
 
-		if (isNaN(id)) {
-			res.statusCode = 400;
-			res.end();
-			return;
-		}
+// 		if (isNaN(id)) {
+// 			res.statusCode = 400;
+// 			res.end();
+// 			return;
+// 		}
 
-		userRepo.load(id).then(rows => {
-			if (rows.length > 0) {
-				res.json(rows[0]);
-			} else {
-				res.statusCode = 204;
-				res.end();
-			}
-		}).catch(err => {
-			console.log(err);
-			res.statusCode = 500;
-			res.json('error');
-		});
-	} else {
-		res.statusCode = 400;
-		res.json('error');
-	}
-});
+// 		userRepo.load(id).then(rows => {
+// 			if (rows.length > 0) {
+// 				res.json(rows[0]);
+// 			} else {
+// 				res.statusCode = 204;
+// 				res.end();
+// 			}
+// 		}).catch(err => {
+// 			console.log(err);
+// 			res.statusCode = 500;
+// 			res.json('error');
+// 		});
+// 	} else {
+// 		res.statusCode = 400;
+// 		res.json('error');
+// 	}
+// });
 
 router.post('/', (req, res) => {
 	userRepo.add(req.body)
 		.then(insertId => {
-			var poco = {
-				Email: req.body.Email,
-				Password: req.body.Password,
-				Hoten: req.body.Hoten,
-				Diachi: req.body.Diachi
-			};
 			res.statusCode = 201;
-			res.json(poco);
+			res.json(req.body);
 		})
 		.catch(err => {
 			console.log(err);
@@ -88,5 +82,26 @@ router.delete('/:id', (req, res) => {
 		res.json('error');
 	}
 });
+router.get('/:email', (req, res) => {
+	if (req.params.email) {
+		var email = req.params.email;
 
+
+		userRepo.load(email).then(rows => {
+			if (rows.length > 0) {
+				res.json(rows[0]);
+			} else {
+				res.statusCode = 204;
+				res.end();
+			}
+		}).catch(err => {
+			console.log(err);
+			res.statusCode = 500;
+			res.json('error');
+		});
+	} else {
+		res.statusCode = 400;
+		res.json('error');
+	}
+});
 module.exports = router;

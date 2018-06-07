@@ -1,22 +1,19 @@
 var db = require('../fn/mysql-db');
-
+var md5 = require('md5');
 exports.loadAll = function() {
 	var sql = 'select * from taikhoan';
 	return db.load(sql);
 }
 
 exports.load = function(id) {
-	var sql = `select * from taikhoan where Email = ${id}`;
+	var sql = `select * from taikhoan where Email = '${id}'`;
 	return db.load(sql);
 }
 
-exports.add = function(poco) {
-	// poco = {
-	// 	CatID: 1,
-	// 	CatName: 'new name'
-	// }
-	
-	var sql = `insert into taikhoan(Email,Password,Hoten,Diachi) values('${poco.Email}','${poco.Password}','${poco.Hoten}','${poco.Diachi}'`;
+exports.add = function (poco) {
+	var md5_password = md5(poco.Password);
+
+	var sql = `insert into user(Email,Password,HoTen,DiaChi,SDT,Acitive ) values( '${poco.Email}','${md5_password}','${poco.Name}','${poco.Diachi}', '${poco.SDT}',0)`;
 	return db.insert(sql);
 }
 

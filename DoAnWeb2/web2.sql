@@ -97,10 +97,10 @@ INSERT INTO `sanpham` (`ID`, `Ten`, `Phanloai`, `Hinhanh`, `Giakhoidiem`, `Giahi
 --
 
 CREATE TABLE IF NOT EXISTS `taikhoan` (
-  `Email` varchar(30) NOT NULL DEFAULT '',
-  `Password` varchar(30) NOT NULL,
-  `Hoten` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `Diachi` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `Email` varchar(255) NOT NULL DEFAULT '',
+  `Password` varchar(255) NOT NULL,
+  `Hoten` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `Diachi` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `SDT` int(11) NOT NULL,
   `Active` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
