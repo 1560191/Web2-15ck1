@@ -1,26 +1,36 @@
-$('#btnLoadAll').on('click', function() {
-    // alert('clicked');
+var CUR_PAGE = 1;
+
+$(function() {
+    HandlebarsIntl.registerWith(Handlebars);
+    loadProducts();
+});
+
+$('#btnMore').on('click', function() {
+    loadProducts();
+});
+
+var loadProducts = function() {
+    $('.loader').show();
 
     $.ajax({
-        url: 'http://localhost:3000/sanpham',
+        url: 'http://localhost:3000/sanpham?page=' + CUR_PAGE,
         dataType: 'json',
         timeout: 10000
     }).done(function(data) {
-        // console.log(data);
-        // alert('done');
+        var source = $('#product-template').html();
+        var template = Handlebars.compile(source);
+        var html = template(data.sanpham);
+        $('#product-list').append(html);
 
-        $.each(data, function(idx, item) {
-            // console.log(item.CatName);
-            var tr = '<tr>' +
-                '<td>' +
-                item.ID +
-                '</td>' +
-                '<td>' +
-                item.Ten +
-                '</td>' +
-                '<td>&nbsp;</td>' +
-            '</tr>';
-            $('#list').append(tr);
+        $('#product-list div[style]').fadeIn(200, function() {
+            $(this).removeAttr('style');
         });
+
+        CUR_PAGE++;
+        if (data.hasMore === false) {
+            $('#btnMore').hide();
+        }
+
+        $('.loader').hide();
     });
-});
+};

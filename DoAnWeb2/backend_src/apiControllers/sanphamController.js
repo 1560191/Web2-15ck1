@@ -1,10 +1,107 @@
 var express = require('express');
-var sanphamRepo = require('../repos/sanphamRepo');
+var sanphamRepo = require('../repos/sanphamRepo'),
+	constants = require('../fn/const');
 
 var router = express.Router();
 
 router.get('/', (req, res) => {
-    sanphamRepo.loadAll().then(rows => {
+    var page = 1;
+    if (req.query.page) {
+        page = +req.query.page;
+    }
+
+    sanphamRepo.loadPage(page).then(rows => {
+        var hasMore = rows.length > constants.PRODUCTS_PER_PAGE;
+        if (hasMore) {
+            rows.pop();
+        }
+
+        var data = {
+            sanpham: rows,
+            hasMore: hasMore
+        }
+        res.json(data);
+    }).catch(err => {
+        console.log(err);
+        res.statusCode = 500;
+        res.end('View error log on console.');
+    });
+});
+
+router.get('/:top5ragia', (req, res) => {
+    var page = 1;
+    if (req.query.page) {
+        page = +req.query.page;
+    }
+
+    sanphamRepo.loadTopRaGia(page).then(rows => {
+        var hasMore = rows.length > constants.PRODUCTS_PER_PAGE2;
+        if (hasMore) {
+            rows.pop();
+        }
+
+        var data = {
+            sanpham: rows,
+            hasMore: hasMore
+        }
+        res.json(data);
+    }).catch(err => {
+        console.log(err);
+        res.statusCode = 500;
+        res.end('View error log on console.');
+    });
+});
+
+router.get('/:top5giacao', (req, res) => {
+    var page = 1;
+    if (req.query.page) {
+        page = +req.query.page;
+    }
+
+    sanphamRepo.loadTopRaGia(page).then(rows => {
+        var hasMore = rows.length > constants.PRODUCTS_PER_PAGE2;
+        if (hasMore) {
+            rows.pop();
+        }
+
+        var data = {
+            sanpham: rows,
+            hasMore: hasMore
+        }
+        res.json(data);
+    }).catch(err => {
+        console.log(err);
+        res.statusCode = 500;
+        res.end('View error log on console.');
+    });
+});
+
+router.get('/:top5ketthuc', (req, res) => {
+    var page = 1;
+    if (req.query.page) {
+        page = +req.query.page;
+    }
+
+    sanphamRepo.loadKetThuc(page).then(rows => {
+        var hasMore = rows.length > constants.PRODUCTS_PER_PAGE2;
+        if (hasMore) {
+            rows.pop();
+        }
+
+        var data = {
+            sanpham: rows,
+            hasMore: hasMore
+        }
+        res.json(data);
+    }).catch(err => {
+        console.log(err);
+        res.statusCode = 500;
+        res.end('View error log on console.');
+    });
+});
+
+router.get('/:timkiem', (req, res) => {
+    sanphamRepo.timKiem().then(rows => {
         res.json(rows);
     }).catch(err => {
         console.log(err);
