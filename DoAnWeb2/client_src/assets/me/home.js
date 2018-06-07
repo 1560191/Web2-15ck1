@@ -1,4 +1,5 @@
 $('#home').on('click', function() {
+    $('#btnMore2').hide();
     var CUR_PAGE = 1;
     $('#btnMore').show(); 
     $('#product-list').empty();
@@ -39,6 +40,7 @@ $('#home').on('click', function() {
 
 
 $('#nhieunhat').on('click', function() {
+    $('#btnMore2').hide();
     $('#product-list').empty();
     $('.loader').show();
     $.ajax({
@@ -55,9 +57,8 @@ $('#nhieunhat').on('click', function() {
             $(this).removeAttr('style');
         });
         $('#product-list').show();
-        if (data.hasMore === false) {
-            $('#btnMore').hide();
-        }
+        $('#btnMore').hide();
+        
 
         $('.loader').hide();
     });
@@ -65,6 +66,7 @@ $('#nhieunhat').on('click', function() {
 
 
 $('#caonhat').on('click', function() {
+    $('#btnMore2').hide();
     $('#product-list').empty();
     $('.loader').show();
     $.ajax({
@@ -81,9 +83,8 @@ $('#caonhat').on('click', function() {
             $(this).removeAttr('style');
         });
         $('#product-list').show();
-        if (data.hasMore === false) {
-            $('#btnMore').hide();
-        }
+        $('#btnMore').hide();
+        
 
         $('.loader').hide();
     });
@@ -91,6 +92,7 @@ $('#caonhat').on('click', function() {
 
 
 $('#ketthuc').on('click', function() {
+    $('#btnMore2').hide();
     $('#product-list').empty();
     $('.loader').show();
     $.ajax({
@@ -107,10 +109,51 @@ $('#ketthuc').on('click', function() {
             $(this).removeAttr('style');
         });
         $('#product-list').show();
-        if (data.hasMore === false) {
-            $('#btnMore').hide();
-        }
+        
+        $('#btnMore').hide();
 
         $('.loader').hide();
     });
+});
+
+
+$('#btnSearch').on('click', function() {
+    $('#btnMore').hide();
+    $('#btnMore2').show();
+    var CUR_PAGE = 1;
+    $('#product-list').empty();
+    var timkiem = $('#search').val();
+    $(function() {
+        HandlebarsIntl.registerWith(Handlebars);
+        loadSearch();
+    });
+    $('#btnMore2').on('click', function() {
+        loadSearch();
+    });
+
+    var loadSearch = function() {
+        $('.loader').show();
+
+        $.ajax({
+            url: 'http://localhost:3000/sanpham/timkiem/' + timkiem,
+            dataType: 'json',
+            timeout: 10000
+        }).done(function(data) {
+            var source = $('#product-template').html();
+            var template = Handlebars.compile(source);
+            var html = template(data.sanpham);
+            $('#product-list').append(html);
+
+            $('#product-list div[style]').fadeIn(200, function() {
+                $(this).removeAttr('style');
+            });
+
+            CUR_PAGE++;
+            if (data.hasMore === false) {
+                $('#btnMore2').hide();
+            }
+
+            $('.loader').hide();
+        });
+    };
 });

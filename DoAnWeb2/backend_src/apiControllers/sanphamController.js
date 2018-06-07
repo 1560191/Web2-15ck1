@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
     }
 
     sanphamRepo.loadPage(page).then(rows => {
-        var hasMore = rows.length > constants.PRODUCTS_PER_PAGE;
+        var hasMore = rows.length > 6;
         if (hasMore) {
             rows.pop();
         }
@@ -28,7 +28,7 @@ router.get('/', (req, res) => {
     });
 });
 
-router.get('/:top5ragia', (req, res) => {
+router.get('/top5ragia', (req, res) => {
     var page = 1;
     if (req.query.page) {
         page = +req.query.page;
@@ -52,13 +52,13 @@ router.get('/:top5ragia', (req, res) => {
     });
 });
 
-router.get('/:top5giacao', (req, res) => {
+router.get('/top5giacao', (req, res) => {
     var page = 1;
     if (req.query.page) {
         page = +req.query.page;
     }
 
-    sanphamRepo.loadTopRaGia(page).then(rows => {
+    sanphamRepo.loadTopGiaCao(page).then(rows => {
         var hasMore = rows.length > constants.PRODUCTS_PER_PAGE2;
         if (hasMore) {
             rows.pop();
@@ -76,7 +76,7 @@ router.get('/:top5giacao', (req, res) => {
     });
 });
 
-router.get('/:top5ketthuc', (req, res) => {
+router.get('/top5ketthuc', (req, res) => {
     var page = 1;
     if (req.query.page) {
         page = +req.query.page;
@@ -100,9 +100,24 @@ router.get('/:top5ketthuc', (req, res) => {
     });
 });
 
-router.get('/:timkiem', (req, res) => {
-    sanphamRepo.timKiem().then(rows => {
-        res.json(rows);
+router.get('/timkiem/:search', (req, res) => {
+    var page = 1;
+    var search = req.params.search;
+    if (req.query.page) {
+        page = +req.query.page;
+    }
+
+    sanphamRepo.timKiem(search,page).then(rows => {
+        var hasMore = rows.length > 6;
+        if (hasMore) {
+            rows.pop();
+        }
+
+        var data = {
+            sanpham: rows,
+            hasMore: hasMore
+        }
+        res.json(data);
     }).catch(err => {
         console.log(err);
         res.statusCode = 500;

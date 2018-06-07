@@ -12,8 +12,8 @@ exports.load = function(id) {
 }
 
 exports.loadPage = function(page) {
-    var offset = (page - 1) * constants.PRODUCTS_PER_PAGE;
-    var sql = `select * from sanpham limit ${constants.PRODUCTS_PER_PAGE + 1} offset ${offset}`;
+    var offset = (page - 1) * 6;
+    var sql = `select * from sanpham limit ${6 + 1} offset ${offset}`;
     return db.load(sql);
 }
 
@@ -51,7 +51,8 @@ exports.delete = function(id) {
 }
 
 
-exports.timKiem = function(st) {
-	var sql = `select * from sanpham where Ten = ${st} or Phanloai = ${st}`;
-	return db.load(sql);
+exports.timKiem = function(search,page) {
+	var offset = (page - 1) * 6;
+    var sql = `select * from sanpham where Ten like '%${search}%' or Phanloai like '%${search}%' limit ${6 + 1} offset ${offset}`;
+    return db.load(sql);
 }
