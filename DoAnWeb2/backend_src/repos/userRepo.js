@@ -13,7 +13,7 @@ exports.load = function(id) {
 exports.add = function (poco) {
 	var md5_password = md5(poco.Password);
 
-	var sql = `insert into user(Email,Password,HoTen,DiaChi,SDT,Acitive ) values( '${poco.Email}','${md5_password}','${poco.Name}','${poco.Diachi}', '${poco.SDT}',0)`;
+	var sql = `insert into taikhoan(Email,Password,HoTen,DiaChi,SDT,Active ) values( '${poco.Email}','${md5_password}','${poco.Name}','${poco.Diachi}', '${poco.SDT}','0')`;
 	return db.insert(sql);
 }
 
