@@ -1,4 +1,4 @@
-$('#nhieunhat').on('click', function() {
+function muahang(id) {
     $('#btnMore').hide();
     $('#btnMore2').hide();
     $('#btnMore3').hide();
@@ -6,20 +6,26 @@ $('#nhieunhat').on('click', function() {
     $('#btnMore5').hide();
     $('#product-list').empty();
     $('.loader').show();
-    $.ajax({
-        url: 'http://localhost:3000/sanpham/top5ragia?page=1',
-        dataType: 'json',
-        timeout: 10000
-    }).done(function(data) {
-        var source = $('#product-template').html();
-        var template = Handlebars.compile(source);
-        var html = template(data.sanpham);
-        $('#product-list').append(html);
-
-        $('#product-list div[style]').fadeIn(200, function() {
-            $(this).removeAttr('style');
-        });
-        $('#product-list').show();
-        $('.loader').hide();
+    $(function() {
+        HandlebarsIntl.registerWith(Handlebars);
+        loadHome();
     });
-});
+    var loadHome = function() {
+        $.ajax({
+            url: 'http://localhost:3000/sanpham/'+id,
+            dataType: 'json',
+            timeout: 10000
+        }).done(function(data) {
+            var source = $('#muasp').html();
+            var template = Handlebars.compile(source);
+            var html = template(data.sanpham);
+            $('#product-list').append(html);
+
+            $('#product-list div[style]').fadeIn(200, function() {
+                $(this).removeAttr('style');
+            });
+            $('#product-list').show();
+            $('.loader').hide();
+        });
+    }
+};

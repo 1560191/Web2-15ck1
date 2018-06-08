@@ -27,7 +27,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `khachhang` (
-  `ID` varchar(30) NOT NULL,
+  `IDUser` varchar(30) NOT NULL,
   `IDNguoidanhgia` varchar(30) NOT NULL,
   `Diemdanhgia` int(11) NOT NULL,
   `Nhanxet` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
@@ -42,7 +42,7 @@ CREATE TABLE IF NOT EXISTS `khachhang` (
 -- Dumping data for table `khachhang`
 --
 
-INSERT INTO `khachhang` (`ID`, `IDNguoidanhgia`, `Diemdanhgia`, `Nhanxet`, `Danhsachyeuthich`, `Sanphamdangban`, `Sanphamdaban`, `Sanphamdadaugia`, `Sanphamdathang`) VALUES
+INSERT INTO `khachhang` (`IDUser`, `IDNguoidanhgia`, `Diemdanhgia`, `Nhanxet`, `Danhsachyeuthich`, `Sanphamdangban`, `Sanphamdaban`, `Sanphamdadaugia`, `Sanphamdathang`) VALUES
 ('user1@gmail.com', 'user2@gmail.com', 10, 'good', 1, 2, 3, NULL, NULL);
 
 -- --------------------------------------------------------
@@ -135,7 +135,7 @@ INSERT INTO `taikhoan` (`Email`, `Password`, `Hoten`, `Diachi`) VALUES
 -- Indexes for table `khachhang`
 --
 ALTER TABLE `khachhang`
- ADD KEY `Sanphamdaban` (`Sanphamdaban`), ADD KEY `Sanphamdangban` (`Sanphamdangban`), ADD KEY `Sanphamdadaugia` (`Sanphamdadaugia`), ADD KEY `Sanphamdathang` (`Sanphamdathang`), ADD KEY `ID` (`ID`), ADD KEY `IDNguoidanhgia` (`IDNguoidanhgia`), ADD KEY `Danhsachyeuthich` (`Danhsachyeuthich`);
+ ADD KEY `Sanphamdaban` (`Sanphamdaban`), ADD KEY `Sanphamdangban` (`Sanphamdangban`), ADD KEY `Sanphamdadaugia` (`Sanphamdadaugia`), ADD KEY `Sanphamdathang` (`Sanphamdathang`), ADD KEY `IDUser` (`IDUser`), ADD KEY `IDNguoidanhgia` (`IDNguoidanhgia`), ADD KEY `Danhsachyeuthich` (`Danhsachyeuthich`);
 
 --
 -- Indexes for table `quanly`
@@ -176,7 +176,7 @@ ADD CONSTRAINT `khachhang_ibfk_1` FOREIGN KEY (`Sanphamdaban`) REFERENCES `sanph
 ADD CONSTRAINT `khachhang_ibfk_2` FOREIGN KEY (`Sanphamdangban`) REFERENCES `sanpham` (`ID`),
 ADD CONSTRAINT `khachhang_ibfk_3` FOREIGN KEY (`Sanphamdadaugia`) REFERENCES `sanpham` (`ID`),
 ADD CONSTRAINT `khachhang_ibfk_4` FOREIGN KEY (`Sanphamdathang`) REFERENCES `sanpham` (`ID`),
-ADD CONSTRAINT `khachhang_ibfk_5` FOREIGN KEY (`ID`) REFERENCES `taikhoan` (`Email`),
+ADD CONSTRAINT `khachhang_ibfk_5` FOREIGN KEY (`IDUser`) REFERENCES `taikhoan` (`Email`),
 ADD CONSTRAINT `khachhang_ibfk_6` FOREIGN KEY (`IDNguoidanhgia`) REFERENCES `taikhoan` (`Email`),
 ADD CONSTRAINT `khachhang_ibfk_7` FOREIGN KEY (`Danhsachyeuthich`) REFERENCES `sanpham` (`ID`);
 

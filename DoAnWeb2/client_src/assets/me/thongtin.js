@@ -16,7 +16,7 @@ function thongtin(id) {
             dataType: 'json',
             timeout: 10000
         }).done(function(data) {
-            var source = $('#product-template').html();
+            var source = $('#thongtinsp').html();
             var template = Handlebars.compile(source);
             var html = template(data.sanpham);
             $('#product-list').append(html);

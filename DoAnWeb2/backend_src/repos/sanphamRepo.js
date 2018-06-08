@@ -11,6 +11,11 @@ exports.load = function(id) {
 	return db.load(sql);
 }
 
+exports.ttNguoiBanTheoIDSP = function(id) {
+	var sql = `select * from sanpham sp, taikhoan tk, khachhang kh where sp.ID = ${id} and sp.Nguoiban = tk.Email and tk.Email = kh.IDUser`;
+	return db.load(sql);
+}
+
 exports.loadPage = function(page) {
     var offset = (page - 1) * 6;
     var sql = `select * from sanpham limit ${6 + 1} offset ${offset}`;

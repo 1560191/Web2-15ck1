@@ -140,17 +140,155 @@
 							<span class="glyphicon glyphicon-eye-open"></span>
 							Details
 						</a>
-						<a id="mua" href="javascript:muahang();" class="btn btn-danger">
+						<a id="mua" href="javascript:muahang({{ID}});" class="btn btn-danger">
 							<span class="glyphicon glyphicon-shopping-cart"></span>
 							Mua
 						</a>
-						<a id="daugia" href="javascript:daugia();" class="btn btn-warning">
+						<a id="daugia" href="javascript:daugia({{ID}});" class="btn btn-warning">
 							<span class="glyphicon glyphicon-usd"></span>
 							Đấu Giá
 						</a>
 					</p>
 				</div>
 			</div>
+		</div>
+		{{/each}}
+	</script>
+
+	<script id="thongtinsp" type="text/x-handlebars-template">
+		{{#each this}}
+		<div class="col-sm-4 col-md-4" style="display: none">
+			<div class="thumbnail">
+				<span class="label label-info">Số Lượt Đấu Giá: {{soluotragia}}</span>
+				<img src="imgs/{{ID}}/main_thumbs.jpg" alt="{{Ten}}" title="{{Ten}}">
+				<div class="caption">
+					<h4>Giá Hiện Tại: {{formatNumber Giahientai}}</h4>
+					<h4>Giá Bán Ngay: {{formatNumber Giabanngay}}</h4>
+					<p style="height: 36px;">{{Mota}}</p>
+					<p>
+						<a id="dsyt" href="javascript:dsyt({{ID}});" class="btn btn-success">
+							<span class="glyphicon glyphicon-heart-empty"></span>
+							Thích
+						</a>
+						<a id="mua" href="javascript:muahang({{ID}});" class="btn btn-danger">
+							<span class="glyphicon glyphicon-shopping-cart"></span>
+							Mua
+						</a>
+						<a id="daugia" href="javascript:daugia({{ID}});" class="btn btn-warning">
+							<span class="glyphicon glyphicon-usd"></span>
+							Đấu Giá
+						</a>
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-8 col-md-4">
+			<h4>Tên Sản Phẩm: {{Ten}}</h4>
+			<h4>Mô Tả: {{Mota}}</h4>
+			<h4>Người Bán: {{Nguoiban}}</h4>
+			<h4>Điểm Đánh Giá Người Bán: {{Diemdanhgia}}</h4>
+			<h4>Người Ra Giá Cao Nhất: {{Nguoimua}}</h4>
+			<h4>Thời Điểm Bán: {{Thoigianbatdau}}</h4>
+			<h4>Thời Gian Kết Thúc: {{Thoigianketthuc}}</h4>
+		</div>
+		{{/each}}
+	</script>
+
+	<script id="muasp" type="text/x-handlebars-template">
+		{{#each this}}
+		<div class="col-sm-4 col-md-4" style="display: none">
+			<div class="thumbnail">
+				<span class="label label-info">Số Lượt Đấu Giá: {{soluotragia}}</span>
+				<img src="imgs/{{ID}}/main_thumbs.jpg" alt="{{Ten}}" title="{{Ten}}">
+				<div class="caption">
+					<h4>Giá Hiện Tại: {{formatNumber Giahientai}}</h4>
+					<h4>Giá Bán Ngay: {{formatNumber Giabanngay}}</h4>
+					<p style="height: 36px;">{{Mota}}</p>
+					<p>
+						<a id="dsyt" href="javascript:dsyt({{ID}});" class="btn btn-danger">
+							<span class="glyphicon glyphicon-heart-empty"></span>
+							Thích
+						</a>
+						<a id="daugia" href="javascript:daugia({{ID}});" class="btn btn-warning">
+							<span class="glyphicon glyphicon-usd"></span>
+							Đấu Giá
+						</a>
+					</p>
+				</div>
+			</div>
+		</div>
+		<div>
+			<form class="form-horizontal">
+				<div class="form-group">
+			      <label class="control-label col-sm-2" for="nx">Nhận Xét:</label>
+			      <div class="col-sm-7">
+			        <input type="email" class="form-control" id="nx" name="nx">
+			      </div>
+			    
+			      <label class="control-label col-sm-2" for="pwd">Điểm Đánh Giá:</label>
+			      <div class="col-sm-7">          
+			        <input type="email" class="form-control" id="ddg" name="ddg">
+			      </div>
+			      <label class="control-label col-sm-2" for="nx">Số Điện Thoại:</label>
+			      <div class="col-sm-7">
+			        <input type="email" class="form-control" id="sdt" name="sdt">
+			      </div>
+			    
+			      <label class="control-label col-sm-2" for="pwd">Địa Chỉ:</label>
+			      <div class="col-sm-7">          
+			        <input type="email" class="form-control" id="diachi" name="diachi">
+			      </div>
+			      <br>
+			      <div class="col-sm-2">
+			        <button type="submit" class="btn btn-danger">Mua Ngay</button>
+			      </div>
+			    </div>
+			  </form>
+		</div>
+		{{/each}}
+	</script>
+
+	<script id="daugia" type="text/x-handlebars-template">
+		{{#each this}}
+		<div class="col-sm-4 col-md-4" style="display: none">
+			<div class="thumbnail">
+				<span class="label label-info">Số Lượt Đấu Giá: {{soluotragia}}</span>
+				<img src="imgs/{{ID}}/main_thumbs.jpg" alt="{{Ten}}" title="{{Ten}}">
+				<div class="caption">
+					<h4>Giá Hiện Tại: {{formatNumber Giahientai}}</h4>
+					<h4>Giá Bán Ngay: {{formatNumber Giabanngay}}</h4>
+					<p style="height: 36px;">{{Mota}}</p>
+					<p>
+						<a id="dsyt" href="javascript:dsyt({{ID}});" class="btn btn-danger">
+							<span class="glyphicon glyphicon-heart-empty"></span>
+							Thích
+						</a>
+						<a id="daugia" href="javascript:muahang({{ID}});" class="btn btn-warning">
+							<span class="glyphicon glyphicon-shopping-cart"></span>
+							Mua
+						</a>
+					</p>
+				</div>
+			</div>
+		</div>
+		<div>
+			<form class="form-horizontal">
+				<div class="form-group">
+			      <label class="control-label col-sm-2" for="nx">Giá Hiện Tại:</label>
+			      <div class="col-sm-7">
+			        <input type="email" class="form-control" id="ght" name="ght" value="{{formatNumber Giahientai}}">
+			      </div>
+			    
+			      <label class="control-label col-sm-2" for="pwd">Bạn Muốn Trả:</label>
+			      <div class="col-sm-7">          
+			        <input type="email" class="form-control" id="tien" name="tien" placeholder="Tối thiểu là: {{formatNumber Giahientai}}+{{formatNumber Buocgia}}">
+			      </div>
+			      <br>
+			      <div class="col-sm-2">
+			        <button type="submit" class="btn btn-danger">Đấu Giá</button>
+			      </div>
+			    </div>
+			  </form>
 		</div>
 		{{/each}}
 	</script>
