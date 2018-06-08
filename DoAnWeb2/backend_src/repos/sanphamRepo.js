@@ -35,6 +35,19 @@ exports.loadKetThuc = function(page) {
     return db.load(sql);
 }
 
+exports.sapXepGia = function(page) {
+    var offset = (page - 1) * 6;
+    var sql = `select * from sanpham order by Giahientai DESC limit ${6 + 1} offset ${offset}`;
+    return db.load(sql);
+}
+
+exports.sapXepNgay = function(page) {
+    var offset = (page - 1) * 6;
+    var sql = `select * from sanpham order by Thoigianketthuc DESC limit ${6 + 1} offset ${offset}`;
+    return db.load(sql);
+}
+
+
 exports.add = function(poco) {
 	// poco = {
 	// 	CatID: 1,

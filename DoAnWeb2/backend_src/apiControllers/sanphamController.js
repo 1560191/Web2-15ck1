@@ -125,35 +125,76 @@ router.get('/timkiem/:search', (req, res) => {
     });
 });
 
+router.get('/sapxepgia', (req, res) => {
+    var page = 1;
+    if (req.query.page) {
+        page = +req.query.page;
+    }
+
+    sanphamRepo.sapXepGia(page).then(rows => {
+        var hasMore = rows.length > 6;
+        if (hasMore) {
+            rows.pop();
+        }
+
+        var data = {
+            sanpham: rows,
+            hasMore: hasMore
+        }
+        res.json(data);
+    }).catch(err => {
+        console.log(err);
+        res.statusCode = 500;
+        res.end('View error log on console.');
+    });
+});
+
+router.get('/sapxepngay', (req, res) => {
+    var page = 1;
+    if (req.query.page) {
+        page = +req.query.page;
+    }
+
+    sanphamRepo.sapXepNgay(page).then(rows => {
+        var hasMore = rows.length > 6;
+        if (hasMore) {
+            rows.pop();
+        }
+
+        var data = {
+            sanpham: rows,
+            hasMore: hasMore
+        }
+        res.json(data);
+    }).catch(err => {
+        console.log(err);
+        res.statusCode = 500;
+        res.end('View error log on console.');
+    });
+});
+
 // 
 // categories/5
 
 router.get('/:id', (req, res) => {
-	if (req.params.id) {
-		var id = req.params.id;
+	var idsp = req.params.id;
 
-		if (isNaN(id)) {
-			res.statusCode = 400;
-			res.end();
-			return;
-		}
+    sanphamRepo.load(idsp).then(rows => {
+        var hasMore = rows.length > 6;
+        if (hasMore) {
+            rows.pop();
+        }
 
-		sanphamRepo.load(id).then(rows => {
-			if (rows.length > 0) {
-				res.json(rows[0]);
-			} else {
-				res.statusCode = 204;
-				res.end();
-			}
-		}).catch(err => {
-			console.log(err);
-			res.statusCode = 500;
-			res.json('error');
-		});
-	} else {
-		res.statusCode = 400;
-		res.json('error');
-	}
+        var data = {
+            sanpham: rows,
+            hasMore: hasMore
+        }
+        res.json(data);
+    }).catch(err => {
+        console.log(err);
+        res.statusCode = 500;
+        res.end('View error log on console.');
+    });
 });
 
 router.post('/', (req, res) => {

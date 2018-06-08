@@ -86,9 +86,22 @@ CREATE TABLE IF NOT EXISTS `sanpham` (
 --
 
 INSERT INTO `sanpham` (`ID`, `Ten`, `Phanloai`, `Hinhanh`, `Giakhoidiem`, `Giahientai`, `Buocgia`, `Giabanngay`, `Soluotragia`, `Thoigianbatdau`, `Thoigianketthuc`, `Mota`, `Nguoiban`, `Nguoimua`) VALUES
-(1, 'San Pham 1', 'Ba Lo', 'img/1.jpg', 100000, 100000, 10000, 500000, NULL, '2018-06-02', '2018-06-09', 'Day la mo ta', 'user1@gmail.com', NULL),
-(2, 'San Pham 2', 'Ba Lo', 'img/2.jpg', 100000, 100000, 10000, 500000, NULL, '2018-06-02', '2018-06-09', 'Day la mo ta', 'user1@gmail.com', NULL),
-(3, 'San Pham 3', 'Ba Lo', 'img/3.jpg', 100000, 100000, 10000, 500000, NULL, '2018-06-02', '2018-06-09', 'Day la mo ta', 'user1@gmail.com', NULL);
+(1, 'San Pham 1', 'Ba Lo', 'img/1.jpg', 100000, 100000, 10000, 500000, NULL, NOW(), ADDTIME(NOW(),'168:0:0'), 'Day la mo ta', 'user1@gmail.com', NULL),
+(2, 'San Pham 2', 'Ba Lo', 'img/2.jpg', 100000, 100000, 10000, 500000, NULL, NOW(), ADDTIME(NOW(),'168:0:0'), 'Day la mo ta', 'user1@gmail.com', NULL),
+(3, 'San Pham 3', 'Ba Lo', 'img/3.jpg', 100000, 100000, 10000, 500000, NULL, NOW(), ADDTIME(NOW(),'168:0:0'), 'Day la mo ta', 'user1@gmail.com', NULL),
+(4, 'San Pham 4', 'Ba Lo', 'img/4.jpg', 100000, 100000, 10000, 500000, NULL, NOW(), ADDTIME(NOW(),'168:0:0'), 'Day la mo ta', 'user1@gmail.com', NULL),
+(5, 'San Pham 5', 'Ba Lo', 'img/5.jpg', 100000, 100000, 10000, 500000, NULL, NOW(), ADDTIME(NOW(),'168:0:0'), 'Day la mo ta', 'user1@gmail.com', NULL),
+(6, 'San Pham 6', 'Ba Lo', 'img/6.jpg', 100000, 100000, 10000, 500000, NULL, NOW(), ADDTIME(NOW(),'168:0:0'), 'Day la mo ta', 'user1@gmail.com', NULL),
+(7, 'San Pham 7', 'Ba Lo', 'img/7.jpg', 100000, 100000, 10000, 500000, NULL, NOW(), ADDTIME(NOW(),'168:0:0'), 'Day la mo ta', 'user1@gmail.com', NULL),
+(8, 'San Pham 8', 'Ba Lo', 'img/8.jpg', 100000, 100000, 10000, 500000, NULL, NOW(), ADDTIME(NOW(),'168:0:0'), 'Day la mo ta', 'user1@gmail.com', NULL),
+(9, 'San Pham 9', 'Ba Lo', 'img/9.jpg', 100000, 100000, 10000, 500000, NULL, NOW(), ADDTIME(NOW(),'168:0:0'), 'Day la mo ta', 'user1@gmail.com', NULL),
+(10, 'San Pham 10', 'Ba Lo', 'img/10.jpg', 100000, 100000, 10000, 500000, NULL, NOW(), ADDTIME(NOW(),'168:0:0'), 'Day la mo ta', 'user1@gmail.com', NULL),
+(11, 'San Pham 11', 'Ba Lo', 'img/11.jpg', 100000, 100000, 10000, 500000, NULL, NOW(), ADDTIME(NOW(),'168:0:0'), 'Day la mo ta', 'user1@gmail.com', NULL),
+(12, 'San Pham 12', 'Ba Lo', 'img/12.jpg', 100000, 100000, 10000, 500000, NULL, NOW(), ADDTIME(NOW(),'168:0:0'), 'Day la mo ta', 'user1@gmail.com', NULL),
+(13, 'San Pham 13', 'Ba Lo', 'img/13.jpg', 100000, 100000, 10000, 500000, NULL, NOW(), ADDTIME(NOW(),'168:0:0'), 'Day la mo ta', 'user1@gmail.com', NULL),
+(14, 'San Pham 14', 'Ba Lo', 'img/14.jpg', 100000, 100000, 10000, 500000, NULL, NOW(), ADDTIME(NOW(),'168:0:0'), 'Day la mo ta', 'user1@gmail.com', NULL),
+(15, 'San Pham 15', 'Ba Lo', 'img/15.jpg', 100000, 100000, 10000, 500000, NULL, NOW(), ADDTIME(NOW(),'168:0:0'), 'Day la mo ta', 'user1@gmail.com', NULL),
+(16, 'San Pham 16', 'Ba Lo', 'img/16.jpg', 900000, 1000000, 100000, 5000000, NULL, NOW(), ADDTIME(NOW(),'168:0:0'), 'Day la mo ta', 'user1@gmail.com', NULL);
 
 -- --------------------------------------------------------
 

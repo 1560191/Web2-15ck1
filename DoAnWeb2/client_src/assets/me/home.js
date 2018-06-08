@@ -1,13 +1,16 @@
 $('#home').on('click', function() {
-    $('#btnMore2').hide();
+    $('#btnMore').hide();
+    $('#btnMore3').hide();
+    $('#btnMore4').hide();
+    $('#btnMore5').hide();
     var CUR_PAGE = 1;
-    $('#btnMore').show(); 
+    $('#btnMore2').show(); 
     $('#product-list').empty();
     $(function() {
         HandlebarsIntl.registerWith(Handlebars);
         loadHome();
     });
-    $('#btnMore').on('click', function() {
+    $('#btnMore2').on('click', function() {
         loadHome();
     });
 
@@ -30,7 +33,7 @@ $('#home').on('click', function() {
 
             CUR_PAGE++;
             if (data.hasMore === false) {
-                $('#btnMore').hide();
+                $('#btnMore2').hide();
             }
 
             $('.loader').hide();
@@ -40,7 +43,11 @@ $('#home').on('click', function() {
 
 
 $('#nhieunhat').on('click', function() {
+    $('#btnMore').hide();
     $('#btnMore2').hide();
+    $('#btnMore3').hide();
+    $('#btnMore4').hide();
+    $('#btnMore5').hide();
     $('#product-list').empty();
     $('.loader').show();
     $.ajax({
@@ -57,16 +64,17 @@ $('#nhieunhat').on('click', function() {
             $(this).removeAttr('style');
         });
         $('#product-list').show();
-        $('#btnMore').hide();
-        
-
         $('.loader').hide();
     });
 });
 
 
 $('#caonhat').on('click', function() {
+    $('#btnMore').hide();
     $('#btnMore2').hide();
+    $('#btnMore3').hide();
+    $('#btnMore4').hide();
+    $('#btnMore5').hide();
     $('#product-list').empty();
     $('.loader').show();
     $.ajax({
@@ -83,8 +91,6 @@ $('#caonhat').on('click', function() {
             $(this).removeAttr('style');
         });
         $('#product-list').show();
-        $('#btnMore').hide();
-        
 
         $('.loader').hide();
     });
@@ -92,7 +98,11 @@ $('#caonhat').on('click', function() {
 
 
 $('#ketthuc').on('click', function() {
+    $('#btnMore').hide();
     $('#btnMore2').hide();
+    $('#btnMore3').hide();
+    $('#btnMore4').hide();
+    $('#btnMore5').hide();
     $('#product-list').empty();
     $('.loader').show();
     $.ajax({
@@ -109,8 +119,6 @@ $('#ketthuc').on('click', function() {
             $(this).removeAttr('style');
         });
         $('#product-list').show();
-        
-        $('#btnMore').hide();
 
         $('.loader').hide();
     });
@@ -119,15 +127,18 @@ $('#ketthuc').on('click', function() {
 
 $('#btnSearch').on('click', function() {
     $('#btnMore').hide();
-    $('#btnMore2').show();
+    $('#btnMore2').hide();
+    $('#btnMore4').hide();
+    $('#btnMore5').hide();
     var CUR_PAGE = 1;
+    $('#btnMore3').show();
     $('#product-list').empty();
     var timkiem = $('#search').val();
     $(function() {
         HandlebarsIntl.registerWith(Handlebars);
         loadSearch();
     });
-    $('#btnMore2').on('click', function() {
+    $('#btnMore3').on('click', function() {
         loadSearch();
     });
 
@@ -135,7 +146,7 @@ $('#btnSearch').on('click', function() {
         $('.loader').show();
 
         $.ajax({
-            url: 'http://localhost:3000/sanpham/timkiem/' + timkiem,
+            url: 'http://localhost:3000/sanpham/timkiem/' +timkiem+'?page=' +CUR_PAGE,
             dataType: 'json',
             timeout: 10000
         }).done(function(data) {
@@ -150,7 +161,7 @@ $('#btnSearch').on('click', function() {
 
             CUR_PAGE++;
             if (data.hasMore === false) {
-                $('#btnMore2').hide();
+                $('#btnMore3').hide();
             }
 
             $('.loader').hide();

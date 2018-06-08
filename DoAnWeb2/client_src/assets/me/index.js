@@ -1,5 +1,8 @@
 var CUR_PAGE = 1;
 $('#btnMore2').hide();
+$('#btnMore3').hide();
+$('#btnMore4').hide();
+$('#btnMore5').hide();
 $(function() {
     HandlebarsIntl.registerWith(Handlebars);
     loadProducts();
