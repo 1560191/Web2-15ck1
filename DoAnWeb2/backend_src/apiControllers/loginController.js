@@ -26,45 +26,22 @@ var router = express.Router();
 //     }
 //   });
 // });
-router.post('/', (req, res) => {
-		var email = req.body.email;
-		var password = req.body.password;
-			userRepo.loaduserpass(email,password).then(rows => {
-				 if (rows.length > 0) {
-				 console.log(rows[0]);
-				res.json(rows);
-			}
-			else
-			{
-
-				console.log("nản");
-			}
-			// if (rows.length > 0) {
-			// 	var user = {
-			// 		Mauser: rows[0].Mauser,
-			// 		UserName: rows[0].UserName,
-			// 		email: rows[0].email,
-			// 		diachi: rows[0].diachi,
-			// 		Pass: rows[0].Pass,
-			// 		sdt: rows[0].sdt
-			// 	};
-			// 	// var token = jwt.sign(user,'jsonwebtoken');
-   //  //     res.json({
-   //  //       token: token,
-   //  //       users: user
-			// 	// });
-			// 	res.json(rows[0]);
-			// } else {
-			// 	res.json("null")
-			// }
-
-
-		}).catch(err => {
-			console.log(err);
-			res.statusCode = 500;
-			res.json("err");
-		});
-
+router.get('/:email/:pwd', (req, res) => {
+	var email = req.params.email;
+	var pwd = req.params.pwd;
+	userRepo.findUser(email,pwd)
+		.then(rows => {
+		if (rows.length > 0) {
+			res.send('1');
+		} else if (rows.length == 0) {
+			
+			res.send('0');
+		}
+	}).catch(err => {
+		console.log(err);
+		res.statusCode = 500;
+		res.json('error');
+	});
 });
 
 
@@ -123,7 +100,7 @@ router.post('/:token', function(req, res, next) {
 //   }
 // });
 
-router.get('/:email', (req, res) => {
+/*router.get('/:email', (req, res) => {
 	if (req.params.email) {
 		var email = req.params.email;
 
@@ -144,5 +121,5 @@ router.get('/:email', (req, res) => {
 		res.statusCode = 400;
 		res.json('error');
 	}
-});
+});*/
 module.exports = router;

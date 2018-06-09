@@ -178,7 +178,6 @@ router.get('/sapxepngay', (req, res) => {
 
 router.get('/:id', (req, res) => {
 	var idsp = req.params.id;
-
     sanphamRepo.ttNguoiBanTheoIDSP(idsp).then(rows => {
         var hasMore = rows.length > 6;
         if (hasMore) {

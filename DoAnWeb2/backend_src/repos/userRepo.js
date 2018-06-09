@@ -10,6 +10,11 @@ exports.load = function(id) {
 	return db.load(sql);
 }
 
+exports.findUser = function(email,pwd) {
+	var sql = `select * from taikhoan where Email = '${email}' and Password = '${pwd}'`;
+	return db.load(sql);
+}
+
 exports.add = function (poco) {
 	var md5_password = md5(poco.Password);
 
