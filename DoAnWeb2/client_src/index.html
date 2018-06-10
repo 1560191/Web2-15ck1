@@ -80,14 +80,14 @@
             <div class="w3-col l3 m3">
 
             </div>
-            <div class="w3-col l9 m9 w3-right w3-border w3-round">
+            <div class="w3-col l9 m9 w3-right w3-border w3-round" style="margin-left:20px">
                 <!-- Page content -->
 
-                <div class="w3-col w3-small">
+                <div class="w3-col w3-small w3-light-grey w3-border">
                     <h5 class="w3-left" style="margin:5px"><b>Sản phẩm</b></h5>
                 </div>
                 <!-- San pham -->
-                <div class="w3-row w3-margin"  >
+                <div class="w3-row " style="margin-left:20px"  >
                     <div class="w3-container w3-white ">
                         <div id="product-list" class="w3-row-padding">
                             <!-- List San pham -->
@@ -125,21 +125,21 @@
 
     <!-- Footer -->
 
-<footer class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge">
-  <i class="fa fa-facebook-official w3-hover-opacity" href="https://www.facebook.com/Ferocious-142892683087547" target="_blank">
-  </i>
-  <i class="fa fa-instagram w3-hover-opacity">
-  </i>
-  <i class="fa fa-snapchat w3-hover-opacity">  
-  </i>
-  <i class="fa fa-pinterest-p w3-hover-opacity">
-  </i>
-  <i class="fa fa-twitter w3-hover-opacity">
-  </i>
-  <i class="fa fa-linkedin w3-hover-opacity">
-  </i>
-  <p class="w3-medium">Powered by <a href="https://www.facebook.com/Ferocious-142892683087547" target="_blank">Ferocious</a></p>
-</footer>
+    <footer class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge">
+      <i class="fa fa-facebook-official w3-hover-opacity" href="https://www.facebook.com/Ferocious-142892683087547" target="_blank">
+      </i>
+      <i class="fa fa-instagram w3-hover-opacity">
+      </i>
+      <i class="fa fa-snapchat w3-hover-opacity">  
+      </i>
+      <i class="fa fa-pinterest-p w3-hover-opacity">
+      </i>
+      <i class="fa fa-twitter w3-hover-opacity">
+      </i>
+      <i class="fa fa-linkedin w3-hover-opacity">
+      </i>
+      <p class="w3-medium">Powered by <a href="https://www.facebook.com/Ferocious-142892683087547" target="_blank">Ferocious</a></p>
+  </footer>
 </body>
 </html>
 
@@ -189,24 +189,21 @@
                 <h6>Giá Bán Ngay: {{formatNumber Giabanngay}}</h6>
             </div>
             <p style="height: 36px;">{{Mota}}</p>
-            <div class="w3-row w3-margin w3-margin-bottom">
-                <div class="w3-blue w3-col m4 l4 w3-left">
-                    <a id="thongtin" href="javascript:thongtin({{ID}});" class="w3-tiny w3-button">
-                        <span class="glyphicon glyphicon-eye-open">  
-                        </span>
+            <div class="w3-row w3-margin-bottom ">
+                <div class="w3-blue w3-col m4 l4 w3-left w3-hover-yellow">
+                    <a id="thongtin" href="javascript:thongtin({{ID}});" class="w3-small w3-button w3-hover-yellow">
+                        <span class="glyphicon glyphicon-eye-open">  </span>
                         Details
                     </a>
                 </div>
-                <div class="w3-red w3-col m4 l4">
-                    <a id="mua" href="javascript:muahang({{ID}});" class="w3-tiny w3-button">
-                        <span class="glyphicon glyphicon-shopping-cart">
-
-                        </span>
+                <div class="w3-red w3-col m4 l4 w3-hover-purple">
+                    <a id="mua" href="javascript:muahang({{ID}});" class="w3-small w3-button w3-hover-purple">
+                        <span class="glyphicon glyphicon-shopping-cart"></span>
                         Mua
                     </a>
                 </div>
-                <div class="w3-yellow w3-col m4 l4 w3-right">
-                    <a id="daugia" href="javascript:daugia({{ID}});" class="w3-tiny w3-button">
+                <div class="w3-yellow w3-col m4 l4 w3-right w3-hover-blue">
+                    <a id="daugia" href="javascript:daugia({{ID}});" class="w3-small w3-button w3-hover-blue">
                         <span class="glyphicon glyphicon-usd"></span>
                         Đấu Giá
                     </a>
@@ -220,28 +217,42 @@
 
 <script id="thongtinsp" type="text/x-handlebars-template">
     {{#each this}}
-    <div class="col-sm-4 col-md-4" style="display: none">
-        <div class="thumbnail">
-            <span class="label label-info">Số Lượt Đấu Giá: {{soluotragia}}</span>
-            <img src="imgs/{{ID}}/main_thumbs.jpg" alt="{{Ten}}" title="{{Ten}}">
-            <div class="caption">
-                <h4>Giá Hiện Tại: {{formatNumber Giahientai}}</h4>
-                <h4>Giá Bán Ngay: {{formatNumber Giabanngay}}</h4>
-                <p style="height: 36px;">{{Mota}}</p>
-                <p>
-                    <a id="dsyt" href="javascript:dsyt({{ID}});" class="btn btn-success">
-                        <span class="glyphicon glyphicon-heart-empty"></span>
+    <div id="thesp" class="w3-border w3-margin-right w3-margin-top myCard" style="display: none" >
+        <div class="w3-container">
+            <span class="label label-info">Số Lượt Đấu Giá: {{soluotragia}}
+            </span><br>
+            <span class="label label-info">Thời Gian Kết Thúc: {{Thoigianketthuc}}
+            </span>
+        </div>
+        <img src="imgs/{{ID}}/main_thumbs.jpg" alt="{{Ten}}" title="{{Ten}}" class="w3-text w3-margin-top" width="90px" height="80px">
+
+        <div class="w3-container" style="width:auto; height:150">
+            <h6 style="height:90">{{Ten}}</h6>
+            <div class="w3-button w3-white">
+                <h6>Giá Hiện Tại: {{formatNumber Giahientai}}</h6>
+
+                <h6>Giá Bán Ngay: {{formatNumber Giabanngay}}</h6>
+            </div>
+            <p style="height: 36px;">{{Mota}}</p>
+            <div class="w3-row w3-margin-bottom ">
+                <div class="w3-blue w3-col m4 l4 w3-left w3-hover-yellow">
+                    <a id="dsyt" href="javascript:dsyt({{ID}});" class="w3-small w3-button w3-hover-yellow">
+                        <span class="glyphicon glyphicon-eye-open">  </span>
                         Thích
                     </a>
-                    <a id="mua" href="javascript:muahang({{ID}});" class="btn btn-danger">
+                </div>
+                <div class="w3-red w3-col m4 l4 w3-hover-purple">
+                    <a id="mua" href="javascript:muahang({{ID}});" class="w3-small w3-button w3-hover-purple">
                         <span class="glyphicon glyphicon-shopping-cart"></span>
                         Mua
                     </a>
-                    <a id="daugia" href="javascript:daugia({{ID}});" class="btn btn-warning">
+                </div>
+                <div class="w3-yellow w3-col m4 l4 w3-right w3-hover-blue">
+                    <a id="daugia" href="javascript:daugia({{ID}});" class="w3-small w3-button w3-hover-blue">
                         <span class="glyphicon glyphicon-usd"></span>
                         Đấu Giá
                     </a>
-                </p>
+                </div>
             </div>
         </div>
     </div>
@@ -259,24 +270,42 @@
 
 <script id="muasp" type="text/x-handlebars-template">
     {{#each this}}
-    <div class="col-sm-4 col-md-4" style="display: none">
-        <div class="thumbnail">
-            <span class="label label-info">Số Lượt Đấu Giá: {{soluotragia}}</span>
-            <img src="imgs/{{ID}}/main_thumbs.jpg" alt="{{Ten}}" title="{{Ten}}">
-            <div class="caption">
-                <h4>Giá Hiện Tại: {{formatNumber Giahientai}}</h4>
-                <h4>Giá Bán Ngay: {{formatNumber Giabanngay}}</h4>
-                <p style="height: 36px;">{{Mota}}</p>
-                <p>
-                    <a id="dsyt" href="javascript:dsyt({{ID}});" class="btn btn-danger">
-                        <span class="glyphicon glyphicon-heart-empty"></span>
+    <div id="thesp" class="w3-border w3-margin-right w3-margin-top myCard" style="display: none" >
+        <div class="w3-container">
+            <span class="label label-info">Số Lượt Đấu Giá: {{soluotragia}}
+            </span><br>
+            <span class="label label-info">Thời Gian Kết Thúc: {{Thoigianketthuc}}
+            </span>
+        </div>
+        <img src="imgs/{{ID}}/main_thumbs.jpg" alt="{{Ten}}" title="{{Ten}}" class="w3-text w3-margin-top" width="90px" height="80px">
+
+        <div class="w3-container" style="width:auto; height:150">
+            <h6 style="height:90">{{Ten}}</h6>
+            <div class="w3-button w3-white">
+                <h6>Giá Hiện Tại: {{formatNumber Giahientai}}</h6>
+
+                <h6>Giá Bán Ngay: {{formatNumber Giabanngay}}</h6>
+            </div>
+            <p style="height: 36px;">{{Mota}}</p>
+            <div class="w3-row w3-margin-bottom ">
+                <div class="w3-blue w3-col m4 l4 w3-left w3-hover-yellow">
+                    <a id="dsyt" href="javascript:dsyt({{ID}});" class="w3-small w3-button w3-hover-yellow">
+                        <span class="glyphicon glyphicon-eye-open">  </span>
                         Thích
                     </a>
-                    <a id="daugia" href="javascript:daugia({{ID}});" class="btn btn-warning">
+                </div>
+                <div class="w3-red w3-col m4 l4 w3-hover-purple" disable>
+                    <a id="mua" href="javascript:muahang({{ID}});" class="w3-small w3-button w3-hover-purple">
+                        <span class="glyphicon glyphicon-shopping-cart"></span>
+                        Mua
+                    </a>
+                </div>
+                <div class="w3-yellow w3-col m4 l4 w3-right w3-hover-blue">
+                    <a id="daugia" href="javascript:daugia({{ID}});" class="w3-small w3-button w3-hover-blue">
                         <span class="glyphicon glyphicon-usd"></span>
                         Đấu Giá
                     </a>
-                </p>
+                </div>
             </div>
         </div>
     </div>
@@ -313,24 +342,42 @@
 
 <script id="daugia" type="text/x-handlebars-template">
     {{#each this}}
-    <div class="col-sm-4 col-md-4" style="display: none">
-        <div class="thumbnail">
-            <span class="label label-info">Số Lượt Đấu Giá: {{soluotragia}}</span>
-            <img src="imgs/{{ID}}/main_thumbs.jpg" alt="{{Ten}}" title="{{Ten}}">
-            <div class="caption">
-                <h4>Giá Hiện Tại: {{formatNumber Giahientai}}</h4>
-                <h4>Giá Bán Ngay: {{formatNumber Giabanngay}}</h4>
-                <p style="height: 36px;">{{Mota}}</p>
-                <p>
-                    <a id="dsyt" href="javascript:dsyt({{ID}});" class="btn btn-danger">
-                        <span class="glyphicon glyphicon-heart-empty"></span>
+    <div id="thesp" class="w3-border w3-margin-right w3-margin-top myCard" style="display: none" >
+        <div class="w3-container">
+            <span class="label label-info">Số Lượt Đấu Giá: {{soluotragia}}
+            </span><br>
+            <span class="label label-info">Thời Gian Kết Thúc: {{Thoigianketthuc}}
+            </span>
+        </div>
+        <img src="imgs/{{ID}}/main_thumbs.jpg" alt="{{Ten}}" title="{{Ten}}" class="w3-text w3-margin-top" width="90px" height="80px">
+
+        <div class="w3-container" style="width:auto; height:150">
+            <h6 style="height:90">{{Ten}}</h6>
+            <div class="w3-button w3-white">
+                <h6>Giá Hiện Tại: {{formatNumber Giahientai}}</h6>
+
+                <h6>Giá Bán Ngay: {{formatNumber Giabanngay}}</h6>
+            </div>
+            <p style="height: 36px;">{{Mota}}</p>
+            <div class="w3-row w3-margin-bottom ">
+                <div class="w3-blue w3-col m4 l4 w3-left w3-hover-yellow">
+                    <a id="dsyt" href="javascript:dsyt({{ID}});" class="w3-small w3-button w3-hover-yellow">
+                        <span class="glyphicon glyphicon-eye-open">  </span>
                         Thích
                     </a>
-                    <a id="daugia" href="javascript:muahang({{ID}});" class="btn btn-warning">
+                </div>
+                <div class="w3-red w3-col m4 l4 w3-hover-purple">
+                    <a id="mua" href="javascript:muahang({{ID}});" class="w3-small w3-button w3-hover-purple">
                         <span class="glyphicon glyphicon-shopping-cart"></span>
                         Mua
                     </a>
-                </p>
+                </div>
+                <div class="w3-yellow w3-col m4 l4 w3-right w3-hover-blue" disable>
+                    <a id="daugia" href="javascript:daugia({{ID}});" class="w3-small w3-button w3-hover-blue">
+                        <span class="glyphicon glyphicon-usd"></span>
+                        Đấu Giá
+                    </a>
+                </div>
             </div>
         </div>
     </div>
