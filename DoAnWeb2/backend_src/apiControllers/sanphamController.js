@@ -100,6 +100,21 @@ router.get('/top5ketthuc', (req, res) => {
     });
 });
 
+router.get('/cate', (req, res) => {
+
+    sanphamRepo.loadCate().then(rows => {
+        var data = {
+            sanpham: rows,
+            
+        }
+        res.json(data);
+    }).catch(err => {
+        console.log(err);
+        res.statusCode = 500;
+        res.end('View error log on console.');
+    });
+});
+
 router.get('/timkiem/:search', (req, res) => {
     var page = 1;
     var search = req.params.search;
