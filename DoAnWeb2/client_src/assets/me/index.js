@@ -1,3 +1,29 @@
+$(function() {
+    var token = localStorage.getItem('id_token');
+    $.ajax({
+        url: 'http://localhost:3000/login/'+token,
+        dataType: 'text',
+        timeout: 10000,
+    }).done(function(res) {
+        if(res == "1")
+        {   
+
+             $('#dangky').hide();
+             $('#dangnhap').hide();
+             $('#thoat').show();
+            
+        }
+    }).fail(function(xhr, textStatus, error) {
+            console.log(error);
+            console.log(xhr);
+    });
+});
+$('#thoat').click(function () {
+     //alert('clicked');
+     localStorage.clear();
+     window.location.href = "http://localhost:8080"; 
+});
+$('#thoat').hide();
 $('#backhome').hide();
 var CUR_PAGE = 1;
 $('#btnMore2').hide();

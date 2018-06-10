@@ -2,30 +2,24 @@ var express = require('express');
 var userRepo = require('../repos/userRepo');
 var jwt = require('jsonwebtoken');
 var router = express.Router();
-// router.post('/',function(req, res) {
-// 	var email = req.body.email;
-// 	var password = req.body.password;
-//   userRepo.loaduserpass({email,password}, function(err, user) {
-//     if (err) throw err;
-//     if (!user) {
-//       res.json({ success: false, message: 'Authentication failed. User not found.' });
-//     } else if (user) {
-//       if (user.password != req.body.password) {
-//         res.json({ success: false, message: 'Authentication failed. Wrong password.' });
-//       } else {
-//         var token = jwt.sign(user, 'jsonwebtoken', {
-//           expiresInMinutes: 1440 
-//         });
-//         res.json(user);
-//         // res.json({
-//         //   success: true,
-//         //   message: 'Enjoy your token!',
-//         //   token: token
-//         // });
-//       }   
-//     }
-//   });
-// });
+router.get('/:token',function(req, res, next) {
+  var token = req.params.token || req.query.token || req.headers['x-access-token'];
+  if (token) {
+
+    jwt.verify(token, 'jsonwebtoken', function(err, decoded) {      
+      if (err) {
+        res.send('0');
+      } else {
+        res.send('1');
+      }
+    });
+  } else {
+    return res.status(403).send({ 
+      success: false, 
+      message: 'No token provided.' 
+    });
+  }
+});
 router.get('/:email/:pwd', (req, res) => {
 	var email = req.params.email;
 	var pwd = req.params.pwd;

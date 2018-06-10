@@ -98,7 +98,7 @@ $(function() {
     $('#txtEmail').select();
     $('#txtName').select();
     $('#txtaddress').select();
-    $('#g-recaptcha-response').select();
+   // $('#g-recaptcha-response').select();
 });
 $('#btnRegister').on('click', function () {
      //alert('clicked');
@@ -107,7 +107,7 @@ $('#btnRegister').on('click', function () {
      var _fullname = $('#txtName').val();
      var _Phone = $('#txtPhone').val();
      var _addresss = $('#txtaddress').val();
-     var capcha = $('#g-recaptcha-response').val();
+     //var capcha = $('#g-recaptcha-response').val();
      var body = {
         Diachi: _addresss,
         SDT: _Phone,
@@ -116,25 +116,20 @@ $('#btnRegister').on('click', function () {
         Email: _mail,
        Permission: "1"
     };
-    if(capcha === undefined || capcha === '' || capcha === null)
-    {
-
-    alert('Bạn chưa bấm captcha')
-    return;
-    }
     if(_Phone.length < 1 || _PASSS.length < 1 || _mail.length < 1 || _fullname.length < 1 || _addresss.length < 1)
-    {
-        return;
+    {   
+        alert('Không được bỏ trống')
+        return false;
     }
-    $.ajax({
-        url: 'http://localhost:3000/capcha/'+capcha,
-        dataType: 'json',
-        timeout: 10000,
+    // $.ajax({
+    //     url: 'http://localhost:3000/capcha/'+capcha,
+    //     dataType: 'json',
+    //     timeout: 10000,
 
-    }).done(function(data) {
-        if(data == "1")
-        {       
-             alert('ok')
+    // }).done(function(data) {
+    //     if(data == "1")
+    //     {       
+            
            
     $.ajax({
         url: 'http://localhost:3000/user/'+ _mail,
@@ -144,6 +139,7 @@ $('#btnRegister').on('click', function () {
          if(data != null)
          {
             alert('email da ton tai')
+            return false;
          }
          else
          {
@@ -160,28 +156,28 @@ $('#btnRegister').on('click', function () {
         url: 'http://localhost:3000/mail/'+ _mail,
         dataType: 'json', 
         timeout: 10000,
+
+    }).done(function(data) {
+
+        alert('Đăng Ký Thành Công ! bạn vào mail để xác thực tài khoảng')
     });
+
     }).fail(function(xhr, textStatus, error) {
-        console.log(textStatus);
-        console.log(error);
-        console.log(xhr);
+        return false;
     });
          }
     }).fail(function(xhr, textStatus, error) {
-            console.log(error);
-            console.log(xhr);
+            return false;
         });
-}
-else if(data == "0")
-{
-    alert('Bạn chưa bấm captcha')
-   chuyentrang()
-}
-    }).fail(function(xhr, textStatus, error) {
-        console.log(textStatus);
-        console.log(error);
-        console.log(xhr);
-    });
+// }
+// else if(data == "0")
+// {
+//     alert('Bạn chưa bấm captcha')
+
+// }
+//     }).fail(function(xhr, textStatus, error) {
+//         return false;
+//     });
 });
 
 // $('#btnRegister').on('click', function () {
