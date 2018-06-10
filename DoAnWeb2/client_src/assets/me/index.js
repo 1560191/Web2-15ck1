@@ -1,3 +1,4 @@
+$('#backhome').hide();
 var CUR_PAGE = 1;
 $('#btnMore2').hide();
 $('#btnMore3').hide();
