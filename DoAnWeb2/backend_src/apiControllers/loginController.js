@@ -2,15 +2,25 @@ var express = require('express');
 var userRepo = require('../repos/userRepo');
 var jwt = require('jsonwebtoken');
 var router = express.Router();
+
 router.get('/:token',function(req, res, next) {
   var token = req.params.token || req.query.token || req.headers['x-access-token'];
   if (token) {
 
     jwt.verify(token, 'jsonwebtoken', function(err, decoded) {      
-      if (err) {
+      if (err) {    	
         res.send('0');
       } else {
+      	var user = decoded
+      	if(user.Active == '1')
+      	{
         res.send('1');
+    	}
+    	else
+    	{
+    	res.send('0');
+    	} 
+    	
       }
     });
   } else {
@@ -29,7 +39,8 @@ router.get('/:email/:pwd', (req, res) => {
 			var user = {
 			Email:	rows[0].Email,
 			Password: rows[0].Password,
-			Hoten: rows[0].Hoten
+			Hoten: rows[0].Hoten,
+			Active: rows[0].Active
 			};			
 			var token = jwt.sign(user, 'jsonwebtoken');
         //     res.send({

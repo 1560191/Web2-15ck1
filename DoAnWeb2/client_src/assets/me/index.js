@@ -13,6 +13,7 @@ $(function() {
              $('#thoat').show();
             
         }
+    
     }).fail(function(xhr, textStatus, error) {
             console.log(error);
             console.log(xhr);
