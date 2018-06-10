@@ -32,6 +32,7 @@ $('#btnMore3').hide();
 $('#btnMore4').hide();
 $('#btnMore5').hide();
 $("#includeContent").load("index.html");
+
 $(function() {
     HandlebarsIntl.registerWith(Handlebars);
     loadProducts();
@@ -81,3 +82,12 @@ var loadCate = function() {
         $('#danhmuc-list').append(html);
     });
 };
+
+var modal = document.getElementById('login-pop');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
