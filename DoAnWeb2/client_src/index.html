@@ -5,32 +5,27 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <style>
     body {font-family: "Lato", sans-serif;}
     .mySlides {display: none}
 </style>
 <body>
-    <div class="w3-center">
+    <div class="w3-center" style="width:1200px;margin:0 auto;">
         <!-- Navbar -->
-        <div id="header" class="w3-col">
+        <div class="w3-col">
             <div class="w3-row w3-bar w3-black" style="width:100%">
                 <a class="w3-bar-item w3-black w3-button w3-right" href="#" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
                 <a id="home" href="#" class="w3-black w3-button w3-small w3-left fa">Trang Chủ</a>
-                <a id="backhome" href="#" class="w3-black w3-button w3-small w3-left fa">Quay Về Trang Chủ</a>
 
-                <a id="dangky" href="#" class="w3-black w3-button w3-right fa fa-key w3-small"> Đăng ký</a>
-                <a id="dangnhap" href="#" class="w3-black w3-button w3-right fa fa-key w3-small"> Đăng nhập</a>
+
+                <a href="register.html" class="w3-black w3-button w3-right fa fa-key w3-small"> Đăng kí</a>
+                <a href="login.html" class="w3-black w3-button w3-right fa fa-key w3-small"> Đăng nhập</a>
                 <a href="#" class="w3-button w3-black w3-right fa fa-user w3-small"> Khách</a>
 
             </div>
         </div>
-        <div id="trangchu">
+
         <!-- The Main Section -->
         <div class="w3-container w3-white w3-content w3-center w3-padding-12" style="max-width:2000px">
             <h2 class="w3-wide" style="margin-top:40px">Ferocious-mark
@@ -46,11 +41,13 @@
         <!-- Navbar 2 -->
         <div class="w3-col m9 l9 w3-right">
             <div class="w3-row" style="margin:4px">
-                
+                <div class="w3-col m1 l1 w3-text-white">
+                    <a>Ferocius</a>
+                </div>
                 <!-- Search -->
                 <form id="formsearch" role="search" method = "GET">
                     <div class="w3-col m7 l7 w3-left w3-border">
-                        <input id="search" class="w3-input w3-right w3-border w3-small" type="text" placeholder="Thử tìm với Tên, Loại sản phẩm.">
+                        <input id="search" class="w3-input w3-right w3-border w3-small" type="text" placeholder="Thử tìm với Tên, Giá, Loại hay Nhà sản xuất">
                     </div>
                     <button id="btnSearch" type="submit" class="w3-padding w3-button w3-indigo w3-hover-red w3-left"><i class="fa fa-search"></i>
                     </button>
@@ -80,11 +77,22 @@
 
         <!-- Navbar 2 -->
         <div class="w3-row w3-margin-top" >
-            <div class="w3-col m1 l12" style="margin-right:20px">
-                <!-- Page content -->
+            <!-- Page content -->
 
+            <div class="w3-col w3-left w3-boder w3-round" style="margin-right:20px;width:21%">
+                <div class="w3-col w3-tiny w3-light-grey w3-border">
+                    <h6 class="w3-left" style="margin:5px"><b>Danh mục</b></h6>
+                </div>
+                <div id="danhmuc_list" class="w3-col w3-tiny w3-light-grey w3-border">
+                    
+                </div>
+
+            </div>
+
+
+            <div class="w3-col w3-right w3-border w3-round" style="margin-left:20px;width:75%">
                 <div class="w3-col w3-small w3-light-grey w3-border">
-                    <h5 class="w3-center" style="margin:5px"><b>Sản phẩm</b></h5>
+                    <h5 class="w3-left" style="margin:5px"><b>Sản phẩm</b></h5>
                 </div>
                 <!-- San pham -->
                 <div class="w3-row " style="margin-left:20px"  >
@@ -119,14 +127,13 @@
                 </div>
             </div>
         </div>
-        </div>
     </div>
 
     <!-- End Page Content -->
 
     <!-- Footer -->
 
-    <footer id="footer" class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge">
+    <footer class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge">
       <i class="fa fa-facebook-official w3-hover-opacity" href="https://www.facebook.com/Ferocious-142892683087547" target="_blank">
       </i>
       <i class="fa fa-instagram w3-hover-opacity">
@@ -149,13 +156,14 @@
 <script src="assets/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 <script src="assets/handlebars.min-v4.0.11.js"></script>
 <script src="assets/handlebars-intl-1.1.2/handlebars-intl.min.js"></script>
+<script src="assets/template/index_temp.html"></script>
 <script src="assets/me/index.js"></script>
 <script src="assets/me/home.js"></script>
 <script src="assets/me/sapxep.js"></script>
 <script src="assets/me/thongtin.js"></script>
 <script src="assets/me/muahang.js"></script>
 <script src="assets/me/daugia.js"></script>
-<script src="assets/me/chuyenPage.js"></script>
+
 
 
 
@@ -165,47 +173,19 @@
 <style>
     .myCard{
         float: left;
-        width:23.5%;
+        width:30.5%;
     }
 
 </style>
 
 
+
+
+
+
 <script id="product-template" type="text/x-handlebars-template">
     {{#each this}}
-        <div class="col-sm-4 col-md-4" style="display: none">
-            <div class="thumbnail">
-                <span class="label label-info">Số Lượt Đấu Giá: {{soluotragia}}</span>
-                <span class="label label-info">Thời Gian Kết Thúc: {{Thoigianketthuc}}</span>
-                <img src="imgs/{{ID}}/main_thumbs.jpg" alt="{{Ten}}" title="{{Ten}}">
-                <div class="caption">
-                    <h4>{{Ten}}</h4>
-                    <h4>Giá Hiện Tại: {{formatNumber Giahientai}}</h4>
-                    <h4>Giá Bán Ngay: {{formatNumber Giabanngay}}</h4>
-                    <p style="height: 36px;">{{Mota}}</p>
-                    <p>
-                        <a id="thongtin" href="javascript:thongtin({{ID}});" class="btn btn-primary">
-                            <span class="glyphicon glyphicon-eye-open"></span>
-                            Details
-                        </a>
-                        <a id="mua" href="javascript:muahang({{ID}});" class="btn btn-danger">
-                            <span class="glyphicon glyphicon-shopping-cart"></span>
-                            Mua
-                        </a>
-                        <a id="daugia" href="javascript:daugia({{ID}});" class="btn btn-warning">
-                            <span class="glyphicon glyphicon-usd"></span>
-                            Đấu Giá
-                        </a>
-                    </p>
-                </div>
-            </div>
-        </div>
-        {{/each}}
-</script>
-
-<script id="thongtinsp" type="text/x-handlebars-template">
-    {{#each this}}
-    <div id="thesp" class="w3-border w3-margin-right w3-margin-top myCard" style="display: none" >
+    <div id="thesp" class="w3-card w3-border w3-margin-right w3-margin-top myCard" style="display: none" >
         <div class="w3-container">
             <span class="label label-info">Số Lượt Đấu Giá: {{soluotragia}}
             </span><br>
@@ -216,29 +196,74 @@
 
         <div class="w3-container" style="width:auto; height:150">
             <h6 style="height:90">{{Ten}}</h6>
-            <div class="w3-button w3-white">
-                <h6>Giá Hiện Tại: {{formatNumber Giahientai}}</h6>
-
-                <h6>Giá Bán Ngay: {{formatNumber Giabanngay}}</h6>
+            <div class="w3-container w3-white">
+                <h7>Giá Hiện Tại: {{formatNumber Giahientai}}</h7>
+                <br>
+                <h7>Giá Bán Ngay: {{formatNumber Giabanngay}}</h7>
             </div>
             <p style="height: 36px;">{{Mota}}</p>
             <div class="w3-row w3-margin-bottom ">
-                <div class="w3-blue w3-col m4 l4 w3-left w3-hover-yellow">
-                    <a id="dsyt" href="javascript:dsyt({{ID}});" class="w3-small w3-button w3-hover-yellow">
+                <div class="w3-blue w3-col m4 l4 w3-left w3-hover-yellow w3-round">
+                    <a id="thongtin" href="javascript:thongtin({{ID}});" class="w3-small w3-button w3-hover-yellow">
                         <span class="glyphicon glyphicon-eye-open">  </span>
-                        Thích
+                        <h7>Details</h7>
                     </a>
                 </div>
-                <div class="w3-red w3-col m4 l4 w3-hover-purple">
+                <div class="w3-red w3-col m4 l4 w3-hover-purple w3-round">
                     <a id="mua" href="javascript:muahang({{ID}});" class="w3-small w3-button w3-hover-purple">
                         <span class="glyphicon glyphicon-shopping-cart"></span>
-                        Mua
+                        <h7>Mua</h7>
                     </a>
                 </div>
-                <div class="w3-yellow w3-col m4 l4 w3-right w3-hover-blue">
+                <div class="w3-yellow w3-col m4 l4 w3-right w3-hover-blue w3-round">
                     <a id="daugia" href="javascript:daugia({{ID}});" class="w3-small w3-button w3-hover-blue">
                         <span class="glyphicon glyphicon-usd"></span>
-                        Đấu Giá
+                        <h7>Đấu Giá</h7>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{/each}}
+</script>
+
+<script id="thongtinsp" type="text/x-handlebars-template">
+    {{#each this}}
+    <div id="thesp" class="w3-card w3-border w3-margin-right w3-margin-top myCard" style="display: none" >
+        <div class="w3-container">
+            <span class="label label-info">Số Lượt Đấu Giá: {{soluotragia}}
+            </span><br>
+            <span class="label label-info">Thời Gian Kết Thúc: {{Thoigianketthuc}}
+            </span>
+        </div>
+        <img src="imgs/{{ID}}/main_thumbs.jpg" alt="{{Ten}}" title="{{Ten}}" class="w3-text w3-margin-top" width="90px" height="80px">
+
+        <div class="w3-container" style="width:auto; height:150">
+            <h6 style="height:90">{{Ten}}</h6>
+            <div class="w3-container w3-white">
+                <h7>Giá Hiện Tại: {{formatNumber Giahientai}}</h7>
+
+                <h7>Giá Bán Ngay: {{formatNumber Giabanngay}}</h7>
+            </div>
+            <p style="height: 36px;">{{Mota}}</p>
+            <div class="w3-row w3-margin-bottom ">
+                <div class="w3-blue w3-col m4 l4 w3-left w3-hover-yellow w3-round">
+                    <a id="dsyt" href="javascript:dsyt({{ID}});" class="w3-small w3-button w3-hover-yellow">
+                        <span class="glyphicon glyphicon-eye-open">  </span>
+                        <h7>Thích</h7>
+                    </a>
+                </div>
+                <div class="w3-red w3-col m4 l4 w3-hover-purple w3-round" >
+                    <a id="mua" href="javascript:muahang({{ID}});" class="w3-small w3-button w3-hover-purple">
+                        <span class="glyphicon glyphicon-shopping-cart"></span>
+                        <h7>Mua</h7>
+                    </a>
+                </div>
+                <div class="w3-yellow w3-col m4 l4 w3-right w3-hover-blue w3-round">
+                    <a id="daugia" href="javascript:daugia({{ID}});" class="w3-small w3-button w3-hover-blue">
+                        <span class="glyphicon glyphicon-usd"></span>
+                        <h7>Đấu Giá</h7>
                     </a>
                 </div>
             </div>
@@ -258,7 +283,7 @@
 
 <script id="muasp" type="text/x-handlebars-template">
     {{#each this}}
-    <div id="thesp" class="w3-border w3-margin-right w3-margin-top myCard" style="display: none" >
+    <div id="thesp" class="w3-card w3-border w3-margin-right w3-margin-top myCard" style="display: none" >
         <div class="w3-container">
             <span class="label label-info">Số Lượt Đấu Giá: {{soluotragia}}
             </span><br>
@@ -269,29 +294,29 @@
 
         <div class="w3-container" style="width:auto; height:150">
             <h6 style="height:90">{{Ten}}</h6>
-            <div class="w3-button w3-white">
-                <h6>Giá Hiện Tại: {{formatNumber Giahientai}}</h6>
+            <div class="w3-container w3-white">
+                <h7>Giá Hiện Tại: {{formatNumber Giahientai}}</h7>
 
-                <h6>Giá Bán Ngay: {{formatNumber Giabanngay}}</h6>
+                <h7>Giá Bán Ngay: {{formatNumber Giabanngay}}</h7>
             </div>
             <p style="height: 36px;">{{Mota}}</p>
             <div class="w3-row w3-margin-bottom ">
-                <div class="w3-blue w3-col m4 l4 w3-left w3-hover-yellow">
+                <div class="w3-blue w3-col m4 l4 w3-left w3-hover-yellow w3-round">
                     <a id="dsyt" href="javascript:dsyt({{ID}});" class="w3-small w3-button w3-hover-yellow">
                         <span class="glyphicon glyphicon-eye-open">  </span>
-                        Thích
+                        <h7>Thích</h7>
                     </a>
                 </div>
-                <div class="w3-red w3-col m4 l4 w3-hover-purple" disable>
+                <div class="w3-red w3-col m4 l4 w3-hover-purple w3-round" disable>
                     <a id="mua" href="javascript:muahang({{ID}});" class="w3-small w3-button w3-hover-purple">
                         <span class="glyphicon glyphicon-shopping-cart"></span>
-                        Mua
+                        <h7>Mua</h7>
                     </a>
                 </div>
-                <div class="w3-yellow w3-col m4 l4 w3-right w3-hover-blue">
+                <div class="w3-yellow w3-col m4 l4 w3-right w3-hover-blue w3-round">
                     <a id="daugia" href="javascript:daugia({{ID}});" class="w3-small w3-button w3-hover-blue">
                         <span class="glyphicon glyphicon-usd"></span>
-                        Đấu Giá
+                        <h7>Đấu Giá</h7>
                     </a>
                 </div>
             </div>
@@ -330,7 +355,7 @@
 
 <script id="daugia" type="text/x-handlebars-template">
     {{#each this}}
-    <div id="thesp" class="w3-border w3-margin-right w3-margin-top myCard" style="display: none" >
+    <div id="thesp" class="w3-card w3-border w3-margin-right w3-margin-top myCard" style="display: none" >
         <div class="w3-container">
             <span class="label label-info">Số Lượt Đấu Giá: {{soluotragia}}
             </span><br>
@@ -341,29 +366,29 @@
 
         <div class="w3-container" style="width:auto; height:150">
             <h6 style="height:90">{{Ten}}</h6>
-            <div class="w3-button w3-white">
-                <h6>Giá Hiện Tại: {{formatNumber Giahientai}}</h6>
+            <div class="w3-container w3-white">
+                <h7>Giá Hiện Tại: {{formatNumber Giahientai}}</h7>
 
-                <h6>Giá Bán Ngay: {{formatNumber Giabanngay}}</h6>
+                <h7>Giá Bán Ngay: {{formatNumber Giabanngay}}</h7>
             </div>
             <p style="height: 36px;">{{Mota}}</p>
             <div class="w3-row w3-margin-bottom ">
                 <div class="w3-blue w3-col m4 l4 w3-left w3-hover-yellow">
                     <a id="dsyt" href="javascript:dsyt({{ID}});" class="w3-small w3-button w3-hover-yellow">
                         <span class="glyphicon glyphicon-eye-open">  </span>
-                        Thích
+                        <h7>Thích</h7>
                     </a>
                 </div>
-                <div class="w3-red w3-col m4 l4 w3-hover-purple">
+                <div class="w3-red w3-col m4 l4 w3-hover-purple w3-round">
                     <a id="mua" href="javascript:muahang({{ID}});" class="w3-small w3-button w3-hover-purple">
                         <span class="glyphicon glyphicon-shopping-cart"></span>
-                        Mua
+                        <h7>Mua</h7>
                     </a>
                 </div>
-                <div class="w3-yellow w3-col m4 l4 w3-right w3-hover-blue" disable>
+                <div class="w3-yellow w3-col m4 l4 w3-right w3-hover-blue w3-round" disable>
                     <a id="daugia" href="javascript:daugia({{ID}});" class="w3-small w3-button w3-hover-blue">
                         <span class="glyphicon glyphicon-usd"></span>
-                        Đấu Giá
+                        <h7>Đấu Giá</h7>
                     </a>
                 </div>
             </div>
@@ -390,6 +415,4 @@
     </div>
     {{/each}}
 </script>
-
-
 
