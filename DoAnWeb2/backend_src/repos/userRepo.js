@@ -18,8 +18,7 @@ exports.findUser = function(email,pwd) {
 
 exports.add = function (poco) {
 	var md5_password = md5(poco.Password);
-
-	var sql = `insert into taikhoan(Email,Password,HoTen,DiaChi,SDT,Active ) values( '${poco.Email}','${md5_password}','${poco.Name}','${poco.Diachi}', '${poco.SDT}','0')`;
+	var sql = `insert into taikhoan(Email,Password,HoTen,DiaChi,SDT,Active,Permission ) values( '${poco.Email}','${md5_password}','${poco.Name}','${poco.Diachi}', '${poco.SDT}','0','${poco.Permission}')`;
 	return db.insert(sql);
 }
 

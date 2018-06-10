@@ -9,12 +9,12 @@ router.get('/:email', (req, res) => {
     var transporter =  nodemailer.createTransport({ // config mail server
         service: 'Gmail',
         auth: {
-            user: 'hdonlineinfo@gmail.com',
-            pass: '01867681162'
+            user: 'daugiaonlineH@gmail.com',
+            pass: 'huynhconghau'
         }
     });
     var mainOptions = { // thiết lập đối tượng, nội dung gửi mail
-        from: 'hdonlineinfo@gmail.com', // Địa chỉ email của người gửi
+        from: 'daugiaonlineH@gmail.com', // Địa chỉ email của người gửi
         to: email, // Địa chỉ email của người gửi
         subject: 'Chào Bạn đến với sàn đấu giá online ', // Tiêu đề mail
         text: 'Mời bạn click vào liên kết này để xác minh gmail http://localhost:8080/active.html?mail='+ email, // Nội dung mail dạng text

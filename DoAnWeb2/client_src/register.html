@@ -1,20 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Đăng Nhập</title>
+  <title>Register</title>
   <link rel="stylesheet" href="assets/bootstrap-3.3.7-dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="assets/bootstrap-datepicker/css/bootstrap-datepicker3.min.css">
+  <script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
+
 <body>
+
+  
   <br>
   <br>
   <div class="container">
     <div class="row">
+
       <div class="col-sm-12 col-md-12">
-        <form class="form-horizontal" id="registerForm">
+        <form  id="registerForm">
+          <div align="center">
+              <h1>Đăng Ký</h1>
+            </div>
+            <br/>
+            <br/>
+            <br/>
           <div class="form-group">
             <label for="txtName" class="col-sm-2 control-label">Name</label>
             <div class="col-sm-10">
@@ -50,21 +62,24 @@
             <div class="col-sm-10">
               <input type="text" class="form-control" name="address" id="txtaddress" placeholder="127 Nguyễn Văn Cừ">
             </div>
-          </div>             
-          <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-10">
-              <button id="btnRegister" type="submit" class="btn btn-success">
+          </div>      
+          <div  class="form-group">
+            <div  align="center"class="col-sm-offset-2 col-sm-5">
+              <div  class="g-recaptcha" data-callback="enableRegisterButton" data-sitekey="6LdqOV4UAAAAAIga0Q01SWQwlELIyidHnDUWrYQJ"></div>
+            </div>
+          </div>       
+          <div  class="form-group">
+            <div  align="center"class="col-sm-offset-2 col-sm-5">
+              <button id="btnRegister" type="submit" class="btn btn-primary btn-lg btn-block login-button">
                 <span class="glyphicon glyphicon-plus"></span>
                 Register
               </button>
-              <h5>bạn đã có có tài khoản? <a id="dangnhapngay" href="#">đăng nhập ngay!</a></h5>
             </div>
           </div>
         </form>
       </div>
     </div>
   </div>
-
   <script src="assets/jquery-3.1.1.min.js"></script>
   <script src="assets/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
   <script src="assets/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>

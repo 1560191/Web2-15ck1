@@ -1,91 +1,96 @@
-$(function () {
 
-    $('.datepicker').datepicker({
-        autoclose: true,
-        format: 'd/m/yyyy',
-        startDate: '-3d'
-    });
+// document.getElementById("btnRegister").disabled = true;
+// function enableRegisterButton() {
+//    document.getElementById("btnRegister").disabled = false;
+//    }
+// $(function () {
 
-    $.validator.addMethod("vndate", function (value, element) {
-        return this.optional(element) || /^\d\d?\/\d\d?\/\d\d\d\d$/.test(value);
-    });
+//     $('.datepicker').datepicker({
+//         autoclose: true,
+//         format: 'd/m/yyyy',
+//         startDate: '-3d'
+//     });
 
-    $('#registerForm').validate({
-        rules: {
-            UID: {
-                required: true
-            },
-            PWD: {
-                required: true,
-                minlength: 6
-            },
-            ConfirmPWD: {
-                required: true,
-                equalTo: $('#txtPassword')
-            },
-            FullName: {
-                required: true,
-            },
-            Phone: {
-                required: true,
-                maxlength: 11
-            },
-            address: {
-                required: true,
-            },
-            Email: {
-                required: true,
-                email: true
-            },
-        },
-        messages: {
-            UID: {
-                required: 'Please input UID'
-            },
-            PWD: {
-                required: "Chưa nhập mật khẩu.",
-                minlength: "Mật khẩu phải nhiều hơn 6 ký tự."
-            },
-            ConfirmPWD: {
-                required: "Chưa nhập lại mật khẩu.",
-                equalTo: "Mật khẩu nhập lại không khớp."
-            },
-            address: {
-                required: "Chưa nhập địa chỉ",
-            },
-            Phone: {
-                required: "Chưa nhập số điện thoại",
-                maxlength: "Số điện thoại phải nhỏ hơn 11 số"
-            },
-            FullName: {
-                required: "Chưa nhập họ tên.",
-            },
-            Email: {
-                required: "Chưa nhập email.",
-                email: "Email không đúng định dạng."
-            },
-        },
+//     $.validator.addMethod("vndate", function (value, element) {
+//         return this.optional(element) || /^\d\d?\/\d\d?\/\d\d\d\d$/.test(value);
+//     });
 
-        highlight: function (element) { // hightlight error inputs
-            $(element)
-                .closest('.form-group')
-                .addClass('has-error'); // set error class to the control group
-        },
+//     $('#registerForm').validate({
+//         rules: {
+//             UID: {
+//                 required: true
+//             },
+//             PWD: {
+//                 required: true,
+//                 minlength: 6
+//             },
+//             ConfirmPWD: {
+//                 required: true,
+//                 equalTo: $('#txtPassword')
+//             },
+//             FullName: {
+//                 required: true,
+//             },
+//             Phone: {
+//                 required: true,
+//                 maxlength: 11
+//             },
+//             address: {
+//                 required: true,
+//             },
+//             Email: {
+//                 required: true,
+//                 email: true
+//             },
+//         },
+//         messages: {
+//             UID: {
+//                 required: 'Please input UID'
+//             },
+//             PWD: {
+//                 required: "Chưa nhập mật khẩu.",
+//                 minlength: "Mật khẩu phải nhiều hơn 6 ký tự."
+//             },
+//             ConfirmPWD: {
+//                 required: "Chưa nhập lại mật khẩu.",
+//                 equalTo: "Mật khẩu nhập lại không khớp."
+//             },
+//             address: {
+//                 required: "Chưa nhập địa chỉ",
+//             },
+//             Phone: {
+//                 required: "Chưa nhập số điện thoại",
+//                 maxlength: "Số điện thoại phải nhỏ hơn 11 số"
+//             },
+//             FullName: {
+//                 required: "Chưa nhập họ tên.",
+//             },
+//             Email: {
+//                 required: "Chưa nhập email.",
+//                 email: "Email không đúng định dạng."
+//             },
+//         },
 
-        success: function (label) {
-            // var name = label.attr('for');
-            // $('[name=' + name + ']').closest('.form-group').removeClass('has-error');
+//         highlight: function (element) { // hightlight error inputs
+//             $(element)
+//                 .closest('.form-group')
+//                 .addClass('has-error'); // set error class to the control group
+//         },
 
-            label.closest('.form-group').removeClass('has-error');
-            label.remove();
-        },
+//         success: function (label) {
+//             // var name = label.attr('for');
+//             // $('[name=' + name + ']').closest('.form-group').removeClass('has-error');
 
-        errorElement: 'span',
-        errorClass: 'help-block'
-    });
+//             label.closest('.form-group').removeClass('has-error');
+//             label.remove();
+//         },
 
-    $('#txtUserName').select();
-});
+//         errorElement: 'span',
+//         errorClass: 'help-block'
+//     });
+
+//     $('#txtUserName').select();
+// });
 
 $(function() {
     $('#txtPhone').select();
@@ -93,8 +98,8 @@ $(function() {
     $('#txtEmail').select();
     $('#txtName').select();
     $('#txtaddress').select();
+    $('#g-recaptcha-response').select();
 });
-
 $('#btnRegister').on('click', function () {
      //alert('clicked');
      var _PASSS = $('#txtPassword').val();
@@ -102,18 +107,35 @@ $('#btnRegister').on('click', function () {
      var _fullname = $('#txtName').val();
      var _Phone = $('#txtPhone').val();
      var _addresss = $('#txtaddress').val();
+     var capcha = $('#g-recaptcha-response').val();
      var body = {
         Diachi: _addresss,
         SDT: _Phone,
         Password: _PASSS,
         Name: _fullname,
         Email: _mail,
-
+       Permission: "1"
     };
+    if(capcha === undefined || capcha === '' || capcha === null)
+    {
+
+    alert('Bạn chưa bấm captcha')
+    return;
+    }
     if(_Phone.length < 1 || _PASSS.length < 1 || _mail.length < 1 || _fullname.length < 1 || _addresss.length < 1)
     {
         return;
     }
+    $.ajax({
+        url: 'http://localhost:3000/capcha/'+capcha,
+        dataType: 'json',
+        timeout: 10000,
+
+    }).done(function(data) {
+        if(data == "1")
+        {       
+             alert('ok')
+           
     $.ajax({
         url: 'http://localhost:3000/user/'+ _mail,
         dataType: 'json', 
@@ -149,6 +171,17 @@ $('#btnRegister').on('click', function () {
             console.log(error);
             console.log(xhr);
         });
+}
+else if(data == "0")
+{
+    alert('Bạn chưa bấm captcha')
+   chuyentrang()
+}
+    }).fail(function(xhr, textStatus, error) {
+        console.log(textStatus);
+        console.log(error);
+        console.log(xhr);
+    });
 });
 
 // $('#btnRegister').on('click', function () {
