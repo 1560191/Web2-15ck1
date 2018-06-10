@@ -11,7 +11,8 @@ exports.load = function(id) {
 }
 
 exports.findUser = function(email,pwd) {
-	var sql = `select * from taikhoan where Email = '${email}' and Password = '${pwd}'`;
+	var md5_password = md5(pwd);
+	var sql = `select * from taikhoan where Email = '${email}' and Password = '${md5_password}'`;
 	return db.load(sql);
 }
 

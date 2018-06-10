@@ -32,7 +32,17 @@ router.get('/:email/:pwd', (req, res) => {
 	userRepo.findUser(email,pwd)
 		.then(rows => {
 		if (rows.length > 0) {
-			res.send('1');
+			var user = {
+			Email:	rows[0].Email,
+			Password: rows[0].Password,
+			Hoten: rows[0].Hoten
+			};			
+			var token = jwt.sign(user, 'jsonwebtoken');
+        //     res.send({
+        //     token: token,
+        //     Hoten: rows[0].Hoten
+        // });
+        res.send(token);
 		} else if (rows.length == 0) {
 			
 			res.send('0');

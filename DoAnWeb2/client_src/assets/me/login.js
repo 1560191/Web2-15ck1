@@ -18,6 +18,7 @@ $('#btnlogin').on('click', function () {
         if(res == "1")
         {
             alert('Đăng Nhập Thành Công!');
+            localStorage.setItem('id_token', res); 
             return dieuhuong();
         }
         else if(res == "0")
@@ -25,6 +26,9 @@ $('#btnlogin').on('click', function () {
             alert('Sai Tên Đăng Nhập Hoặc Mật Khẩu!');
             return false;
         }
+    }).fail(function(xhr, textStatus, error) {
+            console.log(error);
+            console.log(xhr);
     });
     function dieuhuong(){
         window.location.href = "index.html"; 
