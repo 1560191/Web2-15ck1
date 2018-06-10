@@ -22,6 +22,11 @@ exports.loadPage = function(page) {
     return db.load(sql);
 }
 
+exports.loadCate = function() {
+    var sql = `select DISTINCT Phanloai from sanpham` ;
+    return db.load(sql);
+}
+
 exports.loadTopRaGia = function(page) {
     var offset = (page - 1) * constants.PRODUCTS_PER_PAGE2;
     var sql = `select * from sanpham order by Soluotragia DESC limit ${constants.PRODUCTS_PER_PAGE2 + 1} offset ${offset}`;

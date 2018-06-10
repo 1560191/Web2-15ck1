@@ -8,6 +8,7 @@ $("#includeContent").load("index.html");
 $(function() {
     HandlebarsIntl.registerWith(Handlebars);
     loadProducts();
+    loadCate();
 });
 
 $('#btnMore').on('click', function() {
@@ -37,5 +38,19 @@ var loadProducts = function() {
         }
 
         $('.loader').hide();
+    });
+};
+
+var loadCate = function() {
+    
+    $.ajax({
+        url: 'http://localhost:3000/sanpham/cate',
+        dataType: 'json',
+        timeout: 10000
+    }).done(function(data) {
+        var source = $('#loadCategory').html();
+        var template = Handlebars.compile(source);
+        var html = template(data.sanpham);
+        $('#danhmuc-list').append(html);
     });
 };
