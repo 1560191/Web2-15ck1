@@ -1,96 +1,96 @@
 
-// document.getElementById("btnRegister").disabled = true;
-// function enableRegisterButton() {
-//    document.getElementById("btnRegister").disabled = false;
-//    }
-// $(function () {
+document.getElementById("btnRegister").disabled = true;
+function enableRegisterButton() {
+   document.getElementById("btnRegister").disabled = false;
+   }
+$(function () {
 
-//     $('.datepicker').datepicker({
-//         autoclose: true,
-//         format: 'd/m/yyyy',
-//         startDate: '-3d'
-//     });
+    $('.datepicker').datepicker({
+        autoclose: true,
+        format: 'd/m/yyyy',
+        startDate: '-3d'
+    });
 
-//     $.validator.addMethod("vndate", function (value, element) {
-//         return this.optional(element) || /^\d\d?\/\d\d?\/\d\d\d\d$/.test(value);
-//     });
+    $.validator.addMethod("vndate", function (value, element) {
+        return this.optional(element) || /^\d\d?\/\d\d?\/\d\d\d\d$/.test(value);
+    });
 
-//     $('#registerForm').validate({
-//         rules: {
-//             UID: {
-//                 required: true
-//             },
-//             PWD: {
-//                 required: true,
-//                 minlength: 6
-//             },
-//             ConfirmPWD: {
-//                 required: true,
-//                 equalTo: $('#txtPassword')
-//             },
-//             FullName: {
-//                 required: true,
-//             },
-//             Phone: {
-//                 required: true,
-//                 maxlength: 11
-//             },
-//             address: {
-//                 required: true,
-//             },
-//             Email: {
-//                 required: true,
-//                 email: true
-//             },
-//         },
-//         messages: {
-//             UID: {
-//                 required: 'Please input UID'
-//             },
-//             PWD: {
-//                 required: "Chưa nhập mật khẩu.",
-//                 minlength: "Mật khẩu phải nhiều hơn 6 ký tự."
-//             },
-//             ConfirmPWD: {
-//                 required: "Chưa nhập lại mật khẩu.",
-//                 equalTo: "Mật khẩu nhập lại không khớp."
-//             },
-//             address: {
-//                 required: "Chưa nhập địa chỉ",
-//             },
-//             Phone: {
-//                 required: "Chưa nhập số điện thoại",
-//                 maxlength: "Số điện thoại phải nhỏ hơn 11 số"
-//             },
-//             FullName: {
-//                 required: "Chưa nhập họ tên.",
-//             },
-//             Email: {
-//                 required: "Chưa nhập email.",
-//                 email: "Email không đúng định dạng."
-//             },
-//         },
+    $('#registerForm').validate({
+        rules: {
+            UID: {
+                required: true
+            },
+            PWD: {
+                required: true,
+                minlength: 6
+            },
+            ConfirmPWD: {
+                required: true,
+                equalTo: $('#txtPassword')
+            },
+            FullName: {
+                required: true,
+            },
+            Phone: {
+                required: true,
+                maxlength: 11
+            },
+            address: {
+                required: true,
+            },
+            Email: {
+                required: true,
+                email: true
+            },
+        },
+        messages: {
+            UID: {
+                required: 'Please input UID'
+            },
+            PWD: {
+                required: "Chưa nhập mật khẩu.",
+                minlength: "Mật khẩu phải nhiều hơn 6 ký tự."
+            },
+            ConfirmPWD: {
+                required: "Chưa nhập lại mật khẩu.",
+                equalTo: "Mật khẩu nhập lại không khớp."
+            },
+            address: {
+                required: "Chưa nhập địa chỉ",
+            },
+            Phone: {
+                required: "Chưa nhập số điện thoại",
+                maxlength: "Số điện thoại phải nhỏ hơn 11 số"
+            },
+            FullName: {
+                required: "Chưa nhập họ tên.",
+            },
+            Email: {
+                required: "Chưa nhập email.",
+                email: "Email không đúng định dạng."
+            },
+        },
 
-//         highlight: function (element) { // hightlight error inputs
-//             $(element)
-//                 .closest('.form-group')
-//                 .addClass('has-error'); // set error class to the control group
-//         },
+        highlight: function (element) { // hightlight error inputs
+            $(element)
+                .closest('.form-group')
+                .addClass('has-error'); // set error class to the control group
+        },
 
-//         success: function (label) {
-//             // var name = label.attr('for');
-//             // $('[name=' + name + ']').closest('.form-group').removeClass('has-error');
+        success: function (label) {
+            // var name = label.attr('for');
+            // $('[name=' + name + ']').closest('.form-group').removeClass('has-error');
 
-//             label.closest('.form-group').removeClass('has-error');
-//             label.remove();
-//         },
+            label.closest('.form-group').removeClass('has-error');
+            label.remove();
+        },
 
-//         errorElement: 'span',
-//         errorClass: 'help-block'
-//     });
+        errorElement: 'span',
+        errorClass: 'help-block'
+    });
 
-//     $('#txtUserName').select();
-// });
+    $('#txtUserName').select();
+});
 
 $(function() {
     $('#txtPhone').select();
