@@ -14,7 +14,7 @@ router.get('/:token',function(req, res, next) {
       	var user = decoded
       	if(user.Active == '1')
       	{
-        res.send('1');
+        res.send(user.Hoten);
     	}
     	else
     	{
@@ -45,9 +45,16 @@ router.get('/:email/:pwd', (req, res) => {
 			var token = jwt.sign(user, 'jsonwebtoken');
         //     res.send({
         //     token: token,
-        //     Hoten: rows[0].Hoten
+        //     Active: rows[0].Active
         // });
+        if(rows[0].Active == '1')
+        {
         res.send(token);
+    	}
+    	else
+    	{
+    	res.send('1');	
+    	}
 		} else if (rows.length == 0) {
 			
 			res.send('0');

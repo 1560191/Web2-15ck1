@@ -1,9 +1,9 @@
-$('#dangnhap').on('click', function() {
-    $('#footer').hide();
-    $("#trangchu").load("login.html");
-    $('#home').hide();
-    $('#backhome').show();
-});
+// $('#dangnhap').on('click', function() {
+//     $('#footer').hide();
+//     $("#trangchu").load("login.html");
+//     $('#home').hide();
+//     $('#backhome').show();
+// });
 
 $('#dangnhapngay').on('click', function() {
     $('#footer').hide();

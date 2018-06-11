@@ -4,11 +4,11 @@ $('#btnlogin').on('click', function () {
      var _mail = $('#txtEmail').val();
     if (_mail == "") {
         alert("Tên đăng nhập không được để trống");
-        return false;
+        return dieuhuong();
     }
     if (_PASSS == "") {
         alert("Mật khẩu không được để trống");
-        return false;
+        return dieuhuong();
     }
     $.ajax({
         url: 'http://localhost:3000/login/'+_mail+'/'+_PASSS,
@@ -18,14 +18,20 @@ $('#btnlogin').on('click', function () {
         if(res == "0")
         {
             alert('Sai Tên Đăng Nhập Hoặc Mật Khẩu!');
-            return false;
+            return dieuhuong();
         }
         else
        
-        {
+        {   if(res == "1")
+            {
+            alert('Bạn Chưa xác thực tài khoản! Vui lòng vào Email của bạn xác nhận!');
+            }
+            else
+            {
             alert('Đăng Nhập Thành Công!');
             localStorage.setItem('id_token', res); 
             return dieuhuong();
+            }
         }
     
     }).fail(function(xhr, textStatus, error) {

@@ -5,13 +5,14 @@ $(function() {
         dataType: 'text',
         timeout: 10000,
     }).done(function(res) {
-        if(res == "1")
+        if(res != "0")
         {   
-
+             $('#khach').hide();
              $('#dangky').hide();
              $('#dangnhap').hide();
              $('#thoat').show();
-            
+             var ten = res;
+             $('#list1').append(ten);
         }
     
     }).fail(function(xhr, textStatus, error) {
