@@ -8,18 +8,53 @@ $('#duyet').on('click', function() {
 });
 
 
-$('#qlsp').on('click', function() {
+$('#qlnd').on('click', function() {
     var cn = {
         cn1: 'Xem Tất Cả Người Dùng',
         cn2: 'Xóa Người Dùng',
         cn3: 'Reset Mật Khẩu'
     };
+    
+        $.ajax({
+            url: 'http://localhost:3000/user',
+            dataType: 'json',
+            timeout: 10000
+        }).done(function(data) {
+            var source0 = $('#noidung-temp-alluser').html();
+            var template0 = Handlebars.compile(source0);
+            $('#noidung').html(template0());
+            $.each(data, function(idx, item) {
+            // console.log(item.CatName);
+            var tr = '<tr>' +
+                '<td>' +
+                item.Email +
+                '</td>' +
+                '<td>' +
+                item.Hoten +
+                '</td>' +
+                '<td>' +
+                item.Diachi +
+                '</td>' +
+                '<td>' +
+                item.SDT +
+                '</td>' +
+                '<td>' +
+                item.KhoiTao +
+                '</td>' +
+                '<td>' +
+                item.Permission +
+                '</td>' +
+            '</tr>';
+            
+            $('#list').append(tr);
+            });
+        });
     var source = $('#chucnang-temp').html();
     var template = Handlebars.compile(source);
     $('#chucnang').html(template(cn));
 });
 
-$('#qlnd').on('click', function() {
+$('#qlsp').on('click', function() {
     var cn = {
         cn1: 'Thêm Danh Mục Đấu Giá',
         cn2: 'Sửa Danh Mục Đấu Giá',
@@ -42,21 +77,81 @@ function chucnangcn(cnn){
     }
     if(cnn == 'Xem Tất Cả Người Dùng')
     {
-        var st = {
-            st1: '2222222222222222222222222222222222222222222222222'
-        };
-        var source = $('#noidung-temp').html();
-        var template = Handlebars.compile(source);
-        $('#noidung').html(template(st));
+        $.ajax({
+            url: 'http://localhost:3000/user',
+            dataType: 'json',
+            timeout: 10000
+        }).done(function(data) {
+            var source0 = $('#noidung-temp-alluser').html();
+            var template0 = Handlebars.compile(source0);
+            $('#noidung').html(template0());
+            $.each(data, function(idx, item) {
+            // console.log(item.CatName);
+            var tr = '<tr>' +
+                '<td>' +
+                item.Email +
+                '</td>' +
+                '<td>' +
+                item.Hoten +
+                '</td>' +
+                '<td>' +
+                item.Diachi +
+                '</td>' +
+                '<td>' +
+                item.SDT +
+                '</td>' +
+                '<td>' +
+                item.KhoiTao +
+                '</td>' +
+                '<td>' +
+                item.Permission +
+                '</td>' +
+            '</tr>';
+            
+            $('#list').append(tr);
+            });
+        });
     }
     if(cnn == 'Xóa Người Dùng')
     {
-        var st = {
-            st1: '3333333333333333333333333333333333333333333333333'
-        };
-        var source = $('#noidung-temp').html();
-        var template = Handlebars.compile(source);
-        $('#noidung').html(template(st));
+        $.ajax({
+            url: 'http://localhost:3000/user',
+            dataType: 'json',
+            timeout: 10000
+        }).done(function(data) {
+            var source0 = $('#noidung-temp-deluser').html();
+            var template0 = Handlebars.compile(source0);
+            $('#noidung').html(template0());
+            $.each(data, function(idx, item) {
+            
+            var tr = '<tr>' +
+                '<td>' +
+                item.Email +
+                '</td>' +
+                '<td>' +
+                item.Hoten +
+                '</td>' +
+                '<td>' +
+                item.Diachi +
+                '</td>' +
+                '<td>' +
+                item.SDT +
+                '</td>' +
+                '<td>' +
+                item.KhoiTao +
+                '</td>' +
+                '<td>' +
+                item.Permission +
+                '</td>' +
+                '<td>' +
+                '<center><a href="javascript:deleteus();"><span class="glyphicon glyphicon-remove"></span> Xóa </a></center>' +
+                '</td>' +
+                '<input type="hidden" value="'+item.Email+'" id="e">' +
+            '</tr>';
+            
+            $('#listdel').append(tr);
+            });
+        });
     }
     if(cnn == 'Reset Mật Khẩu')
     {
@@ -95,3 +190,4 @@ function chucnangcn(cnn){
         $('#noidung').html(template(st));
     }
 };
+

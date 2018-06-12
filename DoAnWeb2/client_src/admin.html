@@ -87,6 +87,7 @@
 <script src="assets/handlebars.min-v4.0.11.js"></script>
 <script src="assets/handlebars-intl-1.1.2/handlebars-intl.min.js"></script>
 <script src="assets/me/admin.js"></script>
+<script src="assets/me/delete.js"></script>
 
 
 <script id="chucnang-temp" type="text/x-handlebars-template">
@@ -96,6 +97,39 @@
       </div>
 
     {{/each}}
+</script>
+
+<script id="noidung-temp-alluser" type="text/x-handlebars-template">
+    <table border="1" width="1100px">
+      <thead>
+        <tr>
+          <td width="180px"><center>Email</center></td>
+          <td width="200px"><center>Họ Tên</center></td>
+          <td width="360px"><center>Địa Chỉ</center></td>
+          <td width="150px"><center>SĐT</td>
+          <td width="180px"><center>Ngày Khởi Tạo</center></td>
+          <td width="180px"><center>Được Phép Bán Hàng  (1: có/0: không)</center></td>
+        </tr>
+      </thead>
+      <tbody id="list"></tbody>
+    </table>
+</script>
+
+<script id="noidung-temp-deluser" type="text/x-handlebars-template">
+    <table border="1" width="1100px">
+      <thead>
+        <tr>
+          <td width="180px"><center>Email</center></td>
+          <td width="200px"><center>Họ Tên</center></td>
+          <td width="360px"><center>Địa Chỉ</center></td>
+          <td width="150px"><center>SĐT</td>
+          <td width="180px"><center>Ngày Khởi Tạo</center></td>
+          <td width="180px"><center>Được Phép Bán Hàng  (1: có/0: không)</center></td>
+          <td width="180px"><center>Xóa Người Dùng</center></td>
+        </tr>
+      </thead>
+      <tbody id="listdel"></tbody>
+    </table>
 </script>
 
 <script id="noidung-temp" type="text/x-handlebars-template">

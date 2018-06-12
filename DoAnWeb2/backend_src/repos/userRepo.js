@@ -22,7 +22,7 @@ exports.add = function (poco) {
 	return db.insert(sql);
 }
 
-exports.delete = function(id) {
-	var sql = `delete from taikhoan where Email = ${id}`;
+exports.delete = function(_email) {
+	var sql = `delete from taikhoan where Email = '${_email}'`;
 	return db.delete(sql);
 }

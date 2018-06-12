@@ -58,17 +58,11 @@ router.post('/', (req, res) => {
 });
 
 
-router.delete('/:id', (req, res) => {
-	if (req.params.id) {
-		var id = req.params.id;
+router.delete('/del/:_email', (req, res) => {
+	if (req.params._email) {
+		var _email = req.params._email;
 
-		if (isNaN(id)) {
-			res.statusCode = 400;
-			res.end();
-			return;
-		}
-
-		userRepo.delete(id).then(affectedRows => {
+		userRepo.delete(_email).then(affectedRows => {
 			res.json({
 				affectedRows: affectedRows
 			});
