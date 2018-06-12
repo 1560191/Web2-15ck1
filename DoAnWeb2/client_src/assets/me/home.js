@@ -22,8 +22,23 @@ $('#home').on('click', function() {
             dataType: 'json',
             timeout: 10000
         }).done(function(data) {
-            var source = $('#product-template').html();
-            var template = Handlebars.compile(source);
+            var aaas = "<script>\
+        var countDownDate = new Date('{{Thoigianketthuc}}').getTime();\
+        setInterval(function() {\
+        var now = new Date().getTime();\
+        var distance = countDownDate - now;\
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));\
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));\
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));\
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);\
+        document.getElementById({{ID}}).innerHTML = days + 'Ngày ' + hours + 'Giờ'+ minutes + 'Phút' + seconds + 'Giây'; });\
+        </script>\
+        {{/each}}";
+        //var source2 = $('#dest').html();
+        var source = $('#product-template').html();
+        var source3 =  source + aaas;
+        console.log(source3);
+        var template = Handlebars.compile(source3);
             var html = template(data.sanpham);
             $('#product-list').append(html);
 
@@ -55,8 +70,23 @@ $('#nhieunhat').on('click', function() {
         dataType: 'json',
         timeout: 10000
     }).done(function(data) {
+        var aaas = "<script>\
+        var countDownDate = new Date('{{Thoigianketthuc}}').getTime();\
+        setInterval(function() {\
+        var now = new Date().getTime();\
+        var distance = countDownDate - now;\
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));\
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));\
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));\
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);\
+        document.getElementById({{ID}}).innerHTML = days + 'Ngày ' + hours + 'Giờ'+ minutes + 'Phút' + seconds + 'Giây'; });\
+        </script>\
+        {{/each}}";
+        //var source2 = $('#dest').html();
         var source = $('#product-template').html();
-        var template = Handlebars.compile(source);
+        var source3 =  source + aaas;
+        console.log(source3);
+        var template = Handlebars.compile(source3);
         var html = template(data.sanpham);
         $('#product-list').append(html);
 
@@ -82,8 +112,23 @@ $('#caonhat').on('click', function() {
         dataType: 'json',
         timeout: 10000
     }).done(function(data) {
+        var aaas = "<script>\
+        var countDownDate = new Date('{{Thoigianketthuc}}').getTime();\
+        setInterval(function() {\
+        var now = new Date().getTime();\
+        var distance = countDownDate - now;\
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));\
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));\
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));\
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);\
+        document.getElementById({{ID}}).innerHTML = days + 'Ngày ' + hours + 'Giờ'+ minutes + 'Phút' + seconds + 'Giây'; });\
+        </script>\
+        {{/each}}";
+        //var source2 = $('#dest').html();
         var source = $('#product-template').html();
-        var template = Handlebars.compile(source);
+        var source3 =  source + aaas;
+        console.log(source3);
+        var template = Handlebars.compile(source3);
         var html = template(data.sanpham);
         $('#product-list').append(html);
 
@@ -110,8 +155,23 @@ $('#ketthuc').on('click', function() {
         dataType: 'json',
         timeout: 10000
     }).done(function(data) {
+        var aaas = "<script>\
+        var countDownDate = new Date('{{Thoigianketthuc}}').getTime();\
+        setInterval(function() {\
+        var now = new Date().getTime();\
+        var distance = countDownDate - now;\
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));\
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));\
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));\
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);\
+        document.getElementById({{ID}}).innerHTML = days + 'Ngày ' + hours + 'Giờ'+ minutes + 'Phút' + seconds + 'Giây'; });\
+        </script>\
+        {{/each}}";
+        //var source2 = $('#dest').html();
         var source = $('#product-template').html();
-        var template = Handlebars.compile(source);
+        var source3 =  source + aaas;
+        console.log(source3);
+        var template = Handlebars.compile(source3);
         var html = template(data.sanpham);
         $('#product-list').append(html);
 
@@ -150,8 +210,23 @@ $('#btnSearch').on('click', function() {
             dataType: 'json',
             timeout: 10000
         }).done(function(data) {
-            var source = $('#product-template').html();
-            var template = Handlebars.compile(source);
+            var aaas = "<script>\
+        var countDownDate = new Date('{{Thoigianketthuc}}').getTime();\
+        setInterval(function() {\
+        var now = new Date().getTime();\
+        var distance = countDownDate - now;\
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));\
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));\
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));\
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);\
+        document.getElementById({{ID}}).innerHTML = days + 'Ngày ' + hours + 'Giờ'+ minutes + 'Phút' + seconds + 'Giây'; });\
+        </script>\
+        {{/each}}";
+        //var source2 = $('#dest').html();
+        var source = $('#product-template').html();
+        var source3 =  source + aaas;
+        console.log(source3);
+        var template = Handlebars.compile(source3);
             var html = template(data.sanpham);
             $('#product-list').append(html);
 
