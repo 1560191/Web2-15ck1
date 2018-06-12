@@ -26,3 +26,9 @@ exports.delete = function(_email) {
 	var sql = `delete from taikhoan where Email = '${_email}'`;
 	return db.delete(sql);
 }
+
+exports.update = function(_pwd,_email) {
+	var md5_password = md5(_pwd);
+	var sql = `update taikhoan SET Password = '${md5_password}' where Email = '${_email}'`;
+	return db.update(sql);
+}

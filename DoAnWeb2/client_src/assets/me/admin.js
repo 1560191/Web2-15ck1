@@ -155,12 +155,38 @@ function chucnangcn(cnn){
     }
     if(cnn == 'Reset Mật Khẩu')
     {
-        var st = {
-            st1: '4444444444444444444444444444444444444444444444444'
-        };
-        var source = $('#noidung-temp').html();
-        var template = Handlebars.compile(source);
-        $('#noidung').html(template(st));
+        $.ajax({
+            url: 'http://localhost:3000/user',
+            dataType: 'json',
+            timeout: 10000
+        }).done(function(data) {
+            var source0 = $('#noidung-temp-updateuser').html();
+            var template0 = Handlebars.compile(source0);
+            $('#noidung').html(template0());
+            $.each(data, function(idx, item) {
+            
+            var tr = '<tr>' +
+                '<td>' +
+                item.Email +
+                '</td>' +
+                '<td>' +
+                item.Hoten +
+                '</td>' +
+                '<td>' +
+                item.Password +
+                '</td>' +
+                '<td>' +
+                '<form><div class="form-group"><textarea class="form-control" rows="1" id="mkmoi"></textarea></div></form>' +
+                '</td>' +
+                '<td>' +
+                '<center><a href="javascript:updateus();"><span class="glyphicon glyphicon-ok"></span> Xác Nhận </a></center>' +
+                '</td>' +
+                '<input type="hidden" value="'+item.Email+'" id="e2">' +
+            '</tr>';
+            
+            $('#listupdate').append(tr);
+            });
+        });
     }
     if(cnn == 'Thêm Danh Mục Đấu Giá')
     {

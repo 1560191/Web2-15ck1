@@ -84,3 +84,29 @@ exports.delete = function (sql) {
 
 	return d.promise;	
 }
+
+exports.update = function (sql) {
+	var d = q.defer();
+	
+	var cn = mysql.createConnection({
+		debug: false,
+		host: _HOST,
+		port: _PORT,
+		user: _USER,
+		password: _PWD,
+		database: _DB
+	});
+
+	cn.connect();
+	cn.query(sql, function (error, value) {
+		if (error) {
+			d.reject(error);
+		} else {
+			d.resolve(value.updateId);
+		}
+
+		cn.end();
+	});
+
+	return d.promise;	
+}

@@ -76,6 +76,20 @@ router.delete('/del/:_email', (req, res) => {
 		res.json('error');
 	}
 });
+
+router.get('/update/:pwd/:email', (req, res) => {
+	if (req.params.pwd) {
+		var email = req.params.email;
+		var pwd = req.params.pwd;
+
+		userRepo.update(pwd,email);
+		res.send('ok');
+	} else {
+		res.statusCode = 400;
+		res.json('error');
+	}
+});
+
 router.get('/:email', (req, res) => {
 	if (req.params.email) {
 		var email = req.params.email;
