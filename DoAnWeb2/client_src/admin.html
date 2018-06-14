@@ -43,7 +43,7 @@
     }
   </style>
 </head>
-<body>
+<body id="bodyadmin">
 
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
@@ -62,7 +62,9 @@
         <li><a id="qlnd" href="#">Quản Lý Người Dùng</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Loout</a></li>
+        <li><a id="dangnhapadmin" onclick="document.getElementById('login-pop').style.display='block'" class="w3-black w3-button w3-right fa fa-key w3-small"> Login</a></li>
+        <li><a id="usadmin"  class="w3-black w3-button w3-right fa fa-user w3-small"></a></li>
+        <li><a id="out" href="#"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
       </ul>
     </div>
   </div>
@@ -82,6 +84,35 @@
 </body>
 </html>
 
+<div id="login-pop" class=" modal">
+            <!-- Modal Content -->
+            
+            <div class="w3-col m7 l7" style="margin-left: 20%">
+                <span onclick="document.getElementById('login-pop').style.display='none'" 
+          class="close" title="Close Modal">&times;</span>
+            <div class="w3-col w3-white">
+                <div class="w3-container w3-teal">
+                    <h4>Đăng nhập</h4>
+                </div>
+                <form class=" w3-white" style="margin: 20px">
+                    
+                    <div class=" w3-text-teal w3-left" for="uname"><b>Email</b></div><br>
+                    <input class="w3-input w3-animate-input" style="width:135px" type="text" id="txtEmailadmin" placeholder="Enter Email"  required><br>
+                
+                    <div class=" w3-text-teal w3-left" for="psw"><b>Password</b></div><br>
+                    <input class=" w3-input w3-animate-input" style="width:135px" type="password" id="txtPasswordadmin" placeholder="Enter Password"  required>
+                    <br>
+
+                    <button id = "btnloginadmin" class="w3-row w3-btn w3-teal w3-margin-top w3-margin-bottom"  type="submit">Login</button>
+
+
+                    <button class="w3-row w3-btn w3-red w3-margin" type="button" onclick="document.getElementById('login-pop').style.display='none'">Cancel</button>
+                    <span class="psw">Forgot <a href="#">password?</a></span>
+
+                </form>
+            </div>
+        </div>
+      </div>
 <script src="assets/jquery-3.1.1.min.js"></script>
 <script src="assets/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 <script src="assets/handlebars.min-v4.0.11.js"></script>
@@ -89,6 +120,9 @@
 <script src="assets/me/admin.js"></script>
 <script src="assets/me/delete-update-user.js"></script>
 <script src="assets/me/add-del-up-danhmuc.js"></script>
+<script src="assets/me/chuyenPage.js"></script>
+<script src="assets/me/indexAdmin.js"></script>
+
 
 <script id="chucnang-temp" type="text/x-handlebars-template">
     {{#each this}}

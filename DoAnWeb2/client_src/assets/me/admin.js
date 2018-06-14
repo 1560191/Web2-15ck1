@@ -1,15 +1,77 @@
+$('#btnloginadmin').on('click', function () {
+     //alert('clicked');
+     var _PASSS = $('#txtPasswordadmin').val();
+     var _mail = $('#txtEmailadmin').val();
+    if (_mail == "") {
+        alert("Tên đăng nhập không được để trống");
+        return dieuhuong();
+    }
+    if (_PASSS == "") {
+        alert("Mật khẩu không được để trống");
+        return dieuhuong();
+    }
+    $.ajax({
+        url: 'http://localhost:3000/admin/'+_mail+'/'+_PASSS,
+        dataType: 'text',
+        timeout: 10000,
+    }).done(function(res) {
+        if(res == "0")
+        {
+            alert('Sai Tên Đăng Nhập Hoặc Mật Khẩu!');
+            return dieuhuong();
+        }
+        else
+       
+        {   
+            alert('Đăng Nhập Thành Công!');
+            localStorage.setItem('id_token', res); 
+            return dieuhuong();
+        }
+    
+    }).fail(function(xhr, textStatus, error) {
+            console.log(error);
+            console.log(xhr);
+    });
+    function dieuhuong(){
+        window.location.href = "http://localhost:8080/admin.html"; 
+    }
+});
+
+
 $('#duyet').on('click', function() {
-    var cn = {
-        cn1: 'Danh Sách Xin Bán'
-    };
-    var source = $('#chucnang-temp').html();
-    var template = Handlebars.compile(source);
-    $('#chucnang').html(template(cn));
+    var token = localStorage.getItem('id_token');
+    $.ajax({
+        url: 'http://localhost:3000/admin/'+token,
+        dataType: 'text',
+        timeout: 10000,
+    }).done(function(res) {
+        if(res != "0")
+        {   
+            var cn = {
+                cn1: 'Danh Sách Xin Bán'
+            };
+            var source = $('#chucnang-temp').html();
+            var template = Handlebars.compile(source);
+            $('#chucnang').html(template(cn));
+        }
+        else
+        {
+            alert('Bạn Chưa Đăng Nhập!');
+        }
+    })
 });
 
 
 $('#qlnd').on('click', function() {
-    var cn = {
+    var token = localStorage.getItem('id_token');
+    $.ajax({
+        url: 'http://localhost:3000/admin/'+token,
+        dataType: 'text',
+        timeout: 10000,
+    }).done(function(res) {
+        if(res != "0")
+        {   
+            var cn = {
         cn1: 'Xem Tất Cả Người Dùng',
         cn2: 'Xóa Người Dùng',
         cn3: 'Reset Mật Khẩu'
@@ -52,10 +114,24 @@ $('#qlnd').on('click', function() {
     var source = $('#chucnang-temp').html();
     var template = Handlebars.compile(source);
     $('#chucnang').html(template(cn));
+        }
+        else
+        {
+            alert('Bạn Chưa Đăng Nhập!');
+        }
+    })
 });
 
 $('#qlsp').on('click', function() {
-    var cn = {
+    var token = localStorage.getItem('id_token');
+    $.ajax({
+        url: 'http://localhost:3000/admin/'+token,
+        dataType: 'text',
+        timeout: 10000,
+    }).done(function(res) {
+        if(res != "0")
+        {   
+            var cn = {
         cn1: 'Thêm Danh Mục Đấu Giá',
         cn2: 'Sửa Danh Mục Đấu Giá',
         cn3: 'Xóa Danh Mục Đấu Giá'
@@ -85,6 +161,12 @@ $('#qlsp').on('click', function() {
     var source = $('#chucnang-temp').html();
     var template = Handlebars.compile(source);
     $('#chucnang').html(template(cn));
+        }
+        else
+        {
+            alert('Bạn Chưa Đăng Nhập!');
+        }
+    })
 });
 
 function chucnangcn(cnn){
@@ -293,4 +375,5 @@ function chucnangcn(cnn){
         });
     }
 };
+
 
