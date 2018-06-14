@@ -60,6 +60,28 @@ $('#qlsp').on('click', function() {
         cn2: 'Sửa Danh Mục Đấu Giá',
         cn3: 'Xóa Danh Mục Đấu Giá'
     };
+    $.ajax({
+            url: 'http://localhost:3000/danhmuc',
+            dataType: 'json',
+            timeout: 10000
+        }).done(function(data) {
+            var source0 = $('#noidung-temp-allDM').html();
+            var template0 = Handlebars.compile(source0);
+            $('#noidung').html(template0());
+            $.each(data, function(idx, item) {
+            // console.log(item.CatName);
+            var tr = '<tr>' +
+                '<td><center>' +
+                item.IDdanhmuc +
+                '</center></td>' +
+                '<td><center>' +
+                item.danhmucsp +
+                '</center></td>' +
+            '</tr>';
+            
+            $('#listDM').append(tr);
+            });
+        });
     var source = $('#chucnang-temp').html();
     var template = Handlebars.compile(source);
     $('#chucnang').html(template(cn));
@@ -190,30 +212,85 @@ function chucnangcn(cnn){
     }
     if(cnn == 'Thêm Danh Mục Đấu Giá')
     {
-        var st = {
-            st1: '5555555555555555555555555555555555555555555555555'
-        };
-        var source = $('#noidung-temp').html();
-        var template = Handlebars.compile(source);
-        $('#noidung').html(template(st));
+
+        $.ajax({
+            url: 'http://localhost:3000/danhmuc',
+            dataType: 'json',
+            timeout: 10000
+        }).done(function(data) {
+            var source = $('#noidung-temp-addDM').html();
+            var template = Handlebars.compile(source);
+            $('#noidung').html(template());
+            $.each(data, function(idx, item) {
+            // console.log(item.CatName);
+            var tr = '<tr>' +
+                '<td><center>' +
+                item.IDdanhmuc +
+                '</center></td>' +
+                '<td><center>' +
+                item.danhmucsp +
+                '</center></td>' +
+            '</tr>';
+            
+            $('#listDM').append(tr);
+            });
+        });
     }
     if(cnn == 'Sửa Danh Mục Đấu Giá')
     {
-        var st = {
-            st1: '6666666666666666666666666666666666666666666666666'
-        };
-        var source = $('#noidung-temp').html();
-        var template = Handlebars.compile(source);
-        $('#noidung').html(template(st));
+        $.ajax({
+            url: 'http://localhost:3000/danhmuc',
+            dataType: 'json',
+            timeout: 10000
+        }).done(function(data) {
+            var source0 = $('#noidung-temp-updateDM').html();
+            var template0 = Handlebars.compile(source0);
+            $('#noidung').html(template0());
+            $.each(data, function(idx, item) {
+            
+            var tr = '<tr>' +
+                '<td><center>' +
+                item.IDdanhmuc +
+                '</center></td>' +
+                '<td><center>' +
+                item.danhmucsp +
+                '</center></td>' +
+                '<td>' +
+                '<center><a href="javascript:updateDM('+item.IDdanhmuc+');"><span class="glyphicon glyphicon-ok"></span> Thay Đổi </a></center>' +
+                '</td>' +
+            '</tr>';
+            
+            $('#listupdateDM').append(tr);
+            });
+        });
     }
     if(cnn == 'Xóa Danh Mục Đấu Giá')
     {
-        var st = {
-            st1: '7777777777777777777777777777777777777777777777777'
-        };
-        var source = $('#noidung-temp').html();
-        var template = Handlebars.compile(source);
-        $('#noidung').html(template(st));
+        $.ajax({
+            url: 'http://localhost:3000/danhmuc',
+            dataType: 'json',
+            timeout: 10000
+        }).done(function(data) {
+            var source0 = $('#noidung-temp-delDM').html();
+            var template0 = Handlebars.compile(source0);
+            $('#noidung').html(template0());
+            $.each(data, function(idx, item) {
+            
+            var tr = '<tr>' +
+                '<td><center>' +
+                item.IDdanhmuc +
+                '</center></td>' +
+                '<td><center>' +
+                item.danhmucsp +
+                '</center></td>' +
+                '<td>' +
+                '<center><a href="javascript:delDM('+item.IDdanhmuc+');"><span class="glyphicon glyphicon-remove"></span> Xóa </a></center>' +
+                '</td>' +
+            '</tr>';
+            
+            $('#listdelDM').append(tr);
+            });
+        });
     }
 };
 

@@ -50,9 +50,14 @@ INSERT INTO `khachhang` (`IDUser`, `IDNguoidanhgia`, `Diemdanhgia`, `Nhanxet`, `
 --
 -- Table structure for table `sanpham`
 --
+CREATE TABLE `danhmuc` (
+  `IDdanhmuc` int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  `danhmucsp` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 CREATE TABLE `sanpham` (
-  `ID` int(10) NOT NULL,
+  `ID` int NOT NULL PRIMARY KEY AUTO_INCREMENT,
   `Ten` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `Phanloai` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `Hinhanh` varchar(30) NOT NULL,
@@ -72,23 +77,23 @@ CREATE TABLE `sanpham` (
 -- Dumping data for table `sanpham`
 --
 
-INSERT INTO `sanpham` (`ID`, `Ten`, `Phanloai`, `Hinhanh`, `Giakhoidiem`, `Giahientai`, `Buocgia`, `Giabanngay`, `Soluotragia`, `Thoigianbatdau`, `Thoigianketthuc`, `Mota`, `Nguoiban`, `Nguoimua`) VALUES
-(1, 'San Pham 1', 'Ba Lo', 'img/1.jpg', 100000, 100000, 10000, 500000, NULL, '2018-06-09', '2018-06-16', 'Day la mo ta', 'user1@gmail.com', NULL),
-(2, 'San Pham 2', 'Ba Lo', 'img/2.jpg', 100000, 100000, 10000, 500000, NULL, '2018-06-09', '2018-06-16', 'Day la mo ta', 'user1@gmail.com', NULL),
-(3, 'San Pham 3', 'Ba Lo', 'img/3.jpg', 100000, 100000, 10000, 500000, NULL, '2018-06-09', '2018-06-16', 'Day la mo ta', 'user1@gmail.com', NULL),
-(4, 'San Pham 4', 'Ba Lo', 'img/4.jpg', 100000, 100000, 10000, 500000, NULL, '2018-06-09', '2018-06-16', 'Day la mo ta', 'user1@gmail.com', NULL),
-(5, 'San Pham 5', 'Ba Lo', 'img/5.jpg', 100000, 100000, 10000, 500000, NULL, '2018-06-09', '2018-06-16', 'Day la mo ta', 'user1@gmail.com', NULL),
-(6, 'San Pham 6', 'Ba Lo', 'img/6.jpg', 100000, 100000, 10000, 500000, NULL, '2018-06-09', '2018-06-16', 'Day la mo ta', 'user1@gmail.com', NULL),
-(7, 'San Pham 7', 'Ba Lo', 'img/7.jpg', 100000, 100000, 10000, 500000, NULL, '2018-06-09', '2018-06-16', 'Day la mo ta', 'user1@gmail.com', NULL),
-(8, 'San Pham 8', 'Ba Lo', 'img/8.jpg', 100000, 100000, 10000, 500000, NULL, '2018-06-09', '2018-06-16', 'Day la mo ta', 'user1@gmail.com', NULL),
-(9, 'San Pham 9', 'Ba Lo', 'img/9.jpg', 100000, 100000, 10000, 500000, NULL, '2018-06-09', '2018-06-16', 'Day la mo ta', 'user1@gmail.com', NULL),
-(10, 'San Pham 10', 'Ba Lo', 'img/10.jpg', 100000, 100000, 10000, 500000, NULL, '2018-06-09', '2018-06-16', 'Day la mo ta', 'user1@gmail.com', NULL),
-(11, 'San Pham 11', 'Ba Lo', 'img/11.jpg', 100000, 100000, 10000, 500000, NULL, '2018-06-09', '2018-06-16', 'Day la mo ta', 'user1@gmail.com', NULL),
-(12, 'San Pham 12', 'Ba Lo', 'img/12.jpg', 100000, 100000, 10000, 500000, NULL, '2018-06-09', '2018-06-16', 'Day la mo ta', 'user1@gmail.com', NULL),
-(13, 'San Pham 13', 'Ba Lo', 'img/13.jpg', 100000, 100000, 10000, 500000, NULL, '2018-06-09', '2018-06-16', 'Day la mo ta', 'user1@gmail.com', NULL),
-(14, 'San Pham 14', 'Ba Lo', 'img/14.jpg', 100000, 100000, 10000, 500000, NULL, '2018-06-09', '2018-06-16', 'Day la mo ta', 'user1@gmail.com', NULL),
-(15, 'San Pham 15', 'Ba Lo', 'img/15.jpg', 100000, 100000, 10000, 500000, NULL, '2018-06-09', '2018-06-16', 'Day la mo ta', 'user1@gmail.com', NULL),
-(16, 'San Pham 16', 'Ba Lo', 'img/16.jpg', 900000, 1000000, 100000, 5000000, NULL, '2018-06-09', '2018-06-16', 'Day la mo ta', 'user1@gmail.com', NULL);
+INSERT INTO `sanpham` (`Ten`, `Phanloai`, `Hinhanh`, `Giakhoidiem`, `Giahientai`, `Buocgia`, `Giabanngay`, `Soluotragia`, `Thoigianbatdau`, `Thoigianketthuc`, `Mota`, `Nguoiban`, `Nguoimua`) VALUES
+('San Pham 1', 'Ba Lo', 'img/1.jpg', 100000, 100000, 10000, 500000, 1, '2018-06-14', '2018-06-21', 'Day la mo ta', 'user1@gmail.com', NULL),
+('San Pham 2', 'Ba Lo', 'img/2.jpg', 100000, 100000, 10000, 500000, 3, '2018-06-14', '2018-06-21', 'Day la mo ta', 'user1@gmail.com', NULL),
+('San Pham 3', 'Ba Lo', 'img/3.jpg', 100000, 100000, 10000, 500000, 2, '2018-06-14', '2018-06-21', 'Day la mo ta', 'user1@gmail.com', NULL),
+('San Pham 4', 'Ba Lo', 'img/4.jpg', 100000, 100000, 10000, 500000, 10, '2018-06-14', '2018-06-21', 'Day la mo ta', 'user1@gmail.com', NULL),
+('San Pham 5', 'Ba Lo', 'img/5.jpg', 100000, 100000, 10000, 500000, 5, '2018-06-14', '2018-06-21', 'Day la mo ta', 'user1@gmail.com', NULL),
+('San Pham 6', 'Ba Lo', 'img/6.jpg', 100000, 100000, 10000, 500000, 1, '2018-06-14', '2018-06-21', 'Day la mo ta', 'user1@gmail.com', NULL),
+('San Pham 7', 'Ba Lo', 'img/7.jpg', 100000, 100000, 10000, 500000, 4, '2018-06-14', '2018-06-21', 'Day la mo ta', 'user1@gmail.com', NULL),
+('San Pham 8', 'Ba Lo', 'img/8.jpg', 100000, 100000, 10000, 500000, 13, '2018-06-14', '2018-06-21', 'Day la mo ta', 'user1@gmail.com', NULL),
+('San Pham 9', 'Ba Lo', 'img/9.jpg', 100000, 100000, 10000, 500000, 11, '2018-06-14', '2018-06-21', 'Day la mo ta', 'user1@gmail.com', NULL),
+('San Pham 10', 'Ba Lo', 'img/10.jpg', 100000, 100000, 10000, 500000, 14, '2018-06-14', '2018-06-21', 'Day la mo ta', 'user1@gmail.com', NULL),
+('San Pham 11', 'Ba Lo', 'img/11.jpg', 100000, 100000, 10000, 500000, 12, '2018-06-14', '2018-06-21', 'Day la mo ta', 'user1@gmail.com', NULL),
+('San Pham 12', 'Ba Lo', 'img/12.jpg', 100000, 100000, 10000, 500000, 2, '2018-06-14', '2018-06-21', 'Day la mo ta', 'user1@gmail.com', NULL),
+('San Pham 13', 'Ba Lo', 'img/13.jpg', 100000, 100000, 10000, 500000, 9, '2018-06-14', '2018-06-21', 'Day la mo ta', 'user1@gmail.com', NULL),
+('San Pham 14', 'Ba Lo', 'img/14.jpg', 100000, 100000, 10000, 500000, 6, '2018-06-14', '2018-06-21', 'Day la mo ta', 'user1@gmail.com', NULL),
+('San Pham 15', 'Ba Lo', 'img/15.jpg', 100000, 100000, 10000, 500000, 4, '2018-06-14', '2018-06-21', 'Day la mo ta', 'user1@gmail.com', NULL),
+('San Pham 16', 'Ba Lo', 'img/16.jpg', 900000, 1000000, 100000, 5000000, 1, '2018-06-14', '2018-06-21', 'Day la mo ta', 'user1@gmail.com', NULL);
 
 -- --------------------------------------------------------
 
@@ -112,7 +117,7 @@ CREATE TABLE `taikhoan` (
 --
 
 INSERT INTO `taikhoan` (`Email`, `Password`, `Hoten`, `Diachi`, `SDT`, `Active`, `KhoiTao`, `Permission`) VALUES
-('admin@gmail.com', '123', 'admin', '123456', 0, 0, '2018-06-09 14:15:31', 0),
+('admin@gmail.com', '123', 'admin', '123456', 0, 0, '2018-06-09 14:15:31', 3),
 ('user1@gmail.com', '123', 'user 1', 'hcm', 0, 0, '2018-06-09 14:15:31', 1),
 ('user2@gmail.com', '123', 'user 2', 'hcm', 0, 0, '2018-06-09 14:15:31', 1);
 
@@ -136,7 +141,7 @@ ALTER TABLE `khachhang`
 -- Indexes for table `sanpham`
 --
 ALTER TABLE `sanpham`
-  ADD PRIMARY KEY (`ID`),
+  
   ADD KEY `Nguoiban` (`Nguoiban`),
   ADD KEY `Nguoimua` (`Nguoimua`);
 
@@ -153,8 +158,7 @@ ALTER TABLE `taikhoan`
 --
 -- AUTO_INCREMENT for table `sanpham`
 --
-ALTER TABLE `sanpham`
-  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
 --
 -- Constraints for dumped tables
 --

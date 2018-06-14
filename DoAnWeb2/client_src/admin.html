@@ -88,7 +88,7 @@
 <script src="assets/handlebars-intl-1.1.2/handlebars-intl.min.js"></script>
 <script src="assets/me/admin.js"></script>
 <script src="assets/me/delete-update-user.js"></script>
-
+<script src="assets/me/add-del-up-danhmuc.js"></script>
 
 <script id="chucnang-temp" type="text/x-handlebars-template">
     {{#each this}}
@@ -144,6 +144,72 @@
         </tr>
       </thead>
       <tbody id="listupdate"></tbody>
+    </table>
+</script>
+
+<script id="noidung-temp-allDM" type="text/x-handlebars-template">
+    <table border="1" width="1100px">
+      <thead>
+        <tr>
+          <td width="180px"><center>ID</center></td>
+          <td width="920px"><center>Danh Mục</center></td>
+        </tr>
+      </thead>
+      <tbody id="listDM"></tbody>
+    </table>
+</script>
+
+<script id="noidung-temp-addDM" type="text/x-handlebars-template">
+    
+    <table border="1" width="1100px">
+      <thead>
+        <tr>
+          <td width="180px"><center>ID</center></td>
+          <td width="920px"><center>Danh Mục</center></td>
+        </tr>
+      </thead>
+      <tbody id="listDM"></tbody>
+    </table>
+    <br>
+    <br>
+    <form class="form-inline">
+      <div class="form-group">
+        <label for="danhmuc">Nhập Danh Mục::</label>
+        <input type="text" class="form-control" id="danhmuc">
+      </div>
+      <a href="javascript:addDM();"><span class="glyphicon glyphicon-plus"></span> Thêm </a>
+    </form>
+</script>
+
+<script id="noidung-temp-updateDM" type="text/x-handlebars-template">
+    <form>
+      <div class="form-group">
+        <label for="danhmuc">Nhập Tên Danh Mục::</label>
+        <input type="text" class="form-control" id="dmMoi">
+      </div>
+    </form>
+    <table border="1" width="1100px">
+      <thead>
+        <tr>
+          <td width="180px"><center>ID Danh Mục</center></td>
+          <td width="740px"><center>Tên Danh Mục Hiện Tại</center></td>
+          <td width="180px"><center>Thay Đổi</center></td>
+        </tr>
+      </thead>
+      <tbody id="listupdateDM"></tbody>
+    </table>
+</script>
+
+<script id="noidung-temp-delDM" type="text/x-handlebars-template">
+    <table border="1" width="1100px">
+      <thead>
+        <tr>
+          <td width="180px"><center>ID Danh Mục</center></td>
+          <td width="740px"><center>Tên Danh Mục</center></td>
+          <td width="180px"><center>Xóa</center></td>
+        </tr>
+      </thead>
+      <tbody id="listdelDM"></tbody>
     </table>
 </script>
 

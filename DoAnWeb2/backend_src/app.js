@@ -8,6 +8,7 @@ var userCtrl = require('./apiControllers/userController');
 var mailCtrl = require('./apiControllers/mailController');
 var loginCtrl = require('./apiControllers/loginController');
 var capchaCtrl = require('./apiControllers/capchaController');
+var danhmucCtrl = require('./apiControllers/danhmucController');
 var app = express();
 
 app.use(morgan('dev'));
@@ -28,6 +29,7 @@ app.use('/user', userCtrl);
 app.use('/mail',mailCtrl);
 app.use('/login',loginCtrl);
 app.use('/capcha', capchaCtrl);
+app.use('/danhmuc', danhmucCtrl);
 app.listen(3000, () => {
 	console.log('API running on port 3000');
 });
