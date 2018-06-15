@@ -2,10 +2,10 @@
 -- version 4.6.4
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Jun 10, 2018 at 06:39 AM
--- Server version: 5.7.14
--- PHP Version: 5.6.25
+-- Máy chủ: 127.0.0.1
+-- Thời gian đã tạo: Th6 15, 2018 lúc 12:02 CH
+-- Phiên bản máy phục vụ: 5.7.14
+-- Phiên bản PHP: 7.0.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,47 +17,42 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `web2`
+-- Cơ sở dữ liệu: `web2`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `khachhang`
+-- Cấu trúc bảng cho bảng `danhmuc`
 --
 
-CREATE TABLE `khachhang` (
-  `IDUser` varchar(30) NOT NULL,
-  `IDNguoidanhgia` varchar(30) NOT NULL,
-  `Diemdanhgia` int(11) NOT NULL,
-  `Nhanxet` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `Danhsachyeuthich` int(11) DEFAULT NULL,
-  `Sanphamdangban` int(11) DEFAULT NULL,
-  `Sanphamdaban` int(11) DEFAULT NULL,
-  `Sanphamdadaugia` int(11) DEFAULT NULL,
-  `Sanphamdathang` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `khachhang`
---
-
-INSERT INTO `khachhang` (`IDUser`, `IDNguoidanhgia`, `Diemdanhgia`, `Nhanxet`, `Danhsachyeuthich`, `Sanphamdangban`, `Sanphamdaban`, `Sanphamdadaugia`, `Sanphamdathang`) VALUES
-('user1@gmail.com', 'user2@gmail.com', 10, 'good', 1, 2, 3, NULL, NULL);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `sanpham`
---
 CREATE TABLE `danhmuc` (
-  `IDdanhmuc` int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  `IDdanhmuc` int(11) NOT NULL,
   `danhmucsp` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `daugia`
+--
+
+CREATE TABLE `daugia` (
+  `ID` int(11) NOT NULL,
+  `IDnguoimua` int(11) DEFAULT NULL,
+  `IDSP` int(11) DEFAULT NULL,
+  `thoigian` date NOT NULL,
+  `Gia` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `sanpham`
+--
 
 CREATE TABLE `sanpham` (
-  `ID` int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  `ID` int(11) NOT NULL,
   `Ten` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `Phanloai` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `Hinhanh` varchar(30) NOT NULL,
@@ -66,39 +61,38 @@ CREATE TABLE `sanpham` (
   `Buocgia` bigint(20) NOT NULL,
   `Giabanngay` bigint(20) DEFAULT NULL,
   `Soluotragia` int(11) DEFAULT NULL,
-  `Thoigianbatdau` date NOT NULL,
-  `Thoigianketthuc` date NOT NULL,
+  `Thoigianbatdau` datetime NOT NULL,
+  `Thoigianketthuc` datetime NOT NULL,
   `Mota` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `Nguoiban` varchar(30) NOT NULL,
-  `Nguoimua` varchar(30) DEFAULT NULL
+  `Nguoiban` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `sanpham`
+-- Đang đổ dữ liệu cho bảng `sanpham`
 --
 
-INSERT INTO `sanpham` (`Ten`, `Phanloai`, `Hinhanh`, `Giakhoidiem`, `Giahientai`, `Buocgia`, `Giabanngay`, `Soluotragia`, `Thoigianbatdau`, `Thoigianketthuc`, `Mota`, `Nguoiban`, `Nguoimua`) VALUES
-('San Pham 1', 'Ba Lo', 'img/1.jpg', 100000, 100000, 10000, 500000, 1, '2018-06-14', '2018-06-21', 'Day la mo ta', 'user1@gmail.com', NULL),
-('San Pham 2', 'Ba Lo', 'img/2.jpg', 100000, 100000, 10000, 500000, 3, '2018-06-14', '2018-06-21', 'Day la mo ta', 'user1@gmail.com', NULL),
-('San Pham 3', 'Ba Lo', 'img/3.jpg', 100000, 100000, 10000, 500000, 2, '2018-06-14', '2018-06-21', 'Day la mo ta', 'user1@gmail.com', NULL),
-('San Pham 4', 'Ba Lo', 'img/4.jpg', 100000, 100000, 10000, 500000, 10, '2018-06-14', '2018-06-21', 'Day la mo ta', 'user1@gmail.com', NULL),
-('San Pham 5', 'Ba Lo', 'img/5.jpg', 100000, 100000, 10000, 500000, 5, '2018-06-14', '2018-06-21', 'Day la mo ta', 'user1@gmail.com', NULL),
-('San Pham 6', 'Ba Lo', 'img/6.jpg', 100000, 100000, 10000, 500000, 1, '2018-06-14', '2018-06-21', 'Day la mo ta', 'user1@gmail.com', NULL),
-('San Pham 7', 'Ba Lo', 'img/7.jpg', 100000, 100000, 10000, 500000, 4, '2018-06-14', '2018-06-21', 'Day la mo ta', 'user1@gmail.com', NULL),
-('San Pham 8', 'Ba Lo', 'img/8.jpg', 100000, 100000, 10000, 500000, 13, '2018-06-14', '2018-06-21', 'Day la mo ta', 'user1@gmail.com', NULL),
-('San Pham 9', 'Ba Lo', 'img/9.jpg', 100000, 100000, 10000, 500000, 11, '2018-06-14', '2018-06-21', 'Day la mo ta', 'user1@gmail.com', NULL),
-('San Pham 10', 'Ba Lo', 'img/10.jpg', 100000, 100000, 10000, 500000, 14, '2018-06-14', '2018-06-21', 'Day la mo ta', 'user1@gmail.com', NULL),
-('San Pham 11', 'Ba Lo', 'img/11.jpg', 100000, 100000, 10000, 500000, 12, '2018-06-14', '2018-06-21', 'Day la mo ta', 'user1@gmail.com', NULL),
-('San Pham 12', 'Ba Lo', 'img/12.jpg', 100000, 100000, 10000, 500000, 2, '2018-06-14', '2018-06-21', 'Day la mo ta', 'user1@gmail.com', NULL),
-('San Pham 13', 'Ba Lo', 'img/13.jpg', 100000, 100000, 10000, 500000, 9, '2018-06-14', '2018-06-21', 'Day la mo ta', 'user1@gmail.com', NULL),
-('San Pham 14', 'Ba Lo', 'img/14.jpg', 100000, 100000, 10000, 500000, 6, '2018-06-14', '2018-06-21', 'Day la mo ta', 'user1@gmail.com', NULL),
-('San Pham 15', 'Ba Lo', 'img/15.jpg', 100000, 100000, 10000, 500000, 4, '2018-06-14', '2018-06-21', 'Day la mo ta', 'user1@gmail.com', NULL),
-('San Pham 16', 'Ba Lo', 'img/16.jpg', 900000, 1000000, 100000, 5000000, 1, '2018-06-14', '2018-06-21', 'Day la mo ta', 'user1@gmail.com', NULL);
+INSERT INTO `sanpham` (`ID`, `Ten`, `Phanloai`, `Hinhanh`, `Giakhoidiem`, `Giahientai`, `Buocgia`, `Giabanngay`, `Soluotragia`, `Thoigianbatdau`, `Thoigianketthuc`, `Mota`, `Nguoiban`) VALUES
+(1, 'San Pham 1', 'Ba Lo', 'img/1.jpg', 100000, 100000, 10000, 500000, 1, '2018-06-14 00:00:00', '2018-06-21 00:00:00', 'Day la mo ta', 'user1@gmail.com'),
+(2, 'San Pham 2', 'Ba Lo', 'img/2.jpg', 100000, 100000, 10000, 500000, 3, '2018-06-14 00:00:00', '2018-06-21 00:00:00', 'Day la mo ta', 'user1@gmail.com'),
+(3, 'San Pham 3', 'Ba Lo', 'img/3.jpg', 100000, 100000, 10000, 500000, 2, '2018-06-14 00:00:00', '2018-06-21 00:00:00', 'Day la mo ta', 'user1@gmail.com'),
+(4, 'San Pham 4', 'Ba Lo', 'img/4.jpg', 100000, 100000, 10000, 500000, 10, '2018-06-14 00:00:00', '2018-06-21 00:00:00', 'Day la mo ta', 'user1@gmail.com'),
+(5, 'San Pham 5', 'Ba Lo', 'img/5.jpg', 100000, 100000, 10000, 500000, 5, '2018-06-14 00:00:00', '2018-06-21 00:00:00', 'Day la mo ta', 'user1@gmail.com'),
+(6, 'San Pham 6', 'Ba Lo', 'img/6.jpg', 100000, 100000, 10000, 500000, 1, '2018-06-14 00:00:00', '2018-06-21 00:00:00', 'Day la mo ta', 'user1@gmail.com'),
+(7, 'San Pham 7', 'Ba Lo', 'img/7.jpg', 100000, 100000, 10000, 500000, 4, '2018-06-14 00:00:00', '2018-06-21 00:00:00', 'Day la mo ta', 'user1@gmail.com'),
+(8, 'San Pham 8', 'Ba Lo', 'img/8.jpg', 100000, 100000, 10000, 500000, 13, '2018-06-14 00:00:00', '2018-06-21 00:00:00', 'Day la mo ta', 'user1@gmail.com'),
+(9, 'San Pham 9', 'Ba Lo', 'img/9.jpg', 100000, 100000, 10000, 500000, 11, '2018-06-14 00:00:00', '2018-06-21 00:00:00', 'Day la mo ta', 'user1@gmail.com'),
+(10, 'San Pham 10', 'Ba Lo', 'img/10.jpg', 100000, 100000, 10000, 500000, 14, '2018-06-14 00:00:00', '2018-06-21 00:00:00', 'Day la mo ta', 'user1@gmail.com'),
+(11, 'San Pham 11', 'Ba Lo', 'img/11.jpg', 100000, 100000, 10000, 500000, 12, '2018-06-14 00:00:00', '2018-06-21 00:00:00', 'Day la mo ta', 'user1@gmail.com'),
+(12, 'San Pham 12', 'Ba Lo', 'img/12.jpg', 100000, 100000, 10000, 500000, 2, '2018-06-14 00:00:00', '2018-06-21 00:00:00', 'Day la mo ta', 'user1@gmail.com'),
+(13, 'San Pham 13', 'Ba Lo', 'img/13.jpg', 100000, 100000, 10000, 500000, 9, '2018-06-14 00:00:00', '2018-06-21 00:00:00', 'Day la mo ta', 'user1@gmail.com)'),
+(14, 'San Pham 14', 'Ba Lo', 'img/14.jpg', 100000, 100000, 10000, 500000, 6, '2018-06-14 00:00:00', '2018-06-21 00:00:00', 'Day la mo ta', 'user1@gmail.com'),
+(15, 'San Pham 15', 'Ba Lo', 'img/15.jpg', 100000, 100000, 10000, 500000, 4, '2018-06-14 00:00:00', '2018-06-21 00:00:00', 'Day la mo ta', 'user1@gmail.com'),
+(16, 'San Pham 16', 'Ba Lo', 'img/16.jpg', 900000, 1000000, 100000, 5000000, 1, '2018-06-14 00:00:00', '2018-06-21 00:00:00', 'Day la mo ta', 'user1@gmail.com');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `taikhoan`
+-- Cấu trúc bảng cho bảng `taikhoan`
 --
 
 CREATE TABLE `taikhoan` (
@@ -113,7 +107,7 @@ CREATE TABLE `taikhoan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `taikhoan`
+-- Đang đổ dữ liệu cho bảng `taikhoan`
 --
 
 INSERT INTO `taikhoan` (`Email`, `Password`, `Hoten`, `Diachi`, `SDT`, `Active`, `KhoiTao`, `Permission`) VALUES
@@ -121,67 +115,89 @@ INSERT INTO `taikhoan` (`Email`, `Password`, `Hoten`, `Diachi`, `SDT`, `Active`,
 ('user1@gmail.com', '123', 'user 1', 'hcm', 0, 0, '2018-06-09 14:15:31', 1),
 ('user2@gmail.com', '123', 'user 2', 'hcm', 0, 0, '2018-06-09 14:15:31', 1);
 
+-- --------------------------------------------------------
+
 --
--- Indexes for dumped tables
+-- Cấu trúc bảng cho bảng `xinban`
+--
+
+CREATE TABLE `xinban` (
+  `ID` int(11) NOT NULL,
+  `Email` varchar(255) DEFAULT NULL,
+  `Active` int(1) DEFAULT NULL,
+  `thoigianbatdau` datetime DEFAULT CURRENT_TIMESTAMP,
+  `thoigianketthuc` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `yeuthich`
+--
+
+CREATE TABLE `yeuthich` (
+  `Email` varchar(255) DEFAULT NULL,
+  `ID` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Chỉ mục cho các bảng đã đổ
 --
 
 --
--- Indexes for table `khachhang`
+-- Chỉ mục cho bảng `danhmuc`
 --
-ALTER TABLE `khachhang`
-  ADD KEY `Sanphamdaban` (`Sanphamdaban`),
-  ADD KEY `Sanphamdangban` (`Sanphamdangban`),
-  ADD KEY `Sanphamdadaugia` (`Sanphamdadaugia`),
-  ADD KEY `Sanphamdathang` (`Sanphamdathang`),
-  ADD KEY `IDUser` (`IDUser`),
-  ADD KEY `IDNguoidanhgia` (`IDNguoidanhgia`),
-  ADD KEY `Danhsachyeuthich` (`Danhsachyeuthich`);
+ALTER TABLE `danhmuc`
+  ADD PRIMARY KEY (`IDdanhmuc`);
 
 --
--- Indexes for table `sanpham`
+-- Chỉ mục cho bảng `daugia`
+--
+ALTER TABLE `daugia`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Chỉ mục cho bảng `sanpham`
 --
 ALTER TABLE `sanpham`
-  
-  ADD KEY `Nguoiban` (`Nguoiban`),
-  ADD KEY `Nguoimua` (`Nguoimua`);
+  ADD PRIMARY KEY (`ID`);
 
 --
--- Indexes for table `taikhoan`
+-- Chỉ mục cho bảng `taikhoan`
 --
 ALTER TABLE `taikhoan`
   ADD PRIMARY KEY (`Email`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- Chỉ mục cho bảng `xinban`
+--
+ALTER TABLE `xinban`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- AUTO_INCREMENT cho các bảng đã đổ
 --
 
 --
--- AUTO_INCREMENT for table `sanpham`
+-- AUTO_INCREMENT cho bảng `danhmuc`
 --
-
+ALTER TABLE `danhmuc`
+  MODIFY `IDdanhmuc` int(11) NOT NULL AUTO_INCREMENT;
 --
--- Constraints for dumped tables
+-- AUTO_INCREMENT cho bảng `daugia`
 --
-
+ALTER TABLE `daugia`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- Constraints for table `khachhang`
---
-ALTER TABLE `khachhang`
-  ADD CONSTRAINT `khachhang_ibfk_1` FOREIGN KEY (`Sanphamdaban`) REFERENCES `sanpham` (`ID`),
-  ADD CONSTRAINT `khachhang_ibfk_2` FOREIGN KEY (`Sanphamdangban`) REFERENCES `sanpham` (`ID`),
-  ADD CONSTRAINT `khachhang_ibfk_3` FOREIGN KEY (`Sanphamdadaugia`) REFERENCES `sanpham` (`ID`),
-  ADD CONSTRAINT `khachhang_ibfk_4` FOREIGN KEY (`Sanphamdathang`) REFERENCES `sanpham` (`ID`),
-  ADD CONSTRAINT `khachhang_ibfk_5` FOREIGN KEY (`IDUser`) REFERENCES `taikhoan` (`Email`),
-  ADD CONSTRAINT `khachhang_ibfk_6` FOREIGN KEY (`IDNguoidanhgia`) REFERENCES `taikhoan` (`Email`),
-  ADD CONSTRAINT `khachhang_ibfk_7` FOREIGN KEY (`Danhsachyeuthich`) REFERENCES `sanpham` (`ID`);
-
---
--- Constraints for table `sanpham`
+-- AUTO_INCREMENT cho bảng `sanpham`
 --
 ALTER TABLE `sanpham`
-  ADD CONSTRAINT `sanpham_ibfk_1` FOREIGN KEY (`Nguoiban`) REFERENCES `taikhoan` (`Email`),
-  ADD CONSTRAINT `sanpham_ibfk_2` FOREIGN KEY (`Nguoimua`) REFERENCES `taikhoan` (`Email`);
-
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+--
+-- AUTO_INCREMENT cho bảng `xinban`
+--
+ALTER TABLE `xinban`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
