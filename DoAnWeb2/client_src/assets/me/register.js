@@ -114,7 +114,7 @@ $('#btnRegister').on('click', function () {
         Password: _PASSS,
         Name: _fullname,
         Email: _mail,
-       Permission: "1"
+       Permission: "0"
     };
     if(_Phone.length < 1 || _PASSS.length < 1 || _mail.length < 1 || _fullname.length < 1 || _addresss.length < 1)
     {   

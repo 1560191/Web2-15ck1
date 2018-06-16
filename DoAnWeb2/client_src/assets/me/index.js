@@ -10,7 +10,9 @@ $(function() {
              $('#khach').hide();
              $('#dangky').hide();
              $('#dangnhap').hide();
-             $('#thoat').show();
+             //$('#thoat').show();
+             $('#nguoidung').show();
+             $('#upsanpham').show();
              var ten = res;
              $('#list1').append(ten);
         }
@@ -25,7 +27,9 @@ $('#thoat').click(function () {
      localStorage.clear();
      window.location.href = "http://localhost:8080"; 
 });
-$('#thoat').hide();
+$('#upsanpham').hide();
+$('#nguoidung').hide();
+//$('#thoat').hide();
 $('#backhome').hide();
 var CUR_PAGE = 1;
 $('#btnMore2').hide();

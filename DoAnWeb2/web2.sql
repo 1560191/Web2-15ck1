@@ -19,8 +19,22 @@ SET time_zone = "+00:00";
 --
 -- Cơ sở dữ liệu: `web2`
 --
-
+CREATE TABLE IF NOT EXISTS `khachhang` (
+  `IDUser` varchar(30) NOT NULL,
+  `IDNguoidanhgia` varchar(30) NOT NULL,
+  `Diemdanhgia` int(11) NOT NULL,
+  `Nhanxet` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `Danhsachyeuthich` int(11) DEFAULT NULL,
+  `Sanphamdangban` int(11) DEFAULT NULL,
+  `Sanphamdaban` int(11) DEFAULT NULL,
+  `Sanphamdadaugia` int(11) DEFAULT NULL,
+  `Sanphamdathang` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 -- --------------------------------------------------------
+INSERT INTO `khachhang` (`IDUser`, `IDNguoidanhgia`, `Diemdanhgia`, `Nhanxet`, `Danhsachyeuthich`, `Sanphamdangban`, `Sanphamdaban`, `Sanphamdadaugia`, `Sanphamdathang`) VALUES
+('user1@gmail.com', 'user2@gmail.com', 10, 'good', 1, 2, 3, NULL, NULL);
+
+
 
 --
 -- Cấu trúc bảng cho bảng `danhmuc`
@@ -72,22 +86,22 @@ CREATE TABLE `sanpham` (
 --
 
 INSERT INTO `sanpham` (`ID`, `Ten`, `Phanloai`, `Hinhanh`, `Giakhoidiem`, `Giahientai`, `Buocgia`, `Giabanngay`, `Soluotragia`, `Thoigianbatdau`, `Thoigianketthuc`, `Mota`, `Nguoiban`) VALUES
-(1, 'San Pham 1', 'Ba Lo', 'img/1.jpg', 100000, 100000, 10000, 500000, 1, '2018-06-14 00:00:00', '2018-06-21 00:00:00', 'Day la mo ta', 'user1@gmail.com'),
-(2, 'San Pham 2', 'Ba Lo', 'img/2.jpg', 100000, 100000, 10000, 500000, 3, '2018-06-14 00:00:00', '2018-06-21 00:00:00', 'Day la mo ta', 'user1@gmail.com'),
-(3, 'San Pham 3', 'Ba Lo', 'img/3.jpg', 100000, 100000, 10000, 500000, 2, '2018-06-14 00:00:00', '2018-06-21 00:00:00', 'Day la mo ta', 'user1@gmail.com'),
-(4, 'San Pham 4', 'Ba Lo', 'img/4.jpg', 100000, 100000, 10000, 500000, 10, '2018-06-14 00:00:00', '2018-06-21 00:00:00', 'Day la mo ta', 'user1@gmail.com'),
-(5, 'San Pham 5', 'Ba Lo', 'img/5.jpg', 100000, 100000, 10000, 500000, 5, '2018-06-14 00:00:00', '2018-06-21 00:00:00', 'Day la mo ta', 'user1@gmail.com'),
-(6, 'San Pham 6', 'Ba Lo', 'img/6.jpg', 100000, 100000, 10000, 500000, 1, '2018-06-14 00:00:00', '2018-06-21 00:00:00', 'Day la mo ta', 'user1@gmail.com'),
-(7, 'San Pham 7', 'Ba Lo', 'img/7.jpg', 100000, 100000, 10000, 500000, 4, '2018-06-14 00:00:00', '2018-06-21 00:00:00', 'Day la mo ta', 'user1@gmail.com'),
-(8, 'San Pham 8', 'Ba Lo', 'img/8.jpg', 100000, 100000, 10000, 500000, 13, '2018-06-14 00:00:00', '2018-06-21 00:00:00', 'Day la mo ta', 'user1@gmail.com'),
-(9, 'San Pham 9', 'Ba Lo', 'img/9.jpg', 100000, 100000, 10000, 500000, 11, '2018-06-14 00:00:00', '2018-06-21 00:00:00', 'Day la mo ta', 'user1@gmail.com'),
-(10, 'San Pham 10', 'Ba Lo', 'img/10.jpg', 100000, 100000, 10000, 500000, 14, '2018-06-14 00:00:00', '2018-06-21 00:00:00', 'Day la mo ta', 'user1@gmail.com'),
-(11, 'San Pham 11', 'Ba Lo', 'img/11.jpg', 100000, 100000, 10000, 500000, 12, '2018-06-14 00:00:00', '2018-06-21 00:00:00', 'Day la mo ta', 'user1@gmail.com'),
-(12, 'San Pham 12', 'Ba Lo', 'img/12.jpg', 100000, 100000, 10000, 500000, 2, '2018-06-14 00:00:00', '2018-06-21 00:00:00', 'Day la mo ta', 'user1@gmail.com'),
-(13, 'San Pham 13', 'Ba Lo', 'img/13.jpg', 100000, 100000, 10000, 500000, 9, '2018-06-14 00:00:00', '2018-06-21 00:00:00', 'Day la mo ta', 'user1@gmail.com)'),
-(14, 'San Pham 14', 'Ba Lo', 'img/14.jpg', 100000, 100000, 10000, 500000, 6, '2018-06-14 00:00:00', '2018-06-21 00:00:00', 'Day la mo ta', 'user1@gmail.com'),
-(15, 'San Pham 15', 'Ba Lo', 'img/15.jpg', 100000, 100000, 10000, 500000, 4, '2018-06-14 00:00:00', '2018-06-21 00:00:00', 'Day la mo ta', 'user1@gmail.com'),
-(16, 'San Pham 16', 'Ba Lo', 'img/16.jpg', 900000, 1000000, 100000, 5000000, 1, '2018-06-14 00:00:00', '2018-06-21 00:00:00', 'Day la mo ta', 'user1@gmail.com');
+(1, 'San Pham 1', 'Ba Lo', 'imgs/1/main_thumbs.jpg', 100000, 100000, 10000, 500000, 1, '2018-06-14 00:00:00', '2018-06-21 00:00:00', 'Day la mo ta', 'user1@gmail.com'),
+(2, 'San Pham 2', 'Ba Lo', 'imgs/2/main_thumbs.jpg', 100000, 100000, 10000, 500000, 3, '2018-06-14 00:00:00', '2018-06-21 00:00:00', 'Day la mo ta', 'user1@gmail.com'),
+(3, 'San Pham 3', 'Ba Lo', 'imgs/3/main_thumbs.jpg', 100000, 100000, 10000, 500000, 2, '2018-06-14 00:00:00', '2018-06-21 00:00:00', 'Day la mo ta', 'user1@gmail.com'),
+(4, 'San Pham 4', 'Ba Lo', 'imgs/4/main_thumbs.jpg', 100000, 100000, 10000, 500000, 10, '2018-06-14 00:00:00', '2018-06-21 00:00:00', 'Day la mo ta', 'user1@gmail.com'),
+(5, 'San Pham 5', 'Ba Lo', 'imgs/5/main_thumbs.jpg', 100000, 100000, 10000, 500000, 5, '2018-06-14 00:00:00', '2018-06-21 00:00:00', 'Day la mo ta', 'user1@gmail.com'),
+(6, 'San Pham 6', 'Ba Lo', 'imgs/6/main_thumbs.jpg', 100000, 100000, 10000, 500000, 1, '2018-06-14 00:00:00', '2018-06-21 00:00:00', 'Day la mo ta', 'user1@gmail.com'),
+(7, 'San Pham 7', 'Ba Lo', 'imgs/7/main_thumbs.jpg', 100000, 100000, 10000, 500000, 4, '2018-06-14 00:00:00', '2018-06-21 00:00:00', 'Day la mo ta', 'user1@gmail.com'),
+(8, 'San Pham 8', 'Ba Lo', 'imgs/8/main_thumbs.jpg', 100000, 100000, 10000, 500000, 13, '2018-06-14 00:00:00', '2018-06-21 00:00:00', 'Day la mo ta', 'user1@gmail.com'),
+(9, 'San Pham 9', 'Ba Lo', 'imgs/9/main_thumbs.jpg', 100000, 100000, 10000, 500000, 11, '2018-06-14 00:00:00', '2018-06-21 00:00:00', 'Day la mo ta', 'user1@gmail.com'),
+(10, 'San Pham 10', 'Ba Lo', 'imgs/10/main_thumbs.jpg', 100000, 100000, 10000, 500000, 14, '2018-06-14 00:00:00', '2018-06-21 00:00:00', 'Day la mo ta', 'user1@gmail.com'),
+(11, 'San Pham 11', 'Ba Lo', 'imgs/11/main_thumbs.jpg', 100000, 100000, 10000, 500000, 12, '2018-06-14 00:00:00', '2018-06-21 00:00:00', 'Day la mo ta', 'user1@gmail.com'),
+(12, 'San Pham 12', 'Ba Lo', 'imgs/12/main_thumbs.jpg', 100000, 100000, 10000, 500000, 2, '2018-06-14 00:00:00', '2018-06-21 00:00:00', 'Day la mo ta', 'user1@gmail.com'),
+(13, 'San Pham 13', 'Ba Lo', 'imgs/13/main_thumbs.jpg', 100000, 100000, 10000, 500000, 9, '2018-06-14 00:00:00', '2018-06-21 00:00:00', 'Day la mo ta', 'user1@gmail.com)'),
+(14, 'San Pham 14', 'Ba Lo', 'imgs/14/main_thumbs.jpg', 100000, 100000, 10000, 500000, 6, '2018-06-14 00:00:00', '2018-06-21 00:00:00', 'Day la mo ta', 'user1@gmail.com'),
+(15, 'San Pham 15', 'Ba Lo', 'imgs/15/main_thumbs.jpg', 100000, 100000, 10000, 500000, 4, '2018-06-14 00:00:00', '2018-06-21 00:00:00', 'Day la mo ta', 'user1@gmail.com'),
+(16, 'San Pham 16', 'Ba Lo', 'imgs/16/main_thumbs.jpg', 900000, 1000000, 100000, 5000000, 1, '2018-06-14 00:00:00', '2018-06-21 00:00:00', 'Day la mo ta', 'user1@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -143,6 +157,9 @@ CREATE TABLE `yeuthich` (
 --
 -- Chỉ mục cho các bảng đã đổ
 --
+ALTER TABLE `khachhang`
+ ADD KEY `Sanphamdaban` (`Sanphamdaban`), ADD KEY `Sanphamdangban` (`Sanphamdangban`), ADD KEY `Sanphamdadaugia` (`Sanphamdadaugia`), ADD KEY `Sanphamdathang` (`Sanphamdathang`), ADD KEY `IDUser` (`IDUser`), ADD KEY `IDNguoidanhgia` (`IDNguoidanhgia`), ADD KEY `Danhsachyeuthich` (`Danhsachyeuthich`);
+
 
 --
 -- Chỉ mục cho bảng `danhmuc`
@@ -198,6 +215,15 @@ ALTER TABLE `sanpham`
 --
 ALTER TABLE `xinban`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+
+ALTER TABLE `khachhang`
+ADD CONSTRAINT `khachhang_ibfk_1` FOREIGN KEY (`Sanphamdaban`) REFERENCES `sanpham` (`ID`),
+ADD CONSTRAINT `khachhang_ibfk_2` FOREIGN KEY (`Sanphamdangban`) REFERENCES `sanpham` (`ID`),
+ADD CONSTRAINT `khachhang_ibfk_3` FOREIGN KEY (`Sanphamdadaugia`) REFERENCES `sanpham` (`ID`),
+ADD CONSTRAINT `khachhang_ibfk_4` FOREIGN KEY (`Sanphamdathang`) REFERENCES `sanpham` (`ID`),
+ADD CONSTRAINT `khachhang_ibfk_5` FOREIGN KEY (`IDUser`) REFERENCES `taikhoan` (`Email`),
+ADD CONSTRAINT `khachhang_ibfk_6` FOREIGN KEY (`IDNguoidanhgia`) REFERENCES `taikhoan` (`Email`),
+ADD CONSTRAINT `khachhang_ibfk_7` FOREIGN KEY (`Danhsachyeuthich`) REFERENCES `sanpham` (`ID`);
+  /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

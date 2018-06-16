@@ -58,13 +58,13 @@ exports.sapXepNgay = function(page) {
 }
 
 
-exports.add = function(poco) {
+exports.add = function(Ten,Phanloai,Giakhoidiem,Giahientai,Buocgia,Giabanngay,day,Mota,Nguoiban) {
 	// poco = {
 	// 	CatID: 1,
 	// 	CatName: 'new name'
 	// }
 	
-	var sql = `insert into sanpham(Ten,Phanloai,Hinhanh,Giakhoidiem,Giahientai,Buocgia,Giabanngay,Soluotragia,Thoigianbatdau,Thoigianketthuc,Mota,Nguoiban,Nguoimua) values('${poco.Ten}','${poco.Phanloai}','${poco.Hinhanh}','${poco.Giakhoidiem}','${poco.Giahientai}','${poco.Buocgia}','${poco.Giabanngay}','${poco.Soluotragia}','${poco.Thoigianbatdau}','${poco.Thoigianketthuc}','${poco.Mota}','${poco.Nguoiban}','${poco.Nguoimua}'`;
+	var sql = `insert into sanpham(Ten,Phanloai,Hinhanh,Giakhoidiem,Giahientai,Buocgia,Giabanngay,Soluotragia,Thoigianbatdau,Thoigianketthuc,Mota,Nguoiban) values('${Ten}','${Phanloai}','imgs/ID/main_thumbs.jpg',${Giakhoidiem},${Giahientai},${Buocgia},${Giabanngay},0,NOW(),DATE_ADD(NOW(), INTERVAL ${day} DAY),'${Mota}','${Nguoiban}')`;
 	return db.insert(sql);
 }
 

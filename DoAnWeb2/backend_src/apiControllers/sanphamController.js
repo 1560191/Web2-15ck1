@@ -266,4 +266,25 @@ router.delete('/:id', (req, res) => {
 	}
 });
 
+router.get('/add/:Ten/:Phanloai/:Giakhoidiem/:Giahientai/:Buocgia/:Giabanngay/:day/:Mota/:Nguoiban', (req, res) => {
+    if (req.params.Ten) {
+        var Ten = req.params.Ten;
+        var Phanloai = req.params.Phanloai;
+        var Giakhoidiem = req.params.Giakhoidiem;
+        var Giahientai = req.params.Giahientai;
+        var Buocgia = req.params.Buocgia;
+        var Giabanngay = req.params.Giabanngay;
+        var day = req.params.day;
+        var Mota = req.params.Mota;
+        var Nguoiban = req.params.Nguoiban;
+        
+
+        sanphamRepo.add(Ten,Phanloai,Giakhoidiem,Giahientai,Buocgia,Giabanngay,day,Mota,Nguoiban);
+        res.send('ok');
+    } else {
+        res.statusCode = 400;
+        res.json('error');
+    }
+});
+
 module.exports = router;

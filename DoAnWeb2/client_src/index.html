@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
 <link rel="stylesheet" href="assets/mycss/mycss.css" />
+
 <style>
     body {font-family: "Lato", sans-serif;}
     .mySlides {display: none}
@@ -15,14 +16,22 @@
         <!-- Navbar -->
         <div class="w3-col">
             <div class="w3-row w3-bar w3-black" style="width:100%">
-                <a class="w3-bar-item w3-black w3-button w3-right" href="#" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+                <div id="nguoidung" class="w3-dropdown-hover w3-right">
+                    
+                    <button id="list1" class="w3-button fa fa-user w3-small"></button>
+                    <div class="w3-dropdown-content w3-bar-block w3-border" style="right:0">
+                        <a id="upsanpham" href="#" class="w3-bar-item w3-button">Đăng Bán Sản Phẩm</a>
+                        <a href="#" class="w3-bar-item w3-button">Quản Lý Tài Khoản</a>
+                        <a id="" href="#" class="w3-bar-item w3-button">Quản Lý Sản Phẩm</a>
+                        <a id="thoat" class="w3-bar-item w3-button"> Thoát</a>
+                    </div>
+                </div>
                 <a id="home"  class="w3-black w3-button w3-small w3-left fa">Trang Chủ</a>
                 <a id="backhome"  class="w3-black w3-button w3-small w3-left fa">Quay Về Trang Chủ</a>
-                <a id="thoat" class="w3-black w3-button w3-right fa fa-sign-out"> Thoát</a>
-                <a id="list1"  class="w3-black w3-button w3-right fa fa-user w3-small"></a>
                 <a id="dangky"  class="w3-black w3-button w3-right fa fa-key w3-small"> Đăng kí</a>
                 <button id="dangnhap" onclick="document.getElementById('login-pop').style.display='block'" class="w3-black w3-button w3-right fa fa-key w3-small"> Đăng nhập</button>
                 <a id="khach" href="#" class="w3-button w3-black w3-right fa fa-user w3-small"> Khách</a>
+                
 
             </div>
         </div>
@@ -217,7 +226,7 @@
     {{#each this}}
     <div  id="thesp" class="w3-card w3-border w3-margin-right w3-margin-top myCard" style="display: none" >
         <div class="w3-container">
-            <span class="label label-info">Số Lượt Đấu Giá: {{soluotragia}} </span>
+            <span class="label label-info">Số Lượt Đấu Giá: {{Soluotragia}} </span>
             <br>
             <span class="label label-info">Thời Gian Kết Thúc:</span><div id="{{ID}}"></div>
             
@@ -260,10 +269,9 @@
     {{#each this}}
     <div id="thesp" class="w3-card w3-border w3-margin-right w3-margin-top myCard" style="display: none" >
         <div class="w3-container">
-            <span class="label label-info">Số Lượt Đấu Giá: {{soluotragia}}
+            <span class="label label-info">Số Lượt Đấu Giá: {{Soluotragia}}
             </span><br>
-            <span class="label label-info">Thời Gian Kết Thúc: {{Thoigianketthuc}}
-            </span>
+            <span class="label label-info">Thời Gian Kết Thúc:</span><div id="{{ID}}"></div>
         </div>
         <img src="imgs/{{ID}}/main_thumbs.jpg" alt="{{Ten}}" title="{{Ten}}" class="w3-text w3-margin-top" width="90px" height="80px">
 
@@ -274,7 +282,9 @@
 
                 <h7>Giá Bán Ngay: {{formatNumber Giabanngay}}</h7>
             </div>
-            <p style="height: 36px;">{{Mota}}</p>
+
+            
+
             <div class="w3-row w3-margin-bottom ">
                 <div class="w3-blue w3-col m4 l4 w3-left w3-hover-yellow w3-round">
                     <a id="dsyt" href="javascript:dsyt({{ID}});" class="w3-small w3-button w3-hover-yellow">
@@ -296,6 +306,7 @@
                 </div>
             </div>
         </div>
+        
     </div>
     <div class="col-sm-8 col-md-4">
         <h4>Tên Sản Phẩm: {{Ten}}</h4>
@@ -313,10 +324,9 @@
     {{#each this}}
     <div id="thesp" class="w3-card w3-border w3-margin-right w3-margin-top myCard" style="display: none" >
         <div class="w3-container">
-            <span class="label label-info">Số Lượt Đấu Giá: {{soluotragia}}
+            <span class="label label-info">Số Lượt Đấu Giá: {{Soluotragia}}
             </span><br>
-            <span class="label label-info">Thời Gian Kết Thúc: {{Thoigianketthuc}}
-            </span>
+            <span class="label label-info">Thời Gian Kết Thúc:</span><div id="{{ID}}"></div>
         </div>
         <img src="imgs/{{ID}}/main_thumbs.jpg" alt="{{Ten}}" title="{{Ten}}" class="w3-text w3-margin-top" width="90px" height="80px">
 
@@ -385,10 +395,9 @@
     {{#each this}}
     <div id="thesp" class="w3-card w3-border w3-margin-right w3-margin-top myCard" style="display: none" >
         <div class="w3-container">
-            <span class="label label-info">Số Lượt Đấu Giá: {{soluotragia}}
+            <span class="label label-info">Số Lượt Đấu Giá: {{Soluotragia}}
             </span><br>
-            <span class="label label-info">Thời Gian Kết Thúc: {{Thoigianketthuc}}
-            </span>
+            <span class="label label-info">Thời Gian Kết Thúc:</span><div id="{{ID}}"></div>
         </div>
         <img src="imgs/{{ID}}/main_thumbs.jpg" alt="{{Ten}}" title="{{Ten}}" class="w3-text w3-margin-top" width="90px" height="80px">
 

@@ -31,3 +31,11 @@ $('#backhome').on('click', function() {
     $('#home').show();
     
 });
+
+
+$('#upsanpham').on('click', function() {
+    $('#footer').hide();
+    $("#trangchu").load("banSanPham.html");
+    $('#home').hide();
+    $('#backhome').show();
+});
