@@ -53,7 +53,7 @@ CREATE TABLE `danhmuc` (
 
 CREATE TABLE `daugia` (
   `ID` int(11) NOT NULL,
-  `IDnguoimua` int(11) DEFAULT NULL,
+  `IDnguoimua` varchar(30) DEFAULT NULL,
   `IDSP` int(11) DEFAULT NULL,
   `thoigian` date NOT NULL,
   `Gia` int(11) DEFAULT NULL
@@ -98,7 +98,7 @@ INSERT INTO `sanpham` (`ID`, `Ten`, `Phanloai`, `Hinhanh`, `Giakhoidiem`, `Giahi
 (10, 'San Pham 10', 'Ba Lo', 'imgs/10/main_thumbs.jpg', 100000, 100000, 10000, 500000, 14, '2018-06-14 00:00:00', '2018-06-21 00:00:00', 'Day la mo ta', 'user1@gmail.com'),
 (11, 'San Pham 11', 'Ba Lo', 'imgs/11/main_thumbs.jpg', 100000, 100000, 10000, 500000, 12, '2018-06-14 00:00:00', '2018-06-21 00:00:00', 'Day la mo ta', 'user1@gmail.com'),
 (12, 'San Pham 12', 'Ba Lo', 'imgs/12/main_thumbs.jpg', 100000, 100000, 10000, 500000, 2, '2018-06-14 00:00:00', '2018-06-21 00:00:00', 'Day la mo ta', 'user1@gmail.com'),
-(13, 'San Pham 13', 'Ba Lo', 'imgs/13/main_thumbs.jpg', 100000, 100000, 10000, 500000, 9, '2018-06-14 00:00:00', '2018-06-21 00:00:00', 'Day la mo ta', 'user1@gmail.com)'),
+(13, 'San Pham 13', 'Ba Lo', 'imgs/13/main_thumbs.jpg', 100000, 100000, 10000, 500000, 9, '2018-06-14 00:00:00', '2018-06-21 00:00:00', 'Day la mo ta', 'user1@gmail.com'),
 (14, 'San Pham 14', 'Ba Lo', 'imgs/14/main_thumbs.jpg', 100000, 100000, 10000, 500000, 6, '2018-06-14 00:00:00', '2018-06-21 00:00:00', 'Day la mo ta', 'user1@gmail.com'),
 (15, 'San Pham 15', 'Ba Lo', 'imgs/15/main_thumbs.jpg', 100000, 100000, 10000, 500000, 4, '2018-06-14 00:00:00', '2018-06-21 00:00:00', 'Day la mo ta', 'user1@gmail.com'),
 (16, 'San Pham 16', 'Ba Lo', 'imgs/16/main_thumbs.jpg', 900000, 1000000, 100000, 5000000, 1, '2018-06-14 00:00:00', '2018-06-21 00:00:00', 'Day la mo ta', 'user1@gmail.com');
@@ -125,7 +125,7 @@ CREATE TABLE `taikhoan` (
 --
 
 INSERT INTO `taikhoan` (`Email`, `Password`, `Hoten`, `Diachi`, `SDT`, `Active`, `KhoiTao`, `Permission`) VALUES
-('admin@gmail.com', '123', 'admin', '123456', 0, 0, '2018-06-09 14:15:31', 3),
+('admin@gmail.com', '202cb962ac59075b964b07152d234b70', 'admin', '123456', 0, 1, '2018-06-09 14:15:31', 3),
 ('user1@gmail.com', '123', 'user 1', 'hcm', 0, 0, '2018-06-09 14:15:31', 1),
 ('user2@gmail.com', '123', 'user 2', 'hcm', 0, 0, '2018-06-09 14:15:31', 1);
 

@@ -22,6 +22,11 @@ exports.add = function (poco) {
 	return db.insert(sql);
 }
 
+exports.addkh = function (poco) {
+	var sql = `insert into khachhang(IDUser,IDNguoidanhgia,Diemdanhgia,Nhanxet,Danhsachyeuthich,Sanphamdangban,Sanphamdaban,Sanphamdadaugia,Sanphamdathang) values('${poco.Email}', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL)`;
+	return db.insert(sql);
+}
+
 exports.delete = function(_email) {
 	var sql = `delete from taikhoan where Email = '${_email}'`;
 	return db.delete(sql);

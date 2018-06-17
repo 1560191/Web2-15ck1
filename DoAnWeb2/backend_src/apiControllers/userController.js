@@ -55,6 +55,16 @@ router.post('/', (req, res) => {
 			res.statusCode = 500;
 			res.end();
 		});
+	userRepo.addkh(req.body)
+		.then(insertId => {
+			res.statusCode = 201;
+			res.json(req.body);
+		})
+		.catch(err => {
+			console.log(err);
+			res.statusCode = 500;
+			res.end();
+		});
 });
 
 

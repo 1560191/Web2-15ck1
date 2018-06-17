@@ -28,6 +28,31 @@ router.get('/', (req, res) => {
     });
 });
 
+router.get('/loadsptheonguoiban/:email', (req, res) => {
+    var _email = req.params.email;
+    var page = 1;
+    if (req.query.page) {
+        page = +req.query.page;
+    }
+
+    sanphamRepo.loadSPTheoNguoiBan(_email,page).then(rows => {
+        var hasMore = rows.length > 100;
+        if (hasMore) {
+            rows.pop();
+        }
+
+        var data = {
+            sanpham: rows,
+            hasMore: hasMore
+        }
+        res.json(data);
+    }).catch(err => {
+        console.log(err);
+        res.statusCode = 500;
+        res.end('View error log on console.');
+    });
+});
+
 router.get('/top5ragia', (req, res) => {
     var page = 1;
     if (req.query.page) {
@@ -280,6 +305,19 @@ router.get('/add/:Ten/:Phanloai/:Giakhoidiem/:Giahientai/:Buocgia/:Giabanngay/:d
         
 
         sanphamRepo.add(Ten,Phanloai,Giakhoidiem,Giahientai,Buocgia,Giabanngay,day,Mota,Nguoiban);
+        res.send('ok');
+    } else {
+        res.statusCode = 400;
+        res.json('error');
+    }
+});
+
+router.get('/update/:id/:mota', (req, res) => {
+    if (req.params.id) {
+        var id = req.params.id;
+        var mota = req.params.mota;
+
+        sanphamRepo.updateMoTa(id,mota);
         res.send('ok');
     } else {
         res.statusCode = 400;

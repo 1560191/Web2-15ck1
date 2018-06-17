@@ -16,6 +16,12 @@ exports.ttNguoiBanTheoIDSP = function(id) {
 	return db.load(sql);
 }
 
+exports.loadSPTheoNguoiBan = function(_email,page) {
+    var offset = (page - 1) * 100;
+    var sql = `select * from sanpham where Nguoiban = '${_email}' limit ${100 + 1} offset ${offset}`;
+    return db.load(sql);
+}
+
 exports.loadPage = function(page) {
     var offset = (page - 1) * 6;
     var sql = `select * from sanpham limit ${6 + 1} offset ${offset}`;
@@ -78,4 +84,9 @@ exports.timKiem = function(search,page) {
 	var offset = (page - 1) * 6;
     var sql = `select * from sanpham where Ten like '%${search}%' or Phanloai like '%${search}%' limit ${6 + 1} offset ${offset}`;
     return db.load(sql);
+}
+
+exports.updateMoTa = function(id,mota) {
+    var sql = `update sanpham SET Mota = '${mota}' where ID = ${id}`;
+    return db.update(sql);
 }

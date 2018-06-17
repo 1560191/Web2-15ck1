@@ -14,7 +14,7 @@ router.get('/:token',function(req, res, next) {
       	var user = decoded
       	if(user.Active == '1')
       	{
-        res.send(user.Hoten);
+        res.send(user.Email);
     	}
     	else
     	{

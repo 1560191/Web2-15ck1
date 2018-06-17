@@ -1,3 +1,4 @@
+$('#tagbar-danhmuc2').hide();
 $('#home').on('click', function() {
     $('#btnMore').hide();
     $('#btnMore3').hide();
@@ -253,3 +254,4 @@ $('#btnSearch').on('click', function() {
         });
     };
 });
+

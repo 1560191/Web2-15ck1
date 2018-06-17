@@ -13,8 +13,8 @@ $(function() {
              //$('#thoat').show();
              $('#nguoidung').show();
              $('#upsanpham').show();
-             var ten = res;
-             $('#list1').append(ten);
+             var email = res;
+             $('#list1').append(email);
         }
     
     }).fail(function(xhr, textStatus, error) {
@@ -42,7 +42,6 @@ $(function() {
     HandlebarsIntl.registerWith(Handlebars);
     loadProducts();
     loadCate();
-
 });
 
 $('#btnMore').on('click', function() {
