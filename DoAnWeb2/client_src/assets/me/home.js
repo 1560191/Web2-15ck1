@@ -31,7 +31,9 @@ $('#home').on('click', function() {
         var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));\
         var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));\
         var seconds = Math.floor((distance % (1000 * 60)) / 1000);\
-        document.getElementById({{ID}}).innerHTML = days + 'Ngày ' + hours + 'Giờ'+ minutes + 'Phút' + seconds + 'Giây'; });\
+        document.getElementById({{ID}}).innerHTML = days + 'Ngày ' + hours + 'Giờ'+ minutes + 'Phút' + seconds + 'Giây'; \
+        if(disNew<=10800){ document.getElementById('snew{{ID}}').innerHTML = $('#newss').html();}\
+        }); \
         </script>\
         {{/each}}";
         //var source2 = $('#dest').html();
@@ -79,7 +81,9 @@ $('#nhieunhat').on('click', function() {
         var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));\
         var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));\
         var seconds = Math.floor((distance % (1000 * 60)) / 1000);\
-        document.getElementById({{ID}}).innerHTML = days + 'Ngày ' + hours + 'Giờ'+ minutes + 'Phút' + seconds + 'Giây'; });\
+        document.getElementById({{ID}}).innerHTML = days + 'Ngày ' + hours + 'Giờ'+ minutes + 'Phút' + seconds + 'Giây'; \
+        if(disNew<=10800){ document.getElementById('snew{{ID}}').innerHTML = $('#newss').html();}\
+        }); \
         </script>\
         {{/each}}";
         //var source2 = $('#dest').html();
@@ -121,7 +125,9 @@ $('#caonhat').on('click', function() {
         var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));\
         var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));\
         var seconds = Math.floor((distance % (1000 * 60)) / 1000);\
-        document.getElementById({{ID}}).innerHTML = days + 'Ngày ' + hours + 'Giờ'+ minutes + 'Phút' + seconds + 'Giây'; });\
+        document.getElementById({{ID}}).innerHTML = days + 'Ngày ' + hours + 'Giờ'+ minutes + 'Phút' + seconds + 'Giây'; \
+        if(disNew<=10800){ document.getElementById('snew{{ID}}').innerHTML = $('#newss').html();}\
+        }); \
         </script>\
         {{/each}}";
         //var source2 = $('#dest').html();
@@ -164,7 +170,9 @@ $('#ketthuc').on('click', function() {
         var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));\
         var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));\
         var seconds = Math.floor((distance % (1000 * 60)) / 1000);\
-        document.getElementById({{ID}}).innerHTML = days + 'Ngày ' + hours + 'Giờ'+ minutes + 'Phút' + seconds + 'Giây'; });\
+        document.getElementById({{ID}}).innerHTML = days + 'Ngày ' + hours + 'Giờ'+ minutes + 'Phút' + seconds + 'Giây'; \
+        if(disNew<=10800){ document.getElementById('snew{{ID}}').innerHTML = $('#newss').html();}\
+        }); \
         </script>\
         {{/each}}";
         //var source2 = $('#dest').html();
@@ -219,7 +227,9 @@ $('#btnSearch').on('click', function() {
         var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));\
         var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));\
         var seconds = Math.floor((distance % (1000 * 60)) / 1000);\
-        document.getElementById({{ID}}).innerHTML = days + 'Ngày ' + hours + 'Giờ'+ minutes + 'Phút' + seconds + 'Giây'; });\
+        document.getElementById({{ID}}).innerHTML = days + 'Ngày ' + hours + 'Giờ'+ minutes + 'Phút' + seconds + 'Giây'; \
+        if(disNew<=10800){ document.getElementById('snew{{ID}}').innerHTML = $('#newss').html();}\
+        }); \
         </script>\
         {{/each}}";
         //var source2 = $('#dest').html();

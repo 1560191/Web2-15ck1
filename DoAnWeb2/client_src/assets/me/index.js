@@ -42,6 +42,7 @@ $(function() {
     HandlebarsIntl.registerWith(Handlebars);
     loadProducts();
     loadCate();
+
 });
 
 $('#btnMore').on('click', function() {
@@ -58,14 +59,18 @@ var loadProducts = function() {
 
         var aaas = "<script>\
         var countDownDate = new Date('{{Thoigianketthuc}}').getTime();\
+        var iDate = new Date('{{Thoigianbatdau}}').getTime();\
         setInterval(function() {\
         var now = new Date().getTime();\
         var distance = countDownDate - now;\
+        var disNew = now - iDate;\
         var days = Math.floor(distance / (1000 * 60 * 60 * 24));\
         var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));\
         var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));\
         var seconds = Math.floor((distance % (1000 * 60)) / 1000);\
-        document.getElementById({{ID}}).innerHTML = days + 'Ngày ' + hours + 'Giờ'+ minutes + 'Phút' + seconds + 'Giây'; });\
+        document.getElementById({{ID}}).innerHTML = days + 'Ngày ' + hours + 'Giờ'+ minutes + 'Phút' + seconds + 'Giây'; \
+        if(disNew<=10800){ document.getElementById('snew{{ID}}').innerHTML = $('#newss').html();}\
+        }); \
         </script>\
         {{/each}}";
         //var source2 = $('#dest').html();
