@@ -167,7 +167,8 @@
 	--
 	ALTER TABLE `danhmuc`
 	  ADD PRIMARY KEY (`IDdanhmuc`);
-
+	ALTER TABLE `yeuthich`
+	  ADD PRIMARY KEY (`Email`,`ID`);
 	--
 	-- Chỉ mục cho bảng `daugia`
 	--

@@ -41,6 +41,10 @@ exports.like = function(_id,email) {
 	var sql = `insert into yeuthich(Email,ID) values( '${email}','${_id}')`;
 	return db.load(sql);
 }
+exports.dislike = function(_id,email) {
+	var sql = `delete  from  yeuthich where Email = '${email}' and ID = '${_id}'`;
+	return db.load(sql);
+}
 exports.ragia = function(_id,email,gia) {
 	var sql = `insert into daugia(Email,IDSP,Gia) values( '${email}','${_id}','${gia}')`;
 	return db.load(sql);

@@ -66,6 +66,18 @@ router.post('/', (req, res) => {
 			res.end();
 		});
 });
+router.get('/dislike/:_id/:emaila', (req, res) => {
+	var email = req.params.emaila;
+	var _id = req.params._id;
+    userRepo.dislike(_id,email)
+		.then(deleteId => {
+			res.statusCode = 201;
+			res.send('1');
+		})
+		.catch(err => {
+		res.send('2');
+		});
+});
 router.get('/like/:_id/:emaila', (req, res) => {
 	var email = req.params.emaila;
 	var _id = req.params._id;

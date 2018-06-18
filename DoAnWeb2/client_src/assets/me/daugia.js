@@ -72,7 +72,27 @@ function thich(id) {
             dataType: 'json',
             timeout: 10000
         }).done(function(data) {
+            if(data == 1)
+            {
             alert('Đã thêm sản phẩm vào danh sách yêu thích của bạn');
+            }
+            else
+            {
+            var r = confirm("Bạn đã thích sản phẩm này rồi! bạn muốn hủy thích chứ!");
+            if (r == true) {
+            $.ajax({
+            url: 'http://localhost:3000/user/dislike/'+_id+'/'+emaila,
+            dataType: 'json',
+            timeout: 10000
+        }).done(function(data) {
+            alert('Đã hủy thích');
+            window.location.href = "http://localhost:8080";
+
+        });
+            } else {
+            return;
+                } 
+            }
         });
         }
     };
