@@ -114,12 +114,12 @@ $('#btnRegister').on('click', function () {
         Password: _PASSS,
         Name: _fullname,
         Email: _mail,
-       Permission: "0"
+       Permission: "1"
     };
     if(_Phone.length < 1 || _PASSS.length < 1 || _mail.length < 1 || _fullname.length < 1 || _addresss.length < 1)
     {   
         alert('Không được bỏ trống')
-        return false;
+        window.location.href = "/register.html"
     }
     // $.ajax({
     //     url: 'http://localhost:3000/capcha/'+capcha,
@@ -139,7 +139,7 @@ $('#btnRegister').on('click', function () {
          if(data != null)
          {
             alert('email da ton tai')
-            return false;
+            window.location.href = "/register.html"
          }
          else
          {
@@ -159,16 +159,14 @@ $('#btnRegister').on('click', function () {
 
     }).done(function(data) {
 
-        alert('Đăng Ký Thành Công ! bạn vào mail để xác thực tài khoảng')
+        
     });
-
-    }).fail(function(xhr, textStatus, error) {
-        return false;
+    alert('Đăng Ký Thành Công ! bạn vào mail để xác thực tài khoảng')
+        window.location.href = "http://localhost:8080"
     });
          }
-    }).fail(function(xhr, textStatus, error) {
-            return false;
         });
+    });
 // }
 // else if(data == "0")
 // {
@@ -178,7 +176,7 @@ $('#btnRegister').on('click', function () {
 //     }).fail(function(xhr, textStatus, error) {
 //         return false;
 //     });
-});
+
 
 // $('#btnRegister').on('click', function () {
 //     // alert('register');

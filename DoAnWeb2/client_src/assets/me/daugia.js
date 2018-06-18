@@ -86,7 +86,7 @@ function thich(id) {
             timeout: 10000
         }).done(function(data) {
             alert('Đã hủy thích');
-            window.location.href = "http://localhost:8080";
+            
 
         });
             } else {

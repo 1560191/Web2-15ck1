@@ -23,7 +23,7 @@ exports.add = function (poco) {
 }
 
 exports.addkh = function (poco) {
-	var sql = `insert into khachhang(IDUser,IDNguoidanhgia,Diemdanhgia,Nhanxet,Danhsachyeuthich,Sanphamdangban,Sanphamdaban,Sanphamdadaugia,Sanphamdathang) values('${poco.Email}', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL)`;
+	var sql = `insert into khachhang(IDUser) values('${poco.Email}')`;
 	return db.insert(sql);
 }
 
@@ -48,4 +48,8 @@ exports.dislike = function(_id,email) {
 exports.ragia = function(_id,email,gia) {
 	var sql = `insert into daugia(Email,IDSP,Gia) values( '${email}','${_id}','${gia}')`;
 	return db.load(sql);
+}
+exports.xinban = function (email) {
+	var sql = `insert into xinban(Email,Active) values('${email}',0)`;
+	return db.insert(sql);
 }

@@ -21,9 +21,9 @@
 	--
 	CREATE TABLE IF NOT EXISTS `khachhang` (
 	  `IDUser` varchar(30) NOT NULL,
-	  `IDNguoidanhgia` varchar(30) NOT NULL,
-	  `Diemdanhgia` int(11) NOT NULL,
-	  `Nhanxet` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+	  `IDNguoidanhgia` varchar(30) DEFAULT NULL,
+	  `Diemdanhgia` int(11) DEFAULT NULL,
+	  `Nhanxet` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
 	  `Danhsachyeuthich` int(11) DEFAULT NULL,
 	  `Sanphamdangban` int(11) DEFAULT NULL,
 	  `Sanphamdaban` int(11) DEFAULT NULL,
@@ -140,7 +140,7 @@
 	  `ID` int(11) NOT NULL,
 	  `Email` varchar(255) DEFAULT NULL,
 	  `Active` int(1) DEFAULT NULL,
-	  `thoigianbatdau` datetime DEFAULT CURRENT_TIMESTAMP,
+	  `thoigianbatdau` datetime DEFAULT NULL,
 	  `thoigianketthuc` datetime DEFAULT NULL
 	) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -151,6 +151,7 @@
 	--
 
 	CREATE TABLE `yeuthich` (
+	  `KhoiTao` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	  `Email` varchar(255) DEFAULT NULL,
 	  `ID` int(11) DEFAULT NULL
 	) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -165,7 +166,7 @@
 	--
 	-- Chỉ mục cho bảng `danhmuc`
 	--
-	ALTER TABLE `danhmuc`
+	ALTER TABLE `danhmuc`	
 	  ADD PRIMARY KEY (`IDdanhmuc`);
 	ALTER TABLE `yeuthich`
 	  ADD PRIMARY KEY (`Email`,`ID`);
@@ -191,7 +192,7 @@
 	-- Chỉ mục cho bảng `xinban`
 	--
 	ALTER TABLE `xinban`
-	  ADD PRIMARY KEY (`ID`);
+	  ADD PRIMARY KEY (`Email`);
 
 	--
 	-- AUTO_INCREMENT cho các bảng đã đổ
@@ -202,6 +203,8 @@
 	--
 	ALTER TABLE `danhmuc`
 	  MODIFY `IDdanhmuc` int(11) NOT NULL AUTO_INCREMENT;
+	  
+
 	--
 	-- AUTO_INCREMENT cho bảng `daugia`
 	--

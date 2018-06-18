@@ -235,6 +235,25 @@ router.get('/:id', (req, res) => {
         res.end('View error log on console.');
     });
 });
+router.get('/dalike/:email', (req, res) => {
+    var email = req.params.email;
+    sanphamRepo.dalike(email).then(rows => {
+        var hasMore = rows.length > 6;
+        if (hasMore) {
+            rows.pop();
+        }
+
+        var data = {
+            sanpham: rows,
+            hasMore: hasMore
+        }
+        res.json(data);
+    }).catch(err => {
+        console.log(err);
+        res.statusCode = 500;
+        res.end('View error log on console.');
+    });
+});
 
 router.post('/', (req, res) => {
 	sanphamRepo.add(req.body)

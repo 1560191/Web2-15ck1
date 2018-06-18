@@ -47,24 +47,17 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
 	userRepo.add(req.body)
 		.then(insertId => {
+			res.json('1');
+			userRepo.addkh(req.body)
 			res.statusCode = 201;
-			res.json(req.body);
+			//res.json('1');
 		})
 		.catch(err => {
 			console.log(err);
 			res.statusCode = 500;
 			res.end();
 		});
-	userRepo.addkh(req.body)
-		.then(insertId => {
-			res.statusCode = 201;
-			res.json(req.body);
-		})
-		.catch(err => {
-			console.log(err);
-			res.statusCode = 500;
-			res.end();
-		});
+		
 });
 router.get('/dislike/:_id/:emaila', (req, res) => {
 	var email = req.params.emaila;
@@ -82,6 +75,17 @@ router.get('/like/:_id/:emaila', (req, res) => {
 	var email = req.params.emaila;
 	var _id = req.params._id;
     userRepo.like(_id,email)
+		.then(insertId => {
+			res.statusCode = 201;
+			res.send('1');
+		})
+		.catch(err => {
+		res.send('2');
+		});
+});
+router.get('/xinbanhang/:email', (req, res) => {
+	var email = req.params.email;
+    userRepo.xinban(email)
 		.then(insertId => {
 			res.statusCode = 201;
 			res.send('1');

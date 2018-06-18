@@ -101,3 +101,7 @@ exports.muangay = function(_id,email) {
     var sql = `update sanpham SET Nguoimua = '${email}' where ID = '${_id}'`;
     return db.update(sql);
 }
+exports.dalike = function(email) {
+    var sql = `select * from sanpham sp, yeuthich yt where yt.Email = '${email}' and yt.ID = sp.ID ORDER BY yt.KhoiTao DESC LIMIT 9`;
+    return db.load(sql);
+}
