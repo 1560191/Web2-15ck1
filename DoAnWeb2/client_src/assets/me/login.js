@@ -14,22 +14,24 @@ $('#btnlogin').on('click', function () {
         url: 'http://localhost:3000/login/'+_mail+'/'+_PASSS,
         dataType: 'text',
         timeout: 10000,
-    }).done(function(res) {
-        if(res == "0")
+    }).done(function(data) {
+        if(data == "0")
         {
             alert('Sai Tên Đăng Nhập Hoặc Mật Khẩu!');
             return dieuhuong();
         }
         else
        
-        {   if(res == "1")
+        {   if(data == "1")
             {
             alert('Bạn Chưa xác thực tài khoản! Vui lòng vào Email của bạn xác nhận!');
             }
             else
-            {
+            {   
+             var obj = JSON.parse(data);  
             alert('Đăng Nhập Thành Công!');
-            localStorage.setItem('id_token', res); 
+            localStorage.setItem('id_token', obj.token);
+            localStorage.setItem('email', obj.email);
             return dieuhuong();
             }
         }
@@ -37,6 +39,7 @@ $('#btnlogin').on('click', function () {
     }).fail(function(xhr, textStatus, error) {
             console.log(error);
             console.log(xhr);
+
     });
     function dieuhuong(){
         window.location.href = "http://localhost:8080"; 

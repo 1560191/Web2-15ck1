@@ -12,10 +12,13 @@ exports.load = function(id) {
 }
 
 exports.ttNguoiBanTheoIDSP = function(id) {
-	var sql = `select * from sanpham sp, taikhoan tk, khachhang kh where sp.ID = ${id} and sp.Nguoiban = tk.Email and tk.Email = kh.IDUser`;
-	return db.load(sql);
+    var sql = `select * from sanpham sp, taikhoan tk where sp.ID = ${id} and sp.Nguoiban = tk.Email `;
+    return db.load(sql);
 }
-
+exports.daugiakq = function(id) {
+    var sql = `select * from daugia  where IDSP = ${id} ORDER BY Gia DESC`;
+    return db.load(sql);
+}
 exports.loadSPTheoNguoiBan = function(_email,page) {
     var offset = (page - 1) * 100;
     var sql = `select * from sanpham where Nguoiban = '${_email}' limit ${100 + 1} offset ${offset}`;
@@ -88,5 +91,13 @@ exports.timKiem = function(search,page) {
 
 exports.updateMoTa = function(id,mota) {
     var sql = `update sanpham SET Mota = '${mota}' where ID = ${id}`;
+    return db.update(sql);
+}
+exports.ragiatc = function(_id,gia) {
+    var sql = `update sanpham SET Soluotragia = Soluotragia + 1,Giahientai = '${gia}' where ID = '${_id}'`;
+    return db.update(sql);
+}
+exports.muangay = function(_id,email) {
+    var sql = `update sanpham SET Nguoimua = '${email}' where ID = '${_id}'`;
     return db.update(sql);
 }

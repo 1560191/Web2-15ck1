@@ -217,7 +217,7 @@ router.get('/sapxepngay', (req, res) => {
 // categories/5
 
 router.get('/:id', (req, res) => {
-	var idsp = req.params.id;
+    var idsp = req.params.id;
     sanphamRepo.ttNguoiBanTheoIDSP(idsp).then(rows => {
         var hasMore = rows.length > 6;
         if (hasMore) {
@@ -290,7 +290,37 @@ router.delete('/:id', (req, res) => {
 		res.json('error');
 	}
 });
+router.get('/daugiakq/:id', (req, res) => {
+    var idsp = req.params.id;
+    sanphamRepo.daugiakq(idsp).then(rows => {
+        var hasMore = rows.length > 6;
+        if (hasMore) {
+            rows.pop();
+        }
 
+        var data = {
+            sanpham: rows,
+            hasMore: hasMore
+        }
+        res.json(data);
+    }).catch(err => {
+        console.log(err);
+        res.statusCode = 500;
+        res.end('View error log on console.');
+    });
+});
+router.get('/muangay/:_id/:emaila', (req, res) => {
+    var email = req.params.emaila;
+    var _id = req.params._id;
+    sanphamRepo.muangay(_id,email)
+        .then(insertId => {
+            res.statusCode = 201;
+            res.send('1');
+        })
+        .catch(err => {
+        res.send('2');
+        });
+});
 router.get('/add/:Ten/:Phanloai/:Giakhoidiem/:Giahientai/:Buocgia/:Giabanngay/:day/:Mota/:Nguoiban', (req, res) => {
     if (req.params.Ten) {
         var Ten = req.params.Ten;

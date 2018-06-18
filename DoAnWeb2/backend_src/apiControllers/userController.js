@@ -1,6 +1,6 @@
 var express = require('express');
 var userRepo = require('../repos/userRepo');
-
+var sanphamRepo = require('../repos/sanphamRepo');
 var router = express.Router();
 
 router.get('/', (req, res) => {
@@ -66,7 +66,32 @@ router.post('/', (req, res) => {
 			res.end();
 		});
 });
-
+router.get('/like/:_id/:emaila', (req, res) => {
+	var email = req.params.emaila;
+	var _id = req.params._id;
+    userRepo.like(_id,email)
+		.then(insertId => {
+			res.statusCode = 201;
+			res.send('1');
+		})
+		.catch(err => {
+		res.send('2');
+		});
+});
+router.get('/ragia/:_id/:emaila/:gia', (req, res) => {
+	var email = req.params.emaila;
+	var _id = req.params._id;
+	var gia = req.params.gia;
+    userRepo.ragia(_id,email,gia)
+		.then(insertId => {
+			sanphamRepo.ragiatc(_id,gia)
+			res.statusCode = 201;
+			res.send('1');
+		})
+		.catch(err => {
+		res.send('2');
+		});
+});
 
 router.delete('/del/:_email', (req, res) => {
 	if (req.params._email) {

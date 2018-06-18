@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html>
+<head id="timeaa">
 <title>Ferocious-mark</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
 <link rel="stylesheet" href="assets/mycss/mycss.css" />
-
 <style>
     body {font-family: "Lato", sans-serif;}
     .mySlides {display: none}
 </style>
+</head>
 <body>
     <div class="w3-center" style="width:1200px;margin:0 auto;">
         <!-- Navbar -->
-        <div class="w3-col">
+        <!-- <div class="w3-col">
             <div class="w3-row w3-bar w3-black" style="width:100%">
                 <div id="nguoidung" class="w3-dropdown-hover w3-right">
                     
@@ -26,12 +27,23 @@
                         <a id="thoat" class="w3-bar-item w3-button"> Thoát</a>
                     </div>
                 </div>
-                <a id="home"  class="w3-black w3-button w3-small w3-left fa">Trang Chủ</a>
-                <a id="backhome"  class="w3-black w3-button w3-small w3-left fa">Quay Về Trang Chủ</a>
-                <a id="dangky"  class="w3-black w3-button w3-right fa fa-key w3-small"> Đăng kí</a>
+                <a id="home" href="http://localhost:8080"  class="w3-black w3-button w3-small w3-left fa">Trang Chủ</a>
+                <a id="dangky" href="/register.html"  class="w3-black w3-button w3-right fa fa-key w3-small"> Đăng kí</a>
                 <button id="dangnhap" onclick="document.getElementById('login-pop').style.display='block'" class="w3-black w3-button w3-right fa fa-key w3-small"> Đăng nhập</button>
                 <a id="khach" href="#" class="w3-button w3-black w3-right fa fa-user w3-small"> Khách</a>
                 
+
+            </div>
+        </div> -->
+                <div class="w3-col">
+            <div class="w3-row w3-bar w3-black" style="width:100%">
+                <a class="w3-bar-item w3-black w3-button w3-right" href="#" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+                <a id="home" href="http://localhost:8080"  class="w3-black w3-button w3-small w3-left fa">Trang Chủ</a>
+                <a id="thoat" class="w3-black w3-button w3-right fa fa-sign-out"> Thoát</a>
+                <a id="list1"  class="w3-black w3-button w3-right fa fa-user w3-small"></a>
+                <a id="dangky" href="/register.html"  class="w3-black w3-button w3-right fa fa-key w3-small"> Đăng kí</a>
+                <button id="dangnhap" onclick="document.getElementById('login-pop').style.display='block'" class="w3-black w3-button w3-right fa fa-key w3-small"> Đăng nhập</button>
+                <a id="khach" href="#" class="w3-button w3-black w3-right fa fa-user w3-small"> Khách</a>
 
             </div>
         </div>
@@ -114,7 +126,19 @@
             </div>
         </div>
         </div>
-
+                <div id="ctsp-pop" class=" modal">
+            <!-- Modal Content -->
+            
+            <div class="w3-col m7 l7" style="margin-left: 20%">
+                <span onclick="document.getElementById('ctsp-pop').style.display='none'" 
+          class="close" title="Close Modal">&times;</span>
+            <div class="w3-col w3-white">
+            <form class=" w3-white" style="margin: 20px">
+                <div  id="ctsp"></div>
+            </form>
+            </div>
+        </div>
+        </div>
 
 
 
@@ -246,13 +270,10 @@
 <script id="product-template" type="text/x-handlebars-template">
     {{#each this}}
     <div  id="thesp" class="w3-card w3-border w3-margin-right w3-margin-top myCard" style="display: none" >
-        <div id="snew{{ID}}" >
-            
-        </div>
         <div class="w3-container">
             <span class="label label-info">Số Lượt Đấu Giá: {{Soluotragia}} </span>
             <br>
-            <span class="label label-info">Thời Gian Kết Thúc:</span><div id="{{ID}}"></div>
+            <span class="label label-info" id="{{ID}}">
             
         </div>
         <img src="imgs/{{ID}}/main_thumbs.jpg" alt="{{Ten}}" title="{{Ten}}" class="w3-text w3-margin-top" width="90px" height="80px">
@@ -266,27 +287,18 @@
             </div>
             <p style="height: 36px;">{{Mota}}</p>
             <div class="w3-row w3-margin-bottom ">
-                <div class="w3-blue w3-col m4 l4 w3-left w3-hover-yellow w3-round">
-                    <a id="thongtin" href="javascript:thongtin({{ID}});" class="w3-small w3-button w3-hover-yellow">
-                        <span class="glyphicon glyphicon-eye-open">  </span>
-                        <h7>Details</h7>
+                
+                    
+                    
+                     <button id="daugia" onclick="location.href='javascript:daugia({{ID}});'" class="w3-button w3-yellow w3-round-xxlarge">Đấu Giá Ngay</button>
+                     <button id="thich" onclick="location.href='javascript:thich({{ID}});'"  class="w3-button w3-pink w3-round-xxlarge fa fa-heart"> Thích</button>
+               
                     </a>
-                </div>
-                <div class="w3-red w3-col m4 l4 w3-hover-purple w3-round">
-                    <a id="mua" href="javascript:muahang({{ID}});" class="w3-small w3-button w3-hover-purple">
-                        <span class="glyphicon glyphicon-shopping-cart"></span>
-                        <h7>Mua</h7>
-                    </a>
-                </div>
-                <div class="w3-yellow w3-col m4 l4 w3-right w3-hover-blue w3-round">
-                    <a id="daugia" href="javascript:daugia({{ID}});" class="w3-small w3-button w3-hover-blue">
-                        <span class="glyphicon glyphicon-usd"></span>
-                        <h7>Đấu Giá</h7>
-                    </a>
-                </div>
+                
             </div>
         </div>
     </div>
+    {{/each}}
 </script>
 
 <script id="thongtinsp" type="text/x-handlebars-template">
@@ -425,67 +437,80 @@
 
 <script id="daugia" type="text/x-handlebars-template">
     {{#each this}}
-    <div id="thesp" class="w3-card w3-border w3-margin-right w3-margin-top myCard" style="display: none" >
-        <div id="snew{{ID}}" >
-            
+                <div class="w3-row " style="margin-left:20px"  >
+                    <div class="w3-container w3-white ">
+                        <div id="product-list" class="w3-row-padding">
+                            <div class="hovergallery">
+                            <img src="imgs/{{ID}}/main_thumbs.jpg" alt="{{Ten}}" title="{{Ten}}" class="w3-text w3-margin-top" width="150px" height="130px">
+                            &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+                            <img src="imgs/{{ID}}/main_thumbs.jpg" alt="{{Ten}}" title="{{Ten}}" class="w3-text w3-margin-top" width="150px" height="130px">
+                            &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+                            <img src="imgs/{{ID}}/main_thumbs.jpg" alt="{{Ten}}" title="{{Ten}}" class="w3-text w3-margin-top" width="150px" height="130px">
+                             </div>   
+                        </div>
+                    </div>
+                </div>
+                &nbsp;
+                &nbsp;
+                &nbsp;
+                &nbsp;
+                &nbsp;
+                &nbsp;
+                    
+
+    
+        <div id="rectangle00">
+         <h4>{{Ten}}</h4>
+         <h5>{{Phanloai}}</h5> 
+         <h5 id="{{ID}}"></h5>
+         <a href="javascript:;" onclick="document.getElementById('ctsp-pop').style.display='block'">Xem Chi tiết Sản Phẩm</a>                   
         </div>
+    
+        <div id="rectangle0">     
 
-        <div class="w3-container">
-            <span class="label label-info">Số Lượt Đấu Giá: {{Soluotragia}}
-            </span><br>
-            <span class="label label-info">Thời Gian Kết Thúc:</span><div id="{{ID}}"></div>
+                    <h4 class="no-bold padBo h-font">Thông tin người bán</h4>
+        
+                        <p class="items-tt">Người bán:<span class="bold txtBlue">{{Hoten}}</span></a></p>
+                        <p class="items-tt" style="line-height:1.5">{{Diachi}}</p>
+                  
+                              
         </div>
-        <img src="imgs/{{ID}}/main_thumbs.jpg" alt="{{Ten}}" title="{{Ten}}" class="w3-text w3-margin-top" width="90px" height="80px">
-
-        <div class="w3-container" style="width:auto; height:150">
-            <h6 style="height:90">{{Ten}}</h6>
-            <div class="w3-container w3-white">
-                <h7>Giá Hiện Tại: {{formatNumber Giahientai}}</h7>
-
-                <h7>Giá Bán Ngay: {{formatNumber Giabanngay}}</h7>
-            </div>
-            <p style="height: 36px;">{{Mota}}</p>
-            <div class="w3-row w3-margin-bottom ">
-                <div class="w3-blue w3-col m4 l4 w3-left w3-hover-yellow">
-                    <a id="dsyt" href="javascript:dsyt({{ID}});" class="w3-small w3-button w3-hover-yellow">
-                        <span class="glyphicon glyphicon-eye-open">  </span>
-                        <h7>Thích</h7>
-                    </a>
-                </div>
-                <div class="w3-red w3-col m4 l4 w3-hover-purple w3-round">
-                    <a id="mua" href="javascript:muahang({{ID}});" class="w3-small w3-button w3-hover-purple">
-                        <span class="glyphicon glyphicon-shopping-cart"></span>
-                        <h7>Mua</h7>
-                    </a>
-                </div>
-                <div class="w3-yellow w3-col m4 l4 w3-right w3-hover-blue w3-round" disable>
-                    <a id="daugia" href="javascript:daugia({{ID}});" class="w3-small w3-button w3-hover-blue">
-                        <span class="glyphicon glyphicon-usd"></span>
-                        <h7>Đấu Giá</h7>
-                    </a>
-                </div>
-            </div>
+        <div id="rectangle">
+        <p class="now-buy">Giá bán ngay:&nbsp;<span class="h-font bold txtRedNow"style="width:128px">{{formatNumber Giabanngay}} đ</span> <a class="muangay" href="javascript:muangay({{ID}});" id="addTocartDeal">Mua ngay</a>
+                                </p>
+                                                           
         </div>
-    </div>
-    <div>
-        <form class="form-horizontal">
-            <div class="form-group">
-                <label class="control-label col-sm-2" for="nx">Giá Hiện Tại:</label>
-                <div class="col-sm-7">
-                    <input type="email" class="form-control" id="ght" name="ght" value="{{formatNumber Giahientai}}">
-                </div>
+        <div id="rectangle1">
+            <p class="no-pading">Giá đấu hiện tại:&nbsp;<span class="BuyCurrent">{{formatNumber Giahientai}} đ</span>&nbsp; 
+                <a href="javascript:;"> <span class="c_font txtDaBlue">[ Có {{Soluotragia}} lượt đấu gia] </span> </a></p>
+                            
+                                    <label> <span class="no-pading">Giá đấu của bạn:</span>
+                                        <input type="text"
+                                               style="background:#fff; border:solid 1px #a1c1da; width:100px" id="bidValue"/>
+                                        <span>đ</span> <span style="width:43px"></span> <a class="daugia"  href="javascript:ragia({{ID}});">Đấu giá</a> </label>
+                                <p class="no-pading c_font txtGray4">Bạn có thể đặt giá lớn hơn hoặc bằng: {{formatNumber Giahientai}} +{{formatNumber Buocgia}} đ</p>
+                         
+        </div>
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            &nbsp;
 
-                <label class="control-label col-sm-2" for="pwd">Bạn Muốn Trả:</label>
-                <div class="col-sm-7">          
-                    <input type="email" class="form-control" id="tien" name="tien" placeholder="Tối thiểu là: {{formatNumber Giahientai}}+{{formatNumber Buocgia}}">
-                </div>
-                <br>
-                <div class="col-sm-2">
-                    <button type="submit" class="btn btn-danger">Đấu Giá</button>
-                </div>
-            </div>
-        </form>
-    </div>
+
+            <TABLE bodercolor = red width = "100%" border = "1" cellspacing = 1
+    cellpadding = "0" align = left >
+    <TR>
+        <TD colspan = 3 align = center> KẾT QUẢ Đấu Giá </TD> 
+    </TR>
+    <TR>
+        <TD align = "center" valign = "top"> Hạng </TD>
+        <TD align = "center" valign = "middle"> Gmail người ra giá </TD>
+        <TD align = "center" valign = "middle"> Giá </TD>
+    </TR>
+    <tbody id="list3"></tbody>
+    </TABLE>
     {{/each}}
 </script>
 

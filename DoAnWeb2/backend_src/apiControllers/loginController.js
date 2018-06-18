@@ -8,19 +8,20 @@ router.get('/:token',function(req, res, next) {
   if (token) {
 
     jwt.verify(token, 'jsonwebtoken', function(err, decoded) {      
-      if (err) {    	
+      if (err) {      
         res.send('0');
       } else {
-      	var user = decoded
-      	if(user.Active == '1')
-      	{
-        res.send(user.Email);
-    	}
-    	else
-    	{
-    	res.send('0');
-    	} 
-    	
+        var user = decoded
+        if(user.Active == '1')
+        {
+        res.send(user.Hoten);
+
+      }
+      else
+      {
+      res.send('0');
+      } 
+      
       }
     });
   } else {
@@ -31,39 +32,43 @@ router.get('/:token',function(req, res, next) {
   }
 });
 router.get('/:email/:pwd', (req, res) => {
-	var email = req.params.email;
-	var pwd = req.params.pwd;
-	userRepo.findUser(email,pwd)
-		.then(rows => {
-		if (rows.length > 0) {
-			var user = {
-			Email:	rows[0].Email,
-			Password: rows[0].Password,
-			Hoten: rows[0].Hoten,
-			Active: rows[0].Active
-			};			
-			var token = jwt.sign(user, 'jsonwebtoken');
+  var email = req.params.email;
+  var pwd = req.params.pwd;
+  userRepo.findUser(email,pwd)
+    .then(rows => {
+    if (rows.length > 0) {
+      var user = {
+      Email:  rows[0].Email,
+      Password: rows[0].Password,
+      Hoten: rows[0].Hoten,
+      Active: rows[0].Active
+      };      
+      var token1 = jwt.sign(user, 'jsonwebtoken');
         //     res.send({
         //     token: token,
         //     Active: rows[0].Active
         // });
         if(rows[0].Active == '1')
         {
-        res.send(token);
-    	}
-    	else
-    	{
-    	res.send('1');	
-    	}
-		} else if (rows.length == 0) {
-			
-			res.send('0');
-		}
-	}).catch(err => {
-		console.log(err);
-		res.statusCode = 500;
-		res.json('error');
-	});
+          var user1 = {
+            token: token1,
+            email: rows[0].Email,
+          };
+        res.send(JSON.stringify(user1));
+      }
+      else
+      {
+      res.send('1');  
+      }
+    } else if (rows.length == 0) {
+      
+      res.send('0');
+    }
+  }).catch(err => {
+    console.log(err);
+    res.statusCode = 500;
+    res.json('error');
+  });
 });
 
 

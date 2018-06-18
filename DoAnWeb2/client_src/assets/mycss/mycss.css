@@ -1,8 +1,145 @@
+
+.daugia {
+    -moz-box-shadow: 0px 10px 14px -7px #bfc8c9;
+    -webkit-box-shadow: 0px 10px 14px -7px #bfc8c9;
+    box-shadow: 0px 10px 14px -7px #bfc8c9;
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ccc4ab), color-stop(1, #dbdba8));
+    background:-moz-linear-gradient(top, #ccc4ab 5%, #dbdba8 100%);
+    background:-webkit-linear-gradient(top, #ccc4ab 5%, #dbdba8 100%);
+    background:-o-linear-gradient(top, #ccc4ab 5%, #dbdba8 100%);
+    background:-ms-linear-gradient(top, #ccc4ab 5%, #dbdba8 100%);
+    background:linear-gradient(to bottom, #ccc4ab 5%, #dbdba8 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ccc4ab', endColorstr='#dbdba8',GradientType=0);
+    background-color:#ccc4ab;
+    -moz-border-radius:8px;
+    -webkit-border-radius:8px;
+    border-radius:8px;
+    display:inline-block;
+    cursor:pointer;
+    color:#080108;
+    font-family:Times New Roman;
+    font-size:14px;
+    font-weight:bold;
+    padding:7px 15px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #bfc5c7;
+}
+.daugia:hover {
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #dbdba8), color-stop(1, #ccc4ab));
+    background:-moz-linear-gradient(top, #dbdba8 5%, #ccc4ab 100%);
+    background:-webkit-linear-gradient(top, #dbdba8 5%, #ccc4ab 100%);
+    background:-o-linear-gradient(top, #dbdba8 5%, #ccc4ab 100%);
+    background:-ms-linear-gradient(top, #dbdba8 5%, #ccc4ab 100%);
+    background:linear-gradient(to bottom, #dbdba8 5%, #ccc4ab 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dbdba8', endColorstr='#ccc4ab',GradientType=0);
+    background-color:#dbdba8;
+}
+.daugia:active {
+    position:relative;
+    top:1px;
+}
+.muangay {
+    -moz-box-shadow: 0px 10px 14px -7px #0c4d57;
+    -webkit-box-shadow: 0px 10px 14px -7px #0c4d57;
+    box-shadow: 0px 10px 14px -7px #0c4d57;
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #e3b009), color-stop(1, #cfcf25));
+    background:-moz-linear-gradient(top, #e3b009 5%, #cfcf25 100%);
+    background:-webkit-linear-gradient(top, #e3b009 5%, #cfcf25 100%);
+    background:-o-linear-gradient(top, #e3b009 5%, #cfcf25 100%);
+    background:-ms-linear-gradient(top, #e3b009 5%, #cfcf25 100%);
+    background:linear-gradient(to bottom, #e3b009 5%, #cfcf25 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#e3b009', endColorstr='#cfcf25',GradientType=0);
+    background-color:#e3b009;
+    -moz-border-radius:8px;
+    -webkit-border-radius:8px;
+    border-radius:8px;
+    display:inline-block;
+    cursor:pointer;
+    color:#080108;
+    font-family:Times New Roman;
+    font-size:14px;
+    font-weight:bold;
+    padding:7px 15px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #3c545c;
+}
+.muangay:hover {
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #cfcf25), color-stop(1, #e3b009));
+    background:-moz-linear-gradient(top, #cfcf25 5%, #e3b009 100%);
+    background:-webkit-linear-gradient(top, #cfcf25 5%, #e3b009 100%);
+    background:-o-linear-gradient(top, #cfcf25 5%, #e3b009 100%);
+    background:-ms-linear-gradient(top, #cfcf25 5%, #e3b009 100%);
+    background:linear-gradient(to bottom, #cfcf25 5%, #e3b009 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#cfcf25', endColorstr='#e3b009',GradientType=0);
+    background-color:#cfcf25;
+}
+.muangay:active {
+    position:relative;
+    top:1px;
+}
+.hovergallery img{
+-webkit-transform:scale(1); /*Webkit: Thu nhỏ kích thước ảnh còn 0.8 so với ảnh gốc*/
+-moz-transform:scale(1); /*Thu nhỏ đối với Mozilla*/
+-o-transform:scale(1); /*Thu nhỏ đối với Opera*/
+-webkit-transition-duration: 0.5s; /*Webkit: Thời gian phóng to, nhỏ ảnh*/
+-moz-transition-duration: 0.5s; /*Như trên*/
+-o-transition-duration: 0.5s; /*Như trên*/
+opacity: 1; /*Độ mờ của hình ảnh*/
+margin: 0 10px 5px 0; /*căn đều giữa ảnh*/
+}
+.hovergallery img:hover{
+-webkit-transform:scale(3); /*Webkit: Tăng kích cỡ ảnh lên 1.1 lần*/
+-moz-transform:scale(3); 
+-o-transform:scale(3); 
+box-shadow:0px 0px 30px gray; /*Đổ bóng bằng CSS3*/
+-webkit-box-shadow:0px 0px 30px gray;
+-moz-box-shadow:0px 0px 30px gray; 
+opacity: 1; /*Độ mờ của hình ảnh*/
+}
 .myCard{
     float: left;
     width:30.5%;
 }
-
+#rectangle0 {
+    width: 400px;
+    height: 170px;
+    background: #66CCCC;
+    margin-left: 10px;
+    margin-top: 10px;
+    -moz-border-radius: 10px;
+-webkit-border-radius: 10px;
+}
+#rectangle00 {
+    width: 400px;
+    height: 150px;
+    background: #66CCCC;
+    margin-left: 190px;
+    margin-top: 100px;
+        -moz-border-radius: 10px;
+-webkit-border-radius: 10px;
+}
+#rectangle {
+    width: 400px;
+    height: 50px;
+    background: #66CCCC;
+    margin-left: 420px;
+    margin-top: -185px;
+-moz-border-radius-topleft:10px;
+-webkit-border-top-left-radius:10px;
+-moz-border-radius-topright:10px;
+-webkit-border-top-right-radius:10px;
+}
+#rectangle1 {
+    width: 400px;
+    height: 120px;
+    background: #66CCCC;
+    margin-left: 420px;
+    margin-top: -12px;
+-moz-border-radius-bottomleft:10px;
+-webkit-border-bottom-left-radius:10px;
+-moz-border-radius-bottomright:10px;
+-webkit-border-bottom-right-radius:10px;
+}
 
 
 .modal {
