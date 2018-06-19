@@ -12,7 +12,16 @@ router.get('/', (req, res) => {
         res.end('View error log on console.');
     });
 });
-
+router.get('/kiemtra/:emaila', (req, res) => {
+	var email = req.params.emaila;
+    userRepo.kiemtra(email).then(rows => {
+        res.send(rows);
+    }).catch(err => {
+        console.log(err);
+        res.statusCode = 500;
+        res.end('View error log on console.');
+    });
+});
 // 
 // categories/5
 

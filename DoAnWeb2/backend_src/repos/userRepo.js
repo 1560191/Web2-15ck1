@@ -9,13 +9,19 @@ exports.load = function(id) {
 	var sql = `select * from taikhoan where Email = '${id}'`;
 	return db.load(sql);
 }
-
+exports.kiemtra = function(email) {
+	var sql = `select * from xinban where Email = '${email}'`;
+	return db.load(sql);
+}
 exports.findUser = function(email,pwd) {
 	var md5_password = md5(pwd);
 	var sql = `select * from taikhoan where Email = '${email}' and Password = '${md5_password}'`;
 	return db.load(sql);
 }
-
+exports.findUser1 = function(email,pwd) {
+	var sql = `select * from taikhoan where Email = '${email}' and Password = '${pwd}'`;
+	return db.load(sql);
+}
 exports.add = function (poco) {
 	var md5_password = md5(poco.Password);
 	var sql = `insert into taikhoan(Email,Password,HoTen,DiaChi,SDT,Active,Permission ) values( '${poco.Email}','${md5_password}','${poco.Name}','${poco.Diachi}', '${poco.SDT}','0','${poco.Permission}')`;

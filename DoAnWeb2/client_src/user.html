@@ -14,24 +14,25 @@
 </head>
 <body>
     <div class="w3-center" style="width:1200px;margin:0 auto;">
-
+    <div id = header>
                 <div class="w3-col">
             <div class="w3-row w3-bar w3-black" style="width:100%">
 
                 <a id="home" href="http://localhost:8080"  class="w3-black w3-button w3-small w3-left fa">Trang Chủ</a>
     <div class="w3-dropdown-hover w3-right">
-    <button class="w3-button w3-black"><h7 id="list1"></h7></button>
+    <button onclick="myFunction()" href="/user.html" class="w3-button w3-black"><h7 id="list1"></h7></button>
     <div class="w3-dropdown-content w3-bar-block w3-border">
-      <a id="upsanpham" href="#" class="w3-bar-item w3-button">Đăng Bán Sản Phẩm</a>
+      <a id="upsanpham" class="w3-bar-item w3-button">Đăng Bán Sản Phẩm</a>
       <a id="xinban" onclick="document.getElementById('banhang-pop').style.display='block'" class="w3-bar-item w3-button">Xin Bán Sản Phảm</a>
-      <a href="#" class="w3-bar-item w3-button">Quản Lý Tài Khoản</a>
-      <a id="qlSanPham" href="#" class="w3-bar-item w3-button">Quản Lý Sản Phẩm</a>
+      <a  class="w3-bar-item w3-button">Quản Lý Tài Khoản</a>
+      <a id="qlSanPham"  class="w3-bar-item w3-button">Quản Lý Sản Phẩm</a>
       <a id="thoat" class="w3-bar-item w3-button"> Thoát</a>
     </div>
   </div>
 
             </div>
         </div>
+    </div>
         <div id="trangchu">
         <!-- The Main Section -->
         <div id="MainSection" class="w3-container w3-white w3-content w3-center w3-padding-12" style="max-width:2000px">
@@ -61,13 +62,15 @@
                 </form>
             </div>
         </div>
-        </div>
         
+       
 
     <!-- End Page Content -->
         <div class="w3-row w3-margin-top" >
             <!-- Page content -->
-
+             <div align="center">
+        <h5 id="nguoidung"></h5>
+        </div>
             <div id="tagbar-danhmuc" class="w3-col w3-left w3-boder w3-round" style="margin-right:20px;width:21%">
                 <div class="w3-col w3-tiny w3-light-grey w3-border">
                     <h6 class="w3-left" style="margin:5px"><b>Danh mục</b></h6>
@@ -122,6 +125,7 @@
             </div>
         </div>
         </div>
+    </div>
     <!-- Footer -->
 
     <footer class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge">
@@ -142,7 +146,7 @@
 </body>
 </html>
 
-
+<script id="timeaaa"></script>
 <script src="assets/jquery-3.1.1.min.js"></script>
 <script src="assets/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 <script src="assets/handlebars.min-v4.0.11.js"></script>

@@ -1,19 +1,51 @@
+function myFunction(){
+  window.location.href = "/user.html";  
+}
 
+$('#upsanpham').on('click', function() {
+    $("#trangchu").load("banSanPham.html");
+});
 $(function() {
     var token = localStorage.getItem('id_token'); 
     $.ajax({
         url: 'http://localhost:3000/login/'+token,
         dataType: 'text',
-        timeout: 10000,
+        timeout: 10000
     }).done(function(res) {
         if(res != "0")
         {    
-             $('#khach').hide();
-             $('#dangky').hide();
-             $('#dangnhap').hide();
-             $('#thoat').show();
-             var ten = res;
+            var obj = JSON.parse(res);  
+             var ten = obj.Ten;
+             var pq = obj.Permission;
+             var emaila = obj.Email;
              $('#list1').append(ten);
+             if(pq == '2')
+             {
+              $('#upsanpham').show();
+              $('#xinban').hide();
+               $.ajax({
+        url: 'http://localhost:3000/user/kiemtra/'+emaila,
+        dataType: 'text',
+        timeout: 10000 
+    }).done(function(data){
+                var aaas = "<script>\
+        var countDownDate = new Date('{{thoigianketthuc}}').getTime();\
+        setInterval(function() {\
+        var now = new Date().getTime();\
+        var distance = countDownDate - now;\
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));\
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));\
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));\
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);\
+        document.getElementById('nguoidung').innerHTML ='Bạn đã được duyệt bán hàng! Thời gian còn lại của bạn: ' + days + ' Ngày ' + hours + ' Giờ '+ minutes + ' Phút ' + seconds + ' Giây'; },1000);\
+        </script>";
+         var obj1 = JSON.parse(data);
+        console.log(obj1);
+        var template1 = Handlebars.compile(aaas);
+        var html1 = template1(obj1[0]);
+        $('#timeaaa').append(html1);
+        });
+             }
         }
     }).fail(function(xhr, textStatus, error) {
             console.log(error);
@@ -26,13 +58,6 @@ $('#thoat').click(function () {
      window.location.href = "http://localhost:8080"; 
 });
 $('#upsanpham').hide();
-var CUR_PAGE = 1;
-$('#btnMore2').hide();
-$('#btnMore3').hide();
-$('#btnMore4').hide();
-$('#btnMore5').hide();
-$("#includeContent").load("index.html");
-
 $(function() {
     HandlebarsIntl.registerWith(Handlebars);
     loadProducts();

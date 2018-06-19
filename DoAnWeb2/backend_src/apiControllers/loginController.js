@@ -14,7 +14,22 @@ router.get('/:token',function(req, res, next) {
         var user = decoded
         if(user.Active == '1')
         {
-        res.send(user.Hoten);
+          var email = user.Email
+          var pwd = user.Password
+        userRepo.findUser1(email,pwd).then(rows => {
+         if (rows.length > 0) {
+      var user = {
+      Ten: rows[0].Hoten,
+      Permission: rows[0].Permission,
+      Email: rows[0].Email
+      };
+      res.send(user);
+      }      
+        }).catch(err => {
+    console.log(err);
+    res.statusCode = 500;
+    res.send('0');
+  });
 
       }
       else

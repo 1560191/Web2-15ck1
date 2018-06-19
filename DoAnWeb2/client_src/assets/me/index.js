@@ -12,7 +12,8 @@ $(function() {
              $('#dangky').hide();
              $('#dangnhap').hide();
              $('#thoat').show();
-             var ten = res;
+              var obj = JSON.parse(res);  
+             var ten = obj.Ten;
              $('#list1').append(ten);
         }
     }).fail(function(xhr, textStatus, error) {
