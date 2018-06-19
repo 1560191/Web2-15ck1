@@ -1,9 +1,8 @@
-function deleteus() {
-	var e = $('#e').val();
+function deleteus(_e) {
     $.ajax({
-        url: 'http://localhost:3000/user/del/'+e,
+        url: 'http://localhost:3000/user/del/'+_e,
         //dataType: 'json',
-        type: 'DELETE' 
+        //type: 'DELETE' 
         //timeout: 10000
     }).done(function() {
         alert('Đã Xóa Tài Khoản!')
@@ -37,8 +36,9 @@ function deleteus() {
                 item.Permission +
                 '</td>' +
                 '<td>' +
-                '<center><a href="javascript:deleteus();"><span class="glyphicon glyphicon-remove"></span> Xóa </a></center>' +
+                '<center><a href="javascript:deleteus('+"'"+item.Email+"'"+');"><span class="glyphicon glyphicon-remove"></span> Xóa </a></center>' +
                 '</td>' +
+                '<input type="hidden" value="'+item.Email+'" id="e">' +
             '</tr>';
             
             $('#listdel').append(tr);
@@ -48,11 +48,10 @@ function deleteus() {
 };
 
 
-function updateus() {
-    var e2 = $('#e2').val();
+function updateus(_e) {
     var mkmoi = $('#mkmoi').val();
     $.ajax({
-        url: 'http://localhost:3000/user/update/'+mkmoi+'/'+e2,
+        url: 'http://localhost:3000/user/update/'+mkmoi+'/'+_e,
         //dataType: 'json', 
         //timeout: 10000
     }).done(function() {
@@ -78,12 +77,8 @@ function updateus() {
                 item.Password +
                 '</td>' +
                 '<td>' +
-                '<form><div class="form-group"><textarea class="form-control" rows="1" id="mkmoi"></textarea></div></form>' +
+                '<center><a href="javascript:updateus('+"'"+item.Email+"'"+');"><span class="glyphicon glyphicon-ok"></span> Xác Nhận </a></center>' +
                 '</td>' +
-                '<td>' +
-                '<center><a href="javascript:updateus();"><span class="glyphicon glyphicon-ok"></span> Xác Nhận </a></center>' +
-                '</td>' +
-                '<input type="hidden" value="'+item.Email+'" id="e2">' +
             '</tr>';
             
             $('#listupdate').append(tr);

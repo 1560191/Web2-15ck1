@@ -122,6 +122,7 @@
 <script src="assets/me/add-del-up-danhmuc.js"></script>
 <script src="assets/me/chuyenPage.js"></script>
 <script src="assets/me/indexAdmin.js"></script>
+<script src="assets/me/duyetDonXinBanHang.js"></script>
 
 
 <script id="chucnang-temp" type="text/x-handlebars-template">
@@ -142,7 +143,7 @@
           <td width="360px"><center>Địa Chỉ</center></td>
           <td width="150px"><center>SĐT</td>
           <td width="180px"><center>Ngày Khởi Tạo</center></td>
-          <td width="180px"><center>Được Phép Bán Hàng  (1: có/0: không)</center></td>
+          <td width="180px"><center>Được Phép Bán Hàng  (1: không/2: có)</center></td>
         </tr>
       </thead>
       <tbody id="list"></tbody>
@@ -167,14 +168,20 @@
 </script>
 
 <script id="noidung-temp-updateuser" type="text/x-handlebars-template">
+    <form>
+      <div class="form-group">
+        <label for="mkmoi">Nhập Mật Khẩu Muốn Đổi::</label>
+        <input type="text" class="form-control" id="mkmoi">
+      </div>
+    </form>
+    <br/>
     <table border="1" width="1100px">
       <thead>
         <tr>
           <td width="180px"><center>Email</center></td>
           <td width="200px"><center>Họ Tên</center></td>
           <td width="200px"><center>Mật Khẩu Cũ</center></td>
-          <td width="200px"><center>Mật Khẩu Mới</center></td>
-          <td width="180px"><center>Xác Nhận</center></td>
+          <td width="180px"><center>Thay Đổi</center></td>
         </tr>
       </thead>
       <tbody id="listupdate"></tbody>
@@ -252,4 +259,19 @@
       <h1>{{this}}</h1>
 
     {{/each}}
+</script>
+
+
+<script id="noidung-temp-duyet" type="text/x-handlebars-template">
+    <table border="1" width="1100px">
+      <thead>
+        <tr>
+          <td width="520px"><center>Email</center></td>
+          <td width="220px"><center>Điểm Đánh Giá</center></td>
+          <td width="180px"><center>Chấp Nhận</center></td>
+          <td width="180px"><center>Từ Chối</center></td>
+        </tr>
+      </thead>
+      <tbody id="listduyet"></tbody>
+    </table>
 </script>

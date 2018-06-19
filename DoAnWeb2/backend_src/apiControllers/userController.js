@@ -118,19 +118,16 @@ router.get('/ragia/:_id/:emaila/:gia', (req, res) => {
 		});
 });
 
-router.delete('/del/:_email', (req, res) => {
+router.get('/del/:_email', (req, res) => {
 	if (req.params._email) {
-		var _email = req.params._email;
+		var email = req.params._email;
+		userRepo.deleteKhachHang(email);
+		userRepo.deleteTaiKhoan(email);
+		userRepo.deleteSanPham(email);
+		userRepo.deleteXinBan(email);
+		userRepo.deleteYeuThich(email);
 
-		userRepo.delete(_email).then(affectedRows => {
-			res.json({
-				affectedRows: affectedRows
-			});
-		}).catch(err => {
-			console.log(err);
-			res.statusCode = 500;
-			res.json('error');
-		});
+		res.send('ok');
 	} else {
 		res.statusCode = 400;
 		res.json('error');
@@ -172,4 +169,40 @@ router.get('/:email', (req, res) => {
 		res.json('error');
 	}
 });
+
+router.get('/dsxinban/loadAll', (req, res) => {
+    userRepo.loadDSXinBan().then(rows => {
+        res.json(rows);
+    }).catch(err => {
+        console.log(err);
+        res.statusCode = 500;
+        res.end('View error log on console.');
+    });
+});
+
+
+router.get('/updateActiveXinBan/:email', (req, res) => {
+	if (req.params.email) {
+		var email = req.params.email;
+		userRepo.updateActiveXinBan(email);
+		userRepo.updatePermission(email);
+		res.send('ok');
+	} else {
+		res.statusCode = 400;
+		res.json('error');
+	}
+});
+
+router.get('/delXinBan/:email', (req, res) => {
+	if (req.params.email) {
+		var email = req.params.email;
+		userRepo.deleteXinBan(email);
+		
+		res.send('ok');
+	} else {
+		res.statusCode = 400;
+		res.json('error');
+	}
+});
+
 module.exports = router;

@@ -172,12 +172,34 @@ $('#qlsp').on('click', function() {
 function chucnangcn(cnn){
     if(cnn == 'Danh Sách Xin Bán')
     {
-        var st = {
-            st1: '1111111111111111111111111111111111111111111111111'
-        };
-        var source = $('#noidung-temp').html();
-        var template = Handlebars.compile(source);
-        $('#noidung').html(template(st));
+        $.ajax({
+            url: 'http://localhost:3000/user/dsxinban/loadAll',
+            dataType: 'json',
+            timeout: 10000
+        }).done(function(data) {
+            var source0 = $('#noidung-temp-duyet').html();
+            var template0 = Handlebars.compile(source0);
+            $('#noidung').html(template0());
+            $.each(data, function(idx, item) {
+            // console.log(item.CatName);
+            var tr = '<tr>' +
+                '<td>' +
+                item.Email +
+                '</td>' +
+                '<td><center>' +
+                item.Diemdanhgia +
+                '</center></td>' +
+                '<td>' +
+                '<center><a href="javascript:chapnhan('+"'"+item.Email+"'"+');"><span class="glyphicon glyphicon-ok"></span> Chấp Nhận </a></center>' +
+                '</td>' +
+                '<td>' +
+                '<center><a href="javascript:tuchoi('+"'"+item.Email+"'"+');" style="color:red;"><span class="glyphicon glyphicon-remove" style="color:red;"></span> Từ Chối </a></center>' +
+                '</td>' +
+            '</tr>';
+            
+            $('#listduyet').append(tr);
+            });
+        });
     }
     if(cnn == 'Xem Tất Cả Người Dùng')
     {
@@ -248,9 +270,8 @@ function chucnangcn(cnn){
                 item.Permission +
                 '</td>' +
                 '<td>' +
-                '<center><a href="javascript:deleteus();"><span class="glyphicon glyphicon-remove"></span> Xóa </a></center>' +
+                '<center><a href="javascript:deleteus('+"'"+item.Email+"'"+');"><span class="glyphicon glyphicon-remove"></span> Xóa </a></center>' +
                 '</td>' +
-                '<input type="hidden" value="'+item.Email+'" id="e">' +
             '</tr>';
             
             $('#listdel').append(tr);
@@ -280,12 +301,8 @@ function chucnangcn(cnn){
                 item.Password +
                 '</td>' +
                 '<td>' +
-                '<form><div class="form-group"><textarea class="form-control" rows="1" id="mkmoi"></textarea></div></form>' +
+                '<center><a href="javascript:updateus('+"'"+item.Email+"'"+');"><span class="glyphicon glyphicon-ok"></span> Thay Đổi </a></center>' +
                 '</td>' +
-                '<td>' +
-                '<center><a href="javascript:updateus();"><span class="glyphicon glyphicon-ok"></span> Xác Nhận </a></center>' +
-                '</td>' +
-                '<input type="hidden" value="'+item.Email+'" id="e2">' +
             '</tr>';
             
             $('#listupdate').append(tr);

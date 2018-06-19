@@ -14,7 +14,7 @@ router.get('/:token',function(req, res, next) {
         var user = decoded
         if(user.Active == '1')
         {
-          var email = user.Email
+        var email = user.Email
           var pwd = user.Password
         userRepo.findUser1(email,pwd).then(rows => {
          if (rows.length > 0) {

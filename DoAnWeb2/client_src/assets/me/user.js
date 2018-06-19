@@ -14,7 +14,7 @@ $(function() {
     }).done(function(res) {
         if(res != "0")
         {    
-            var obj = JSON.parse(res);  
+             var obj = JSON.parse(res);  
              var ten = obj.Ten;
              var pq = obj.Permission;
              var emaila = obj.Email;

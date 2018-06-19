@@ -33,11 +33,6 @@ exports.addkh = function (poco) {
 	return db.insert(sql);
 }
 
-exports.delete = function(_email) {
-	var sql = `delete from taikhoan where Email = '${_email}'`;
-	return db.delete(sql);
-}
-
 exports.update = function(_pwd,_email) {
 	var md5_password = md5(_pwd);
 	var sql = `update taikhoan SET Password = '${md5_password}' where Email = '${_email}'`;
@@ -58,4 +53,44 @@ exports.ragia = function(_id,email,gia) {
 exports.xinban = function (email) {
 	var sql = `insert into xinban(Email,Active) values('${email}',0)`;
 	return db.insert(sql);
+}
+
+exports.loadDSXinBan = function() {
+	var sql = 'select * from xinban xb, khachhang kh where xb.Active = 0 and xb.Email = kh.IDUser';
+	return db.load(sql);
+}
+
+exports.updateActiveXinBan = function(_email) {
+	var sql = `update xinban SET Active = 1, thoigianbatdau = NOW(), thoigianketthuc = ADDTIME(NOW(),'168:0:0.0') where Email = '${_email}'`;
+	return db.update(sql);
+}
+
+exports.updatePermission = function(_email) {
+	var sql = `update taikhoan SET Permission = 2 where Email = '${_email}'`;
+	return db.update(sql);
+}
+
+exports.deleteXinBan = function(_email) {
+	var sql = `delete from xinban where Email = '${_email}'`;
+	return db.delete(sql);
+}
+
+exports.deleteTaiKhoan = function(_email) {
+	var sql = `delete from taikhoan where Email = '${_email}'`;
+	return db.delete(sql);
+}
+
+exports.deleteKhachHang = function(_email) {
+	var sql = `delete from khachhang where IDUser = '${_email}'`;
+	return db.delete(sql);
+}
+
+exports.deleteSanPham = function(_email) {
+	var sql = `delete from sanpham where Nguoiban = '${_email}'`;
+	return db.delete(sql);
+}
+
+exports.deleteYeuThich = function(_email) {
+	var sql = `delete from yeuthich where Email = '${_email}'`;
+	return db.delete(sql);
 }

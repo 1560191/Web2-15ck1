@@ -12,7 +12,7 @@ $(function() {
              $('#dangky').hide();
              $('#dangnhap').hide();
              $('#thoat').show();
-              var obj = JSON.parse(res);  
+             var obj = JSON.parse(res);  
              var ten = obj.Ten;
              $('#list1').append(ten);
         }
