@@ -33,9 +33,3 @@ $('#backhome').on('click', function() {
 });
 
 
-$('#upsanpham').on('click', function() {
-    $('#footer').hide();
-    $("#trangchu").load("banSanPham.html");
-    $('#home').hide();
-    $('#backhome').show();
-});

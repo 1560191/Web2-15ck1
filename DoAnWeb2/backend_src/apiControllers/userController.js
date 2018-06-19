@@ -22,6 +22,7 @@ router.get('/kiemtra/:emaila', (req, res) => {
         res.end('View error log on console.');
     });
 });
+
 // 
 // categories/5
 

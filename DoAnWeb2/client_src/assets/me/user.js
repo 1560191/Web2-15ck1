@@ -1,9 +1,34 @@
 function myFunction(){
   window.location.href = "/user.html";  
 }
-
+$("#back").hide();
 $('#upsanpham').on('click', function() {
     $("#trangchu").load("banSanPham.html");
+    $("#home").hide();
+    $("#back").show();
+});
+$("#qltk").on('click', function() {
+    //$("#trangchu").load("qltk.html");
+    $("#home").hide();
+    $("#back").show();
+    $("#trangchu").hide();
+    var email = localStorage.getItem('email'); 
+    $.ajax({
+        url: 'http://localhost:3000/user/'+email,
+        dataType: 'json',
+        timeout: 10000
+    }).done(function(data) {
+        console.log(data.Hoten);
+        var source212 = $('#thongtinnguoidung').html();
+        var template212 = Handlebars.compile(source212);
+        var html212 = template212(data);
+        $('#qltknd').append(html212);
+        $('#qltknd div[style]').fadeIn(200, function() {
+            $(this).removeAttr('style');
+
+        });
+    });
+
 });
 $(function() {
     var token = localStorage.getItem('id_token'); 
@@ -40,7 +65,6 @@ $(function() {
         document.getElementById('nguoidung').innerHTML ='Bạn đã được duyệt bán hàng! Thời gian còn lại của bạn: ' + days + ' Ngày ' + hours + ' Giờ '+ minutes + ' Phút ' + seconds + ' Giây'; },1000);\
         </script>";
          var obj1 = JSON.parse(data);
-        console.log(obj1);
         var template1 = Handlebars.compile(aaas);
         var html1 = template1(obj1[0]);
         $('#timeaaa').append(html1);
