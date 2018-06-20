@@ -11,6 +11,7 @@ var capchaCtrl = require('./apiControllers/capchaController');
 var danhmucCtrl = require('./apiControllers/danhmucController');
 var loginadminCtrl = require('./apiControllers/loginadminController');
 var daugiaCtrl = require('./apiControllers/daugiaController');
+var qlsanphamnguoidungCtrl = require('./apiControllers/qlsanphamnguoidungController');
 var app = express();
 
 app.use(morgan('dev'));
@@ -34,6 +35,7 @@ app.use('/capcha', capchaCtrl);
 app.use('/danhmuc', danhmucCtrl);
 app.use('/admin', loginadminCtrl);
 app.use('/daugia', daugiaCtrl);
+app.use('/qlsanphamnguoidung', qlsanphamnguoidungCtrl);
 app.listen(3000, () => {
 	console.log('API running on port 3000');
 });

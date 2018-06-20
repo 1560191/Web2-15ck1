@@ -132,20 +132,33 @@ function ragia(id) {
                     return;
             }
             else{
-        $.ajax({
-            url: 'http://localhost:3000/user/ragia/'+_id+'/'+emaila+'/'+gia,
-            dataType: 'json',
-            timeout: 10000
-        }).done(function(data) {
-            alert('Đã Đấu Giá Thành Công');
-            daugia(_id);
+                $.ajax({
+                    url: 'http://localhost:3000/qlsanphamnguoidung/kiemtra/'+_id+'/'+emaila,
+                    //dataType: 'json',
+                    //timeout: 10000
+                }).done(function(data) {
+                if(data == '1')
+                {
+                    alert('Bạn Đã Bị Cấm Đấu Giá Cho Sản Phẩm Này!');
+                    return;
+                }
+                else{
+                    $.ajax({
+                        url: 'http://localhost:3000/user/ragia/'+_id+'/'+emaila+'/'+gia,
+                        dataType: 'json',
+                        timeout: 10000
+                    }).done(function(data) {
+                        alert('Đã Đấu Giá Thành Công');
+                        daugia(_id);
 
-        });
-    }
-}
+                    });
+                }
+                });
+            }
+        }
           });
         }
-    };  
+    };
 function muangay(id) {
     var emaila = localStorage.getItem('email'); 
     var _id = id;

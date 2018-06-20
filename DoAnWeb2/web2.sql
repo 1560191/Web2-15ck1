@@ -21,7 +21,11 @@ SET time_zone = "+00:00";
 --
 
 -- --------------------------------------------------------
-
+CREATE TABLE `dsDen` (
+  `ID` int(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  `Email` varchar(30) NOT NULL,
+  `IDsanpham` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 --
 -- Cấu trúc bảng cho bảng `danhmuc`
 --
@@ -99,22 +103,26 @@ CREATE TABLE `sanpham` (
 --
 
 INSERT INTO `sanpham` (`ID`, `Ten`, `Phanloai`, `Hinhanh`, `Giakhoidiem`, `Giahientai`, `Buocgia`, `Giabanngay`, `Soluotragia`, `Thoigianbatdau`, `Thoigianketthuc`, `Mota`, `Nguoiban`, `Nguoimua`) VALUES
-(1, 'San Pham 1', 'Ba Lo', 'imgs/1/main_thumbs.jpg', 100000, 100000, 10000, 500000, 1, '2018-06-14 00:00:00', '2018-06-21 00:00:00', 'Day la mo ta', 'user1@gmail.com', NULL),
-(2, 'San Pham 2', 'Ba Lo', 'imgs/2/main_thumbs.jpg', 100000, 100000, 10000, 500000, 3, '2018-06-14 00:00:00', '2018-06-21 00:00:00', 'Day la mo ta', 'user1@gmail.com', NULL),
-(3, 'San Pham 3', 'Ba Lo', 'imgs/3/main_thumbs.jpg', 100000, 100000, 10000, 500000, 2, '2018-06-14 00:00:00', '2018-06-21 00:00:00', 'Day la mo ta', 'user1@gmail.com', NULL),
-(4, 'San Pham 4', 'Ba Lo', 'imgs/4/main_thumbs.jpg', 100000, 100000, 10000, 500000, 10, '2018-06-14 00:00:00', '2018-06-21 00:00:00', 'Day la mo ta', 'user1@gmail.com', NULL),
-(5, 'San Pham 5', 'Ba Lo', 'imgs/5/main_thumbs.jpg', 100000, 100000, 10000, 500000, 5, '2018-06-14 00:00:00', '2018-06-21 00:00:00', 'Day la mo ta', 'user1@gmail.com', NULL),
-(6, 'San Pham 6', 'Ba Lo', 'imgs/6/main_thumbs.jpg', 100000, 100000, 10000, 500000, 1, '2018-06-14 00:00:00', '2018-06-21 00:00:00', 'Day la mo ta', 'user1@gmail.com', NULL),
-(7, 'San Pham 7', 'Ba Lo', 'imgs/7/main_thumbs.jpg', 100000, 100000, 10000, 500000, 4, '2018-06-14 00:00:00', '2018-06-21 00:00:00', 'Day la mo ta', 'user1@gmail.com', NULL),
-(8, 'San Pham 8', 'Ba Lo', 'imgs/8/main_thumbs.jpg', 100000, 100000, 10000, 500000, 13, '2018-06-14 00:00:00', '2018-06-21 00:00:00', 'Day la mo ta', 'user1@gmail.com', NULL),
-(9, 'San Pham 9', 'Ba Lo', 'imgs/9/main_thumbs.jpg', 100000, 100000, 10000, 500000, 11, '2018-06-14 00:00:00', '2018-06-21 00:00:00', 'Day la mo ta', 'user1@gmail.com', NULL),
-(10, 'San Pham 10', 'Ba Lo', 'imgs/10/main_thumbs.jpg', 100000, 100000, 10000, 500000, 14, '2018-06-14 00:00:00', '2018-06-21 00:00:00', 'Day la mo ta', 'user1@gmail.com', NULL),
-(11, 'San Pham 11', 'Ba Lo', 'imgs/11/main_thumbs.jpg', 100000, 100000, 10000, 500000, 12, '2018-06-14 00:00:00', '2018-06-21 00:00:00', 'Day la mo ta', 'user1@gmail.com', NULL),
-(12, 'San Pham 12', 'Ba Lo', 'imgs/12/main_thumbs.jpg', 100000, 100000, 10000, 500000, 2, '2018-06-14 00:00:00', '2018-06-21 00:00:00', 'Day la mo ta', 'user1@gmail.com', NULL),
-(13, 'San Pham 13', 'Ba Lo', 'imgs/13/main_thumbs.jpg', 100000, 100000, 10000, 500000, 9, '2018-06-14 00:00:00', '2018-06-21 00:00:00', 'Day la mo ta', 'user1@gmail.com', NULL),
-(14, 'San Pham 14', 'Ba Lo', 'imgs/14/main_thumbs.jpg', 100000, 100000, 10000, 500000, 6, '2018-06-14 00:00:00', '2018-06-21 00:00:00', 'Day la mo ta', 'user1@gmail.com', NULL),
-(15, 'San Pham 15', 'Ba Lo', 'imgs/15/main_thumbs.jpg', 100000, 100000, 10000, 500000, 4, '2018-06-14 00:00:00', '2018-06-21 00:00:00', 'Day la mo ta', 'user1@gmail.com', NULL),
-(16, 'San Pham 16', 'Ba Lo', 'imgs/16/main_thumbs.jpg', 900000, 1000000, 100000, 5000000, 1, '2018-06-14 00:00:00', '2018-06-21 00:00:00', 'Day la mo ta', 'user1@gmail.com', NULL);
+(1, 'San Pham 1', 'Áo Quần', 'imgs/1/main_thumbs.jpg', 100000, 100000, 10000, 500000, 1, '2018-06-20 00:00:00', '2018-06-27 00:00:00', 'Day la mo ta', 'user1@gmail.com', NULL),
+(2, 'San Pham 2', 'Giày', 'imgs/2/main_thumbs.jpg', 100000, 100000, 10000, 500000, 3, '2018-06-20 00:00:00', '2018-06-27 00:00:00', 'Day la mo ta', 'user1@gmail.com', NULL),
+(3, 'San Pham 3', 'Nhẫn', 'imgs/3/main_thumbs.jpg', 100000, 100000, 10000, 500000, 2, '2018-06-20 00:00:00', '2018-06-27 00:00:00', 'Day la mo ta', 'user1@gmail.com', NULL),
+(4, 'San Pham 4', 'Nhẫn', 'imgs/4/main_thumbs.jpg', 100000, 100000, 10000, 500000, 10, '2018-06-20 00:00:00', '2018-06-27 00:00:00', 'Day la mo ta', 'user1@gmail.com', NULL),
+(5, 'San Pham 5', 'Điện Thoại', 'imgs/5/main_thumbs.jpg', 100000, 100000, 10000, 500000, 5, '2018-06-20 00:00:00', '2018-06-27 00:00:00', 'Day la mo ta', 'user1@gmail.com', NULL),
+(6, 'San Pham 6', 'Áo Quần', 'imgs/6/main_thumbs.jpg', 100000, 100000, 10000, 500000, 1, '2018-06-20 00:00:00', '2018-06-27 00:00:00', 'Day la mo ta', 'user1@gmail.com', NULL),
+(7, 'San Pham 7', 'Điện Thoại', 'imgs/7/main_thumbs.jpg', 100000, 100000, 10000, 500000, 4, '2018-06-20 00:00:00', '2018-06-27 00:00:00', 'Day la mo ta', 'user1@gmail.com', NULL),
+(8, 'San Pham 8', 'Áo Quần', 'imgs/8/main_thumbs.jpg', 100000, 100000, 10000, 500000, 13, '2018-06-20 00:00:00', '2018-06-27 00:00:00', 'Day la mo ta', 'user1@gmail.com', NULL),
+(9, 'San Pham 9', 'Khuyên Tai', 'imgs/9/main_thumbs.jpg', 100000, 100000, 10000, 500000, 11, '2018-06-20 00:00:00', '2018-06-27 00:00:00', 'Day la mo ta', 'user1@gmail.com', NULL),
+(10, 'San Pham 10', 'Áo Quần', 'imgs/10/main_thumbs.jpg', 100000, 100000, 10000, 500000, 14, '2018-06-20 00:00:00', '2018-06-27 00:00:00', 'Day la mo ta', 'user1@gmail.com', NULL),
+(11, 'San Pham 11', 'Vòng Cổ', 'imgs/11/main_thumbs.jpg', 100000, 100000, 10000, 500000, 12, '2018-06-20 00:00:00', '2018-06-27 00:00:00', 'Day la mo ta', 'user1@gmail.com', NULL),
+(12, 'San Pham 12', 'Áo Quần', 'imgs/12/main_thumbs.jpg', 100000, 100000, 10000, 500000, 2, '2018-06-20 00:00:00', '2018-06-27 00:00:00', 'Day la mo ta', 'user1@gmail.com', NULL),
+(13, 'San Pham 13', 'Áo Quần', 'imgs/13/main_thumbs.jpg', 100000, 100000, 10000, 500000, 9, '2018-06-20 00:00:00', '2018-06-27 00:00:00', 'Day la mo ta', 'user1@gmail.com', NULL),
+(14, 'San Pham 14', 'Áo Quần', 'imgs/14/main_thumbs.jpg', 100000, 100000, 10000, 500000, 6, '2018-06-20 00:00:00', '2018-06-27 00:00:00', 'Day la mo ta', 'user1@gmail.com', NULL),
+(15, 'San Pham 15', 'Nhẫn', 'imgs/15/main_thumbs.jpg', 100000, 100000, 10000, 500000, 4, '2018-06-20 00:00:00', '2018-06-27 00:00:00', 'Day la mo ta', 'user1@gmail.com', NULL),
+(16, 'San Pham 16', 'Điện Thoại', 'imgs/16/main_thumbs.jpg', 900000, 1000000, 100000, 5000000, 1, '2018-06-20 00:00:00', '2018-06-27 00:00:00', 'Day la mo ta', 'user1@gmail.com', NULL),
+(17, 'San Pham 17', 'Nhẫn', 'imgs/17/main_thumbs.jpg', 100000, 100000, 10000, 500000, 1, '2018-06-20 00:00:00', '2018-06-27 00:00:00', 'Day la mo ta', 'user1@gmail.com', NULL),
+(18, 'San Pham 18', 'Vòng Cổ', 'imgs/18/main_thumbs.jpg', 100000, 100000, 10000, 500000, 3, '2018-06-20 00:00:00', '2018-06-27 00:00:00', 'Day la mo ta', 'user1@gmail.com', NULL),
+(19, 'San Pham 19', 'Vòng Cổ', 'imgs/19/main_thumbs.jpg', 100000, 100000, 10000, 500000, 2, '2018-06-20 00:00:00', '2018-06-27 00:00:00', 'Day la mo ta', 'user1@gmail.com', NULL),
+(20, 'San Pham 20', 'Giày', 'imgs/20/main_thumbs.jpg', 100000, 100000, 10000, 500000, 10, '2018-06-20 00:00:00', '2018-06-27 00:00:00', 'Day la mo ta', 'user1@gmail.com', NULL);
 
 -- --------------------------------------------------------
 

@@ -53,7 +53,7 @@
         <div id="tagbar2" class="w3-col m9 l9 w3-right">
             <div class="w3-row" style="margin:4px">
                 <div class="w3-col m1 l1 w3-text-white">
-                    <a>Ferocius</a>
+                    
                 </div>
                 <!-- Search -->
                 <form id="formsearch" role="search" method = "GET">
@@ -76,41 +76,110 @@
                     <h6 class="w3-left" style="margin:5px"><b>Quản Lý Sản Phẩm</b></h6>
                 </div>
                 <div class="w3-col w3-tiny w3-light-grey w3-border">
-                    <a id="dangban-conhan"  class="w3-left" style="margin:5px">Sản Phẩm Đang Bán - Còn Hạn</a>
+                    <a id="dangban-conhan" href="#" class="w3-left" style="margin:5px">Sản Phẩm Đang Bán - Còn Hạn</a>
                 </div>
                 <div class="w3-col w3-tiny w3-light-grey w3-border">
-                    <a id="damua"  class="w3-left" style="margin:5px">Sản Phẩm Đã Có Người Mua</a>
+                    <a id="damua" href="#" class="w3-left" style="margin:5px">Sản Phẩm Đã Có Người Mua</a>
                 </div>
                 <div class="w3-col w3-tiny w3-light-grey w3-border">
-                    <a id="lsdg"  class="w3-left" style="margin:5px">Lịch sử đấu giá</a>
+                    <a id="lsdg" href="#" class="w3-left" style="margin:5px">Lịch sử đấu giá</a>
+                </div>
+
+                <div class="w3-col w3-tiny w3-light-grey w3-border">
+                    <h6 class="w3-left" style="margin:5px"><b>Hồ Sơ Cá Nhân</b></h6>
                 </div>
                 <div class="w3-col w3-tiny w3-light-grey w3-border">
-                    <a id="top1daugia"  class="w3-left" style="margin:5px">Top 1 đấu giá</a>
+                    <a id="spYeuThich" href="#" class="w3-left" style="margin:5px">Sản Phẩm Yêu Thích</a>
                 </div>
+                <div class="w3-col w3-tiny w3-light-grey w3-border">
+                    <a id="spDangDG" href="#" class="w3-left" style="margin:5px">Sản Phẩm Đang Đấu Giá</a>
+                </div>
+                <div class="w3-col w3-tiny w3-light-grey w3-border">
+                    <a id="spDaThang" href="#" class="w3-left" style="margin:5px">Sản Phẩm Đã Thắng</a>
+                </div>
+                
 
             </div>
 
-                <div id="daugiauser" class="w3-col w3-right w3-border w3-round" style="margin-left:20px;width:75%">
-                <div class="w3-col w3-small w3-light-grey w3-border">
-                    <h5 class="w3-left" style="margin:5px"><b>Đấu giá</b></h5>
+
+            <div id="hienthisp" class="w3-col w3-right w3-border w3-round" style="margin-left:20px;width:75%">
+                <div id="title-dathich" class="w3-col w3-small w3-light-grey w3-border">
+                    <h5 class="w3-left" style="margin:5px"><b>Những Sản phẩm đã thích</b></h5>
                 </div>
+
+                <div id="title-dangban-conhan" class="w3-col w3-small w3-light-grey w3-border">
+                    <h5 class="w3-left" style="margin:5px"><b>Những Sản phẩm đang bán - còn hạn</b></h5>
+                </div>
+
+                <div id="title-damua" class="w3-col w3-small w3-light-grey w3-border">
+                    <h5 class="w3-left" style="margin:5px"><b>Những Sản phẩm đã có người mua</b></h5>
+                </div>
+
+                <div id="title-lichsu" class="w3-col w3-small w3-light-grey w3-border">
+                    <h5 class="w3-left" style="margin:5px"><b>Lịch Sử Đấu Giá</b></h5>
+                </div>
+
+                <div id="title-dangdg" class="w3-col w3-small w3-light-grey w3-border">
+                    <h5 class="w3-left" style="margin:5px"><b>Các Sản Phẩm Bạn Đang Đấu Giá</b></h5>
+                </div>
+
+                <div id="title-dathang" class="w3-col w3-small w3-light-grey w3-border">
+                    <h5 class="w3-left" style="margin:5px"><b>Các Sản Phẩm Bạn Đã Thắng</b></h5>
+                </div>
+
+          
                 <!-- San pham -->
-                <div class="w3-row " style="margin-left:20px"  >
+                <div id="body-dathich" class="w3-row " style="margin-left:20px"  >
                     <div class="w3-container w3-white ">
-                        <div id="product-list" class="w3-row-padding">
+                        <div id="like-list" class="w3-row-padding">
                             <!-- List San pham -->
                         </div>
                     </div>
                 </div>
-            </div>
-            <div id="hienthisp1" class="w3-col w3-right w3-border w3-round" style="margin-left:20px;width:75%">
-                <div class="w3-col w3-small w3-light-grey w3-border">
-                    <h5 class="w3-left" style="margin:5px"><b>Những Sản phẩm đã thích</b></h5>
-                </div>
-                <!-- San pham -->
-                <div class="w3-row " style="margin-left:20px"  >
+
+                <div id="body-dangban-conhan" class="w3-row " style="margin-left:20px"  >
                     <div class="w3-container w3-white ">
-                        <div id="like-list" class="w3-row-padding">
+                        <div id="dangban-list" class="w3-row-padding">
+                            <!-- List San pham -->
+                        </div>
+                    </div>
+                </div>
+
+                <div id="body-damua" class="w3-row " style="margin-left:20px"  >
+                    <div class="w3-container w3-white ">
+                        <div id="damua-list" class="w3-row-padding">
+                            <!-- List San pham -->
+                        </div>
+                    </div>
+                </div>
+
+                <div id="body-lichsu" class="w3-row " style="margin-left:20px"  >
+                    <div class="w3-container w3-white ">
+                        <div id="lichsu-list" class="w3-row-padding">
+                            <!-- List San pham -->
+                        </div>
+                    </div>
+                </div>
+
+                <div id="body-lichsu-chitiet" class="w3-row " style="margin-left:20px"  >
+                    <div class="w3-container w3-white ">
+                        <div id="lichsu2-list" class="w3-row-padding">
+                            <!-- List San pham -->
+                        </div>
+                    </div>
+                </div>
+
+                <div id="body-dangdg" class="w3-row " style="margin-left:20px"  >
+                    <div class="w3-container w3-white ">
+                        <div id="dangdg-list" class="w3-row-padding">
+                            <!-- List San pham -->
+                        </div>
+                    </div>
+                </div>
+
+                <div id="body-dathang" class="w3-row " style="margin-left:20px"  >
+                    <div class="w3-container w3-white ">
+                        <div id="dathang-list" class="w3-row-padding">
                             <!-- List San pham -->
                         </div>
                     </div>
@@ -217,13 +286,13 @@
     </div>
     {{/each}}
 </script>
-<script id="ql-dangban-conhang" type="text/x-handlebars-template">
+<script id="dangban-template" type="text/x-handlebars-template">
     {{#each this}}
     <div  id="thesp" class="w3-card w3-border w3-margin-right w3-margin-top myCard" style="display: none" >
         <div class="w3-container">
             <span class="label label-info">Số Lượt Đấu Giá: {{Soluotragia}} </span>
             <br>
-            <span class="label label-info">Thời Gian Kết Thúc:</span><div id="{{ID}}"></div>
+            <span class="label label-info" id="{{ID}}">
             
         </div>
         <img src="imgs/{{ID}}/main_thumbs.jpg" alt="{{Ten}}" title="{{Ten}}" class="w3-text w3-margin-top" width="90px" height="80px">
@@ -237,30 +306,53 @@
             </div>
             <p style="height: 36px;">{{Mota}}</p>
             <div class="w3-row w3-margin-bottom ">
-                <div class="w3-red w3-col m4 l4 w3-hover-purple w3-round">
-                    <a id="suamota" href="javascript:suamota({{ID}});" class="w3-small w3-button w3-hover-purple">
-                        <span class="glyphicon glyphicon-pencil"></span>
-                        <h7>Sửa Mô Tả</h7>
-                    </a>
-                </div>
-                <div class="w3-yellow w3-col m4 l4 w3-right w3-hover-blue w3-round">
-                    <a id="lichsu" href="javascript:lichsu({{ID}});" class="w3-small w3-button w3-hover-blue">
-                        <span class="glyphicon glyphicon-usd"></span>
-                        <h7>Lịch Sử</h7>
-                    </a>
-                </div>
+                     <button id="suamota" onclick="location.href='javascript:suamota({{ID}});'" class="w3-button w3-yellow w3-round-xxlarge">Sửa Mô Tả</button>                
             </div>
         </div>
     </div>
+    {{/each}}
 </script>
 
-<script id="suamotasp" type="text/x-handlebars-template">
+<script id="damua-template" type="text/x-handlebars-template">
     {{#each this}}
     <div  id="thesp" class="w3-card w3-border w3-margin-right w3-margin-top myCard" style="display: none" >
         <div class="w3-container">
             <span class="label label-info">Số Lượt Đấu Giá: {{Soluotragia}} </span>
             <br>
-            <span class="label label-info">Thời Gian Kết Thúc:</span><div id="{{ID}}"></div>
+            <span class="label label-info" id="{{ID}}">
+            
+        </div>
+        <img src="imgs/{{ID}}/main_thumbs.jpg" alt="{{Ten}}" title="{{Ten}}" class="w3-text w3-margin-top" width="90px" height="80px">
+
+        <div class="w3-container" style="width:auto; height:150">
+            <h6 style="height:90">{{Ten}}</h6>
+            <div class="w3-container w3-white">
+                <h7>Giá Hiện Tại: {{formatNumber Giahientai}}</h7>
+                <br>
+                <h7>Giá Bán Ngay: {{formatNumber Giabanngay}}</h7>
+                <br>
+                <h7>Người Đã Mua: {{Nguoimua}}</h7>
+            </div>
+            <p style="height: 36px;">{{Mota}}</p>
+            <div class="w3-row w3-margin-bottom ">
+                     <button id="congdiem" onclick="location.href='javascript:congdiem();'" class="w3-button w3-yellow w3-round-xxlarge">+1 Điểm</button>                
+            </div>
+            <div class="w3-row w3-margin-bottom ">
+                     <button id="trudiem" onclick="location.href='javascript:trudiem();'" class="w3-button w3-red w3-round-xxlarge">-1 Điểm</button>                
+            </div>
+            <input type="hidden" id="emailCT" value="{{Nguoimua}}">
+        </div>
+    </div>
+    {{/each}}
+</script>
+
+<script id="lichsu-template" type="text/x-handlebars-template">
+    {{#each this}}
+    <div  id="thesp" class="w3-card w3-border w3-margin-right w3-margin-top myCard" style="display: none" >
+        <div class="w3-container">
+            <span class="label label-info">Số Lượt Đấu Giá: {{Soluotragia}} </span>
+            <br>
+            <span class="label label-info" id="{{ID}}">
             
         </div>
         <img src="imgs/{{ID}}/main_thumbs.jpg" alt="{{Ten}}" title="{{Ten}}" class="w3-text w3-margin-top" width="90px" height="80px">
@@ -272,13 +364,101 @@
                 <br>
                 <h7>Giá Bán Ngay: {{formatNumber Giabanngay}}</h7>
             </div>
+            <p style="height: 36px;">{{Mota}}</p>
             <div class="w3-row w3-margin-bottom ">
-                <div class="w3-yellow w3-col m4 l4 w3-right w3-hover-blue w3-round">
-                    <a id="lichsu" href="javascript:lichsu({{ID}});" class="w3-small w3-button w3-hover-blue">
-                        <span class="glyphicon glyphicon-usd"></span>
-                        <h7>Lịch Sử</h7>
-                    </a>
-                </div>
+                     <button id="lichsu" onclick="location.href='javascript:lichsu({{ID}});'" class="w3-button w3-yellow w3-round-xxlarge">Xem Lịch Sử</button>                
+            </div>
+        </div>
+    </div>
+    {{/each}}
+</script>
+
+<script id="lichsu-chitiet-template" type="text/x-handlebars-template">
+    {{#each this}}
+    <h6>Thời Gian: {{thoigian}}</h6>
+    <h6>Giá: {{formatNumber Gia}}</h6>
+    <h6>Người Ra Giá: {{Email}} || <a id="kichnguoimua" href="javascript:kichnguoimua('{{Email}}');" style="color:red;">Loại</a> Người Mua Này!</h6>
+    <input type="hidden" id="idsp" value="{{IDSP}}">
+    <h6>---------------------------------------------------------------------</h6>
+    {{/each}}
+</script>
+
+<script id="dangdg-template" type="text/x-handlebars-template">
+    {{#each this}}
+    <div  id="thesp" class="w3-card w3-border w3-margin-right w3-margin-top myCard" style="display: none" >
+        <div class="w3-container">
+            <span class="label label-info">Số Lượt Đấu Giá: {{Soluotragia}} </span>
+            <br>
+            <span class="label label-info" id="{{ID}}">
+            
+        </div>
+        <img src="imgs/{{ID}}/main_thumbs.jpg" alt="{{Ten}}" title="{{Ten}}" class="w3-text w3-margin-top" width="90px" height="80px">
+
+        <div class="w3-container" style="width:auto; height:150">
+            <h6 style="height:90">{{Ten}}</h6>
+            <div class="w3-container w3-white">
+                <h7>Giá Hiện Tại: {{formatNumber Giahientai}}</h7>
+                <br>
+                <h7>Giá Bán Ngay: {{formatNumber Giabanngay}}</h7>
+            </div>
+            <p style="height: 36px;">{{Mota}}</p>
+            <div id="giugia" class="w3-row w3-margin-bottom ">
+              <center><a style="color:blue;">Bạn Là Người Giữ Giá!!!</a></center>              
+            </div>
+            <div class="w3-row w3-margin-bottom ">
+                     <button id="huydg" onclick="location.href='javascript:huydg({{ID}});'" class="w3-button w3-yellow w3-round-xxlarge">Hủy Đấu Giá</button>                
+            </div>
+        </div>
+    </div>
+    {{/each}}
+</script>
+
+<script id="dathang-template" type="text/x-handlebars-template">
+    {{#each this}}
+    <div  id="thesp" class="w3-card w3-border w3-margin-right w3-margin-top myCard" style="display: none" >
+        <div class="w3-container">
+            <span class="label label-info">Số Lượt Đấu Giá: {{Soluotragia}} </span>
+            <br>
+            <span class="label label-info" id="{{ID}}">
+            
+        </div>
+        <img src="imgs/{{ID}}/main_thumbs.jpg" alt="{{Ten}}" title="{{Ten}}" class="w3-text w3-margin-top" width="90px" height="80px">
+
+        <div class="w3-container" style="width:auto; height:150">
+            <h6 style="height:90">{{Ten}}</h6>
+            <div class="w3-container w3-white">
+                <h7>Giá Bạn Trả: {{formatNumber Giahientai}}</h7>
+                <br>
+                <h7>Giá Bán Ngay: {{formatNumber Giabanngay}}</h7>
+            </div>
+            <p style="height: 36px;">{{Mota}}</p>
+            <div id="chienthang" class="w3-row w3-margin-bottom ">
+              <center><a style="color:blue;">Bạn Là Người Chiến Thắng!!!</a></center>              
+            </div>
+            <div class="w3-row w3-margin-bottom ">
+                     <button id="ttsanpham" onclick="location.href='javascript:ttsanpham({{ID}});'" class="w3-button w3-yellow w3-round-xxlarge">Thông Tin Sản Phẩm</button>                
+            </div>
+        </div>
+    </div>
+    {{/each}}
+</script>
+
+
+<script id="suamotasp" type="text/x-handlebars-template">
+    {{#each this}}
+    <div  id="thesp" class="w3-card w3-border w3-margin-right w3-margin-top myCard" style="display: none" >
+        <div class="w3-container">
+            <span class="label label-info">Số Lượt Đấu Giá: {{Soluotragia}} </span>
+            
+        </div>
+        <img src="imgs/{{ID}}/main_thumbs.jpg" alt="{{Ten}}" title="{{Ten}}" class="w3-text w3-margin-top" width="90px" height="80px">
+
+        <div class="w3-container" style="width:auto; height:150">
+            <h6 style="height:90">{{Ten}}</h6>
+            <div class="w3-container w3-white">
+                <h7>Giá Hiện Tại: {{formatNumber Giahientai}}</h7>
+                <br>
+                <h7>Giá Bán Ngay: {{formatNumber Giabanngay}}</h7>
             </div>
         </div>
     </div>
