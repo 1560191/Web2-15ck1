@@ -23,31 +23,31 @@ $('#home').on('click', function() {
             dataType: 'json',
             timeout: 10000
         }).done(function(data) {
-            var aaas = "<script>\
-        var countDownDate = new Date('{{Thoigianketthuc}}').getTime();\
+            var aaas = " {{#each this}}\
+        <script>\
+        var countDownDate{{ID}} = new Date('{{Thoigianketthuc}}').getTime();\
         setInterval(function() {\
         var now = new Date().getTime();\
-        var distance = countDownDate - now;\
-        var days = Math.floor(distance / (1000 * 60 * 60 * 24));\
-        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));\
-        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));\
-        var seconds = Math.floor((distance % (1000 * 60)) / 1000);\
-        document.getElementById({{ID}}).innerHTML = days + 'Ngày ' + hours + 'Giờ'+ minutes + 'Phút' + seconds + 'Giây'; \
-        if(disNew<=10800){ document.getElementById('snew{{ID}}').innerHTML = $('#newss').html();}\
-        }); \
+        var distance{{ID}} = countDownDate{{ID}} - now;\
+        var days{{ID}} = Math.floor(distance{{ID}} / (1000 * 60 * 60 * 24));\
+        var hours{{ID}} = Math.floor((distance{{ID}} % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));\
+        var minutes{{ID}} = Math.floor((distance{{ID}} % (1000 * 60 * 60)) / (1000 * 60));\
+        var seconds{{ID}} = Math.floor((distance{{ID}} % (1000 * 60)) / 1000);\
+        document.getElementById({{ID}}).innerHTML ='Thời gian còn lại: ' + days{{ID}} + 'Ngày ' + hours{{ID}} + 'Giờ'+ minutes{{ID}} + 'Phút' + seconds{{ID}} + 'Giây'; },1000);\
         </script>\
         {{/each}}";
         //var source2 = $('#dest').html();
         var source = $('#product-template').html();
-        var source3 =  source + aaas;
-        console.log(source3);
-        var template = Handlebars.compile(source3);
-            var html = template(data.sanpham);
-            $('#product-list').append(html);
+        var template = Handlebars.compile(source);
+        var template1 = Handlebars.compile(aaas);
+        var html = template(data.sanpham);
+        var html1 = template1(data.sanpham);
+        $('#product-list').append(html);
+        $('#timeaa').append(html1);
+        $('#product-list div[style]').fadeIn(200, function() {
+            $(this).removeAttr('style');
 
-            $('#product-list div[style]').fadeIn(200, function() {
-                $(this).removeAttr('style');
-            });
+        });
 
             CUR_PAGE++;
             if (data.hasMore === false) {
@@ -73,30 +73,30 @@ $('#nhieunhat').on('click', function() {
         dataType: 'json',
         timeout: 10000
     }).done(function(data) {
-        var aaas = "<script>\
-        var countDownDate = new Date('{{Thoigianketthuc}}').getTime();\
+        var aaas = " {{#each this}}\
+        <script>\
+        var countDownDate{{ID}} = new Date('{{Thoigianketthuc}}').getTime();\
         setInterval(function() {\
         var now = new Date().getTime();\
-        var distance = countDownDate - now;\
-        var days = Math.floor(distance / (1000 * 60 * 60 * 24));\
-        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));\
-        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));\
-        var seconds = Math.floor((distance % (1000 * 60)) / 1000);\
-        document.getElementById({{ID}}).innerHTML = days + 'Ngày ' + hours + 'Giờ'+ minutes + 'Phút' + seconds + 'Giây'; \
-        if(disNew<=10800){ document.getElementById('snew{{ID}}').innerHTML = $('#newss').html();}\
-        }); \
+        var distance{{ID}} = countDownDate{{ID}} - now;\
+        var days{{ID}} = Math.floor(distance{{ID}} / (1000 * 60 * 60 * 24));\
+        var hours{{ID}} = Math.floor((distance{{ID}} % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));\
+        var minutes{{ID}} = Math.floor((distance{{ID}} % (1000 * 60 * 60)) / (1000 * 60));\
+        var seconds{{ID}} = Math.floor((distance{{ID}} % (1000 * 60)) / 1000);\
+        document.getElementById({{ID}}).innerHTML ='Thời gian còn lại: ' + days{{ID}} + 'Ngày ' + hours{{ID}} + 'Giờ'+ minutes{{ID}} + 'Phút' + seconds{{ID}} + 'Giây'; },1000);\
         </script>\
         {{/each}}";
         //var source2 = $('#dest').html();
         var source = $('#product-template').html();
-        var source3 =  source + aaas;
-        console.log(source3);
-        var template = Handlebars.compile(source3);
+        var template = Handlebars.compile(source);
+        var template1 = Handlebars.compile(aaas);
         var html = template(data.sanpham);
+        var html1 = template1(data.sanpham);
         $('#product-list').append(html);
-
+        $('#timeaa').append(html1);
         $('#product-list div[style]').fadeIn(200, function() {
             $(this).removeAttr('style');
+
         });
         $('#product-list').show();
         $('.loader').hide();
@@ -117,30 +117,30 @@ $('#caonhat').on('click', function() {
         dataType: 'json',
         timeout: 10000
     }).done(function(data) {
-        var aaas = "<script>\
-        var countDownDate = new Date('{{Thoigianketthuc}}').getTime();\
+        var aaas = " {{#each this}}\
+        <script>\
+        var countDownDate{{ID}} = new Date('{{Thoigianketthuc}}').getTime();\
         setInterval(function() {\
         var now = new Date().getTime();\
-        var distance = countDownDate - now;\
-        var days = Math.floor(distance / (1000 * 60 * 60 * 24));\
-        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));\
-        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));\
-        var seconds = Math.floor((distance % (1000 * 60)) / 1000);\
-        document.getElementById({{ID}}).innerHTML = days + 'Ngày ' + hours + 'Giờ'+ minutes + 'Phút' + seconds + 'Giây'; \
-        if(disNew<=10800){ document.getElementById('snew{{ID}}').innerHTML = $('#newss').html();}\
-        }); \
+        var distance{{ID}} = countDownDate{{ID}} - now;\
+        var days{{ID}} = Math.floor(distance{{ID}} / (1000 * 60 * 60 * 24));\
+        var hours{{ID}} = Math.floor((distance{{ID}} % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));\
+        var minutes{{ID}} = Math.floor((distance{{ID}} % (1000 * 60 * 60)) / (1000 * 60));\
+        var seconds{{ID}} = Math.floor((distance{{ID}} % (1000 * 60)) / 1000);\
+        document.getElementById({{ID}}).innerHTML ='Thời gian còn lại: ' + days{{ID}} + 'Ngày ' + hours{{ID}} + 'Giờ'+ minutes{{ID}} + 'Phút' + seconds{{ID}} + 'Giây'; },1000);\
         </script>\
         {{/each}}";
         //var source2 = $('#dest').html();
         var source = $('#product-template').html();
-        var source3 =  source + aaas;
-        console.log(source3);
-        var template = Handlebars.compile(source3);
+        var template = Handlebars.compile(source);
+        var template1 = Handlebars.compile(aaas);
         var html = template(data.sanpham);
+        var html1 = template1(data.sanpham);
         $('#product-list').append(html);
-
+        $('#timeaa').append(html1);
         $('#product-list div[style]').fadeIn(200, function() {
             $(this).removeAttr('style');
+
         });
         $('#product-list').show();
 
@@ -162,30 +162,30 @@ $('#ketthuc').on('click', function() {
         dataType: 'json',
         timeout: 10000
     }).done(function(data) {
-        var aaas = "<script>\
-        var countDownDate = new Date('{{Thoigianketthuc}}').getTime();\
+        var aaas = " {{#each this}}\
+        <script>\
+        var countDownDate{{ID}} = new Date('{{Thoigianketthuc}}').getTime();\
         setInterval(function() {\
         var now = new Date().getTime();\
-        var distance = countDownDate - now;\
-        var days = Math.floor(distance / (1000 * 60 * 60 * 24));\
-        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));\
-        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));\
-        var seconds = Math.floor((distance % (1000 * 60)) / 1000);\
-        document.getElementById({{ID}}).innerHTML = days + 'Ngày ' + hours + 'Giờ'+ minutes + 'Phút' + seconds + 'Giây'; \
-        if(disNew<=10800){ document.getElementById('snew{{ID}}').innerHTML = $('#newss').html();}\
-        }); \
+        var distance{{ID}} = countDownDate{{ID}} - now;\
+        var days{{ID}} = Math.floor(distance{{ID}} / (1000 * 60 * 60 * 24));\
+        var hours{{ID}} = Math.floor((distance{{ID}} % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));\
+        var minutes{{ID}} = Math.floor((distance{{ID}} % (1000 * 60 * 60)) / (1000 * 60));\
+        var seconds{{ID}} = Math.floor((distance{{ID}} % (1000 * 60)) / 1000);\
+        document.getElementById({{ID}}).innerHTML ='Thời gian còn lại: ' + days{{ID}} + 'Ngày ' + hours{{ID}} + 'Giờ'+ minutes{{ID}} + 'Phút' + seconds{{ID}} + 'Giây'; },1000);\
         </script>\
         {{/each}}";
         //var source2 = $('#dest').html();
         var source = $('#product-template').html();
-        var source3 =  source + aaas;
-        console.log(source3);
-        var template = Handlebars.compile(source3);
+        var template = Handlebars.compile(source);
+        var template1 = Handlebars.compile(aaas);
         var html = template(data.sanpham);
+        var html1 = template1(data.sanpham);
         $('#product-list').append(html);
-
+        $('#timeaa').append(html1);
         $('#product-list div[style]').fadeIn(200, function() {
             $(this).removeAttr('style');
+
         });
         $('#product-list').show();
 
@@ -219,31 +219,31 @@ $('#btnSearch').on('click', function() {
             dataType: 'json',
             timeout: 10000
         }).done(function(data) {
-            var aaas = "<script>\
-        var countDownDate = new Date('{{Thoigianketthuc}}').getTime();\
+            var aaas = " {{#each this}}\
+        <script>\
+        var countDownDate{{ID}} = new Date('{{Thoigianketthuc}}').getTime();\
         setInterval(function() {\
         var now = new Date().getTime();\
-        var distance = countDownDate - now;\
-        var days = Math.floor(distance / (1000 * 60 * 60 * 24));\
-        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));\
-        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));\
-        var seconds = Math.floor((distance % (1000 * 60)) / 1000);\
-        document.getElementById({{ID}}).innerHTML = days + 'Ngày ' + hours + 'Giờ'+ minutes + 'Phút' + seconds + 'Giây'; \
-        if(disNew<=10800){ document.getElementById('snew{{ID}}').innerHTML = $('#newss').html();}\
-        }); \
+        var distance{{ID}} = countDownDate{{ID}} - now;\
+        var days{{ID}} = Math.floor(distance{{ID}} / (1000 * 60 * 60 * 24));\
+        var hours{{ID}} = Math.floor((distance{{ID}} % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));\
+        var minutes{{ID}} = Math.floor((distance{{ID}} % (1000 * 60 * 60)) / (1000 * 60));\
+        var seconds{{ID}} = Math.floor((distance{{ID}} % (1000 * 60)) / 1000);\
+        document.getElementById({{ID}}).innerHTML ='Thời gian còn lại: ' + days{{ID}} + 'Ngày ' + hours{{ID}} + 'Giờ'+ minutes{{ID}} + 'Phút' + seconds{{ID}} + 'Giây'; },1000);\
         </script>\
         {{/each}}";
         //var source2 = $('#dest').html();
         var source = $('#product-template').html();
-        var source3 =  source + aaas;
-        console.log(source3);
-        var template = Handlebars.compile(source3);
-            var html = template(data.sanpham);
-            $('#product-list').append(html);
+        var template = Handlebars.compile(source);
+        var template1 = Handlebars.compile(aaas);
+        var html = template(data.sanpham);
+        var html1 = template1(data.sanpham);
+        $('#product-list').append(html);
+        $('#timeaa').append(html1);
+        $('#product-list div[style]').fadeIn(200, function() {
+            $(this).removeAttr('style');
 
-            $('#product-list div[style]').fadeIn(200, function() {
-                $(this).removeAttr('style');
-            });
+        });
 
             CUR_PAGE++;
             if (data.hasMore === false) {
