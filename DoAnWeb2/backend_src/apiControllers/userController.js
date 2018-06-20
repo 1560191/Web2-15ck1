@@ -22,7 +22,30 @@ router.get('/kiemtra/:emaila', (req, res) => {
         res.end('View error log on console.');
     });
 });
-
+router.get('/thongtin/:email/:_PASSS', (req, res) => {
+	var email = req.params.email;
+	var pass = req.params._PASSS;
+    userRepo.uptatetk(email,pass).then(rows => {
+        res.send('1');
+    }).catch(err => {
+        console.log(err);
+        res.statusCode = 500;
+        res.send('2');
+    });
+});
+router.get('/thongtin1/:email/:_fullname/:_Phone/:_addresss', (req, res) => {
+	var email = req.params.email;
+	var fullname = req.params._fullname;
+	var Phone = req.params._Phone;
+	var addresss = req.params._addresss;
+    userRepo.uptatetk1(email,fullname,Phone,addresss).then(rows => {
+        res.send('1');
+    }).catch(err => {
+        console.log(err);
+        res.statusCode = 500;
+        res.send('2');
+    });
+});
 // 
 // categories/5
 

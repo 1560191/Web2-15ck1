@@ -19,12 +19,13 @@ function daugia(id) {
             var source = $('#daugia').html();
             var template = Handlebars.compile(source);
             var html = template(data.sanpham);
+            $('#daugiauser').show();
+            $('#hienthisp1').hide();
             $('#product-list').append(html);
-
             $('#product-list div[style]').fadeIn(200, function() {
                 $(this).removeAttr('style');
             });
-            $('#product-list').show();
+            //$('#product-list').show();
             $('.loader').hide();
             var mangbb = data.sanpham;
             var ctsp =  '<p>'+ mangbb[0].Mota + '</p>';

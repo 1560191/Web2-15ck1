@@ -64,7 +64,15 @@ exports.updateActiveXinBan = function(_email) {
 	var sql = `update xinban SET Active = 1, thoigianbatdau = NOW(), thoigianketthuc = ADDTIME(NOW(),'168:0:0.0') where Email = '${_email}'`;
 	return db.update(sql);
 }
-
+exports.uptatetk = function(email,pass) {
+	var md5_pass = md5(pass);
+	var sql = `update taikhoan SET Password = '${md5_pass}' where Email = '${email}'`;
+	return db.update(sql);
+}
+exports.uptatetk1 = function(email,fullname,Phone,addresss) {
+	var sql = `update taikhoan SET Hoten = '${fullname}',Diachi = '${addresss}',SDT = '${Phone}' where Email = '${email}'`;
+	return db.update(sql);
+}
 exports.updatePermission = function(_email) {
 	var sql = `update taikhoan SET Permission = 2 where Email = '${_email}'`;
 	return db.update(sql);

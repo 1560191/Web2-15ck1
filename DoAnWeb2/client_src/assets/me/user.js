@@ -2,32 +2,53 @@ function myFunction(){
   window.location.href = "/user.html";  
 }
 $("#back").hide();
-$('#upsanpham').on('click', function() {
+$("#upsanpham").on('click', function() {
     $("#trangchu").load("banSanPham.html");
     $("#home").hide();
     $("#back").show();
 });
+
+$(function() {
+    $('#txtPhone').select();
+    $('#txtPassword').select();
+    $('#txtName').select();
+    $('#txtaddress').select();
+    $('#txtConfirmPWD').select();
+});
+$("#1upsanpham").on('click', function() {
+    // var _PASSS = $('#txtPassword').val();
+    // var _PASSS1 = $('#txtConfirmPWD').val();
+    // var email = localStorage.getItem('email');
+    console.log("ok"); 
+    alert('Password và Confirm Password không giống nhau!');
+    // if(_PASSS != _PASSS1)
+    // {
+    //     alert('Password và Confirm Password không giống nhau!');
+    //     return;
+    // }
+    // $.ajax({
+    //     url: 'http://localhost:3000/user/thongtin/'+email,
+    //     dataType: 'json',
+    //     timeout: 10000
+    // }).done(function(data) {
+    //     console.log(data.Hoten);
+    //     var source212 = $('#thongtinnguoidung').html();
+    //     var template212 = Handlebars.compile(source212);
+    //     var html212 = template212(data);
+    //     $('#qltknd').append(html212);
+    //     $('#qltknd div[style]').fadeIn(200, function() {
+    //         $(this).removeAttr('style');
+
+    //     });
+    // });
+
+});
+
 $("#qltk").on('click', function() {
     //$("#trangchu").load("qltk.html");
+    $("#trangchu").load("thongtinuser.html");
     $("#home").hide();
     $("#back").show();
-    $("#trangchu").hide();
-    var email = localStorage.getItem('email'); 
-    $.ajax({
-        url: 'http://localhost:3000/user/'+email,
-        dataType: 'json',
-        timeout: 10000
-    }).done(function(data) {
-        console.log(data.Hoten);
-        var source212 = $('#thongtinnguoidung').html();
-        var template212 = Handlebars.compile(source212);
-        var html212 = template212(data);
-        $('#qltknd').append(html212);
-        $('#qltknd div[style]').fadeIn(200, function() {
-            $(this).removeAttr('style');
-
-        });
-    });
 
 });
 $(function() {
@@ -72,6 +93,7 @@ $(function() {
              }
         }
     }).fail(function(xhr, textStatus, error) {
+         window.location.href = "http://localhost:8080";
             console.log(error);
             console.log(xhr);
     });
@@ -82,6 +104,7 @@ $('#thoat').click(function () {
      window.location.href = "http://localhost:8080"; 
 });
 $('#upsanpham').hide();
+$('#daugiauser').hide();
 $(function() {
     HandlebarsIntl.registerWith(Handlebars);
     loadProducts();
@@ -137,7 +160,7 @@ var loadProducts = function() {
         var seconds{{ID}} = Math.floor((distance{{ID}} % (1000 * 60)) / 1000);\
         document.getElementById({{ID}}).innerHTML ='Thời gian còn lại: ' + days{{ID}} + 'Ngày ' + hours{{ID}} + 'Giờ'+ minutes{{ID}} + 'Phút' + seconds{{ID}} + 'Giây'; },1000);\
         } </script>\
-        {{/each}}";
+        {{/each}}"; 
         //var source2 = $('#dest').html();
         var source = $('#like-template').html();
         var template = Handlebars.compile(source);
