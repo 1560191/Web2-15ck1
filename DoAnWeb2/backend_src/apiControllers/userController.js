@@ -127,78 +127,20 @@ router.get('/xinbanhang/:email', (req, res) => {
 		res.send('2');
 		});
 });
-//router.get('/ragia/:_id/:emaila/:gia', (req, res) => {
-//	var email = req.params.emaila;
-//	var _id = req.params._id;
-//	var gia = req.params.gia;
-//   userRepo.ragia(_id,email,gia)
-//		.then(insertId => {
-//			sanphamRepo.ragiatc(_id,gia)
-//			res.statusCode = 201;
-//			res.send('1');
-//		})
-//		.catch(err => {
-//		res.send('2');
-//		});
-//});
 router.get('/ragia/:_id/:emaila/:gia', (req, res) => {
 	var email = req.params.emaila;
 	var _id = req.params._id;
 	var gia = req.params.gia;
-	sanphamRepo.load(_id).then(rowsp => {
-		var giaht=rowsp[0].Giahientai;
-		var buocg=rowsp[0].Buocgia;
-		var nguoigiu=rowsp[0].IDGiugia;
-
-		var giadang=gia;
-
-		var rownd1= userRepo.ktgia(_id,nguoigiu);
-		
-
-		if(nguoigiu==null){
-			giadang=giaht+buocg;
-			userRepo.creategia(_id,gia,email);
-			sanphamRepo.ragiamoi(_id,giadang,email);
-			res.send('7');
-			
-		}
-		else if(nguoigiu==email){
-			userRepo.setgia(_id,gia,email);
-			res.send('6');
-		}
-		else if(nguoigiu!=email){
-			if((rownd1[0].Gia-gia)>= buocg){
-				giadang=gia+buocg;
-				nguoigiu=rowsp[0].IDGiugia;
-				sanphamRepo.ragiatc(_id,giadang);
-				userRepo.creategia(_id,gia,email);
-				res.send('3');
-			}
-			else if((rownd1[0].Gia==gia)){
-				giadang=gia;
-				nguoigiu=rowsp[0].IDGiugia;
-				sanphamRepo.ragiatc(_id,giadang);
-				userRepo.creategia(_id,gia,email);
-				res.send('4');
-			}
-			else{
-				giadang=giaht+buocg;
-				nguoigiu=email;
-				userRepo.creategia(_id,gia,email);
-				sanphamRepo.ragiamoi(_id,giadang,email);
-				res.send('5');
-			}
-		}
-		res.statusCode = 201;
+    userRepo.ragia(_id,email,gia)
+		.then(insertId => {
+			sanphamRepo.ragiatc(_id,gia)
+			res.statusCode = 201;
+			res.send('1');
 		})
-
-	
-	.catch(err => {
+		.catch(err => {
 		res.send('2');
 		});
-
 });
-
 
 router.get('/del/:_email', (req, res) => {
 	if (req.params._email) {

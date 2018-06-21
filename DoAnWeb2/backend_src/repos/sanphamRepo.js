@@ -97,10 +97,6 @@ exports.ragiatc = function(_id,gia) {
     var sql = `update sanpham SET Soluotragia = Soluotragia + 1,Giahientai = '${gia}' where ID = '${_id}'`;
     return db.update(sql);
 }
-exports.ragiamoi = function(_id,gia,email) {
-    var sql = `update sanpham SET Soluotragia = Soluotragia + 1,Giahientai = ${gia},IDGiugia = '${email}' where ID = ${_id}`;
-    return db.update(sql);
-}
 exports.muangay = function(_id,email) {
     var sql = `update sanpham SET Nguoimua = '${email}' where ID = '${_id}'`;
     return db.update(sql);
