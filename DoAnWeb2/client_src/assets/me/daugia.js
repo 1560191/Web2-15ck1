@@ -143,15 +143,36 @@ function ragia(id) {
                     return;
                 }
                 else{
-                    $.ajax({
-                        url: 'http://localhost:3000/user/ragia/'+_id+'/'+emaila+'/'+gia,
-                        dataType: 'json',
-                        timeout: 10000
-                    }).done(function(data) {
-                        alert('Đã Đấu Giá Thành Công');
-                        daugia(_id);
+                    var r = confirm("Bạn có chắc chắn mua chứ!");
+             if (r == true) {      
+        $.ajax({
+            url: 'http://localhost:3000/user/ragia/'+_id+'/'+emaila+'/'+gia,
+            dataType: 'json',
+            timeout: 10000
+        }).done(function(data) {
+            $.ajax({
+            url: 'http://localhost:3000/mail/daugia/'+emaila+'/'+_id+'/'+gia,
+            dataType: 'json',
+            timeout: 10000
+        }).done(function(data) {
+                        $.ajax({
+            url: 'http://localhost:3000/mail/daugia1/'+emaila+'/'+_id+'/'+gia,
+            dataType: 'json',
+            timeout: 10000
+        }).done(function(data) {
+            alert('Đã Đấu Giá Thành Công');
+            
+            daugia(_id);
 
-                    });
+        });
+        });
+        });
+
+    }
+                
+                 else {
+             return;
+                 }
                 }
                 });
             }
