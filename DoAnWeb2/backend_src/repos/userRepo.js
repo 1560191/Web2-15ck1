@@ -6,7 +6,7 @@ exports.loadAll = function() {
 }
 
 exports.load = function(id) {
-	var sql = `select * from taikhoan where Email = '${id}'`;
+	var sql = `select * from taikhoan tk, khachhang kh where tk.Email = '${id}' and tk.Email = kh.IDUser`;
 	return db.load(sql);
 }
 exports.kiemtra = function(email) {

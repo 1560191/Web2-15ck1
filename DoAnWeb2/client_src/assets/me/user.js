@@ -50,7 +50,7 @@ $("#1upsanpham").on('click', function() {
 
 $("#qltk").on('click', function() {
     //$("#trangchu").load("qltk.html");
-    $("#trangchu").load("thongtinuser.html");
+    $("#trangchu2").load("thongtinuser.html");
     $("#home").hide();
     $("#back").show();
 

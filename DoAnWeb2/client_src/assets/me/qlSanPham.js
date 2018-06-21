@@ -307,6 +307,28 @@ function trudiem() {
     });
 };
 
+function cong1diem() {
+    var email = $('#emailCT1').val();
+    $.ajax({
+        url: 'http://localhost:3000/qlsanphamnguoidung/congdiem/'+email,
+        //dataType: 'json',
+        //timeout: 10000
+    }).done(function(data) {
+        alert('Đã +1 Cho Người Mua Sản Phẩm Này!')
+    });
+};
+
+function tru1diem() {
+    var email = $('#emailCT1').val();
+    $.ajax({
+        url: 'http://localhost:3000/qlsanphamnguoidung/trudiem/'+email,
+        //dataType: 'json',
+        //timeout: 10000
+    }).done(function(data) {
+        alert('Đã -1 Cho Người Mua Sản Phẩm Này!')
+    });
+};
+
 
 $('#spYeuThich').on('click', function() {
     $('#title-dangban-conhan').hide();
