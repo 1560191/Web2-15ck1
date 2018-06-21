@@ -29,7 +29,7 @@ function daugia(id) {
             $('.loader').hide();
             var mangbb = data.sanpham;
             var ctsp =  '<p>'+ mangbb[0].Mota + '</p>';
-        
+            
             $('#ctsp').append(ctsp);
         });
     }
@@ -41,19 +41,19 @@ function daugia(id) {
         }).done(function(data) {
             var manga = data.sanpham;
             var dem = 0;
-             $.each(manga, function(idx, item) {
+            $.each(manga, function(idx, item) {
                 dem = dem + 1 ;
                 var mail = item.Email;
                 var mail1 = mail.substr(0,3);
                 var mail2 = mail1 + '***********@gmail.com'
                 // var substr(item.Email, 0,3);
                 // var tenemail = substr + '****************';
-            var tr =  '<TR>'+
-        '<TD align = "center" valign = "top">' +dem+ '</TD>'+
-        '<TD align = "center" valign = "middle">' +mail2+ '</TD>'+
-        '<TD align = "center" valign = "middle">' +item.Gia+ 'đ </TD>'+
-        '</TR>';
-            $('#list3').append(tr);
+                var tr =  '<TR>'+
+                '<TD align = "center" valign = "top">' +dem+ '</TD>'+
+                '<TD align = "center" valign = "middle">' +mail2+ '</TD>'+
+                '<TD align = "center" valign = "middle">' +item.Gia+ 'đ </TD>'+
+                '</TR>';
+                $('#list3').append(tr);
             });
         });
     });
@@ -75,28 +75,28 @@ function thich(id) {
         }).done(function(data) {
             if(data == 1)
             {
-            alert('Đã thêm sản phẩm vào danh sách yêu thích của bạn');
+                alert('Đã thêm sản phẩm vào danh sách yêu thích của bạn');
             }
             else
             {
-            var r = confirm("Bạn đã thích sản phẩm này rồi! bạn muốn hủy thích chứ!");
-            if (r == true) {
-            $.ajax({
-            url: 'http://localhost:3000/user/dislike/'+_id+'/'+emaila,
-            dataType: 'json',
-            timeout: 10000
-        }).done(function(data) {
-            alert('Đã hủy thích');
-            
+                var r = confirm("Bạn đã thích sản phẩm này rồi! bạn muốn hủy thích chứ!");
+                if (r == true) {
+                    $.ajax({
+                        url: 'http://localhost:3000/user/dislike/'+_id+'/'+emaila,
+                        dataType: 'json',
+                        timeout: 10000
+                    }).done(function(data) {
+                        alert('Đã hủy thích');
+                        
 
-        });
-            } else {
-            return;
+                    });
+                } else {
+                    return;
                 } 
             }
         });
-        }
-    };
+    }
+};
 $(function() {
     $('#bidValue').select();
 });  
@@ -110,55 +110,60 @@ function ragia(id) {
         return;
     }
     else
-    {   $.ajax({
+        {   $.ajax({
             url: 'http://localhost:3000/sanpham/'+_id,
             dataType: 'json',
             timeout: 10000
         }).done(function(data) {
-        var mang = data.sanpham;
-        var countDownDate = new Date(mang[0].Thoigianketthuc).getTime();
-        var now = new Date().getTime();
-        var distance = countDownDate - now;
-        if(distance < 0)
-        {
-            alert('Sản phẩm đã hết hạn đấu giá');
-            return;
-        }
-        else{
-            var qq = mang[0].Giahientai +  mang[0].Buocgia
-            if(gia < qq)
+            var mang = data.sanpham;
+            var countDownDate = new Date(mang[0].Thoigianketthuc).getTime();
+            var now = new Date().getTime();
+            var distance = countDownDate - now;
+            if(distance < 0)
             {
-                alert('Bạn phải ra gia cao hơn hoặc bằng: ' + qq);
-                    return;
+                alert('Sản phẩm đã hết hạn đấu giá');
+                return;
             }
             else{
-                $.ajax({
-                    url: 'http://localhost:3000/qlsanphamnguoidung/kiemtra/'+_id+'/'+emaila,
-                    //dataType: 'json',
-                    //timeout: 10000
-                }).done(function(data) {
-                if(data == '1')
+                var qq = mang[0].Giahientai +  mang[0].Buocgia
+                if(gia < qq)
                 {
-                    alert('Bạn Đã Bị Cấm Đấu Giá Cho Sản Phẩm Này!');
+                    alert('Bạn phải ra gia cao hơn hoặc bằng: ' + qq);
                     return;
                 }
                 else{
                     $.ajax({
-                        url: 'http://localhost:3000/user/ragia/'+_id+'/'+emaila+'/'+gia,
-                        dataType: 'json',
-                        timeout: 10000
-                    }).done(function(data) {
-                        alert('Đã Đấu Giá Thành Công');
+                        url: 'http://localhost:3000/qlsanphamnguoidung/kiemtra/'+_id+'/'+emaila,
+                    //dataType: 'json',
+                    //timeout: 10000
+                }).done(function(data) {
+                    if(data == '1')
+                    {
+                        alert('Bạn Đã Bị Cấm Đấu Giá Cho Sản Phẩm Này!');
+                        return;
+                    }
+                    else{
+                        $.ajax({
+                            url: 'http://localhost:3000/user/ragia/'+_id+'/'+emaila+'/'+gia,
+                            dataType: 'json',
+                            timeout: 10000
+                        }).done(function(data) {
+                           if(data==3 || data==4)
+                            alert('Bạn chưa phải người ra giá cao nhất');
+                        else if(data==5 || data==7)
+                            alert("Đấu giá thành công, bạn đang giữ giá cao nhất");
+                        else if(data==6)
+                            alert('Đã cập nhật số tiền đấu giá');
                         daugia(_id);
 
                     });
-                }
+                    }
                 });
             }
         }
-          });
-        }
-    };
+    });
+    }
+};
 function muangay(id) {
     var emaila = localStorage.getItem('email'); 
     var _id = id;
@@ -168,37 +173,37 @@ function muangay(id) {
         return;
     }
     else
-    {   $.ajax({
+        {   $.ajax({
             url: 'http://localhost:3000/sanpham/'+_id,
             dataType: 'json',
             timeout: 10000
         }).done(function(data) {
-        var mang = data.sanpham;
-        var countDownDate = new Date(mang[0].Thoigianketthuc).getTime();
-        var now = new Date().getTime();
-        var distance = countDownDate - now;
-        if(distance < 0)
-        {
-            alert('Sản phẩm đã hết hạn đấu giá!');
-            return;
-        }
-        else{
-          
-            var r = confirm("Bạn có chắc chắn mua chứ!");
-            if (r == true) {
-            $.ajax({
-            url: 'http://localhost:3000/sanpham/muangay/'+_id+'/'+emaila,
-            dataType: 'json',
-            timeout: 10000
-        }).done(function(data) {
-            alert('Đã Mua thành công! mời bạn đi tính tiền');
-            window.location.href = "http://localhost:8080";
+            var mang = data.sanpham;
+            var countDownDate = new Date(mang[0].Thoigianketthuc).getTime();
+            var now = new Date().getTime();
+            var distance = countDownDate - now;
+            if(distance < 0)
+            {
+                alert('Sản phẩm đã hết hạn đấu giá!');
+                return;
+            }
+            else{
+              
+                var r = confirm("Bạn có chắc chắn mua chứ!");
+                if (r == true) {
+                    $.ajax({
+                        url: 'http://localhost:3000/sanpham/muangay/'+_id+'/'+emaila,
+                        dataType: 'json',
+                        timeout: 10000
+                    }).done(function(data) {
+                        alert('Đã Mua thành công! mời bạn đi tính tiền');
+                        window.location.href = "http://localhost:8080";
 
-        });
-            } else {
-            return;
+                    });
+                } else {
+                    return;
                 }    
             }
-          });
-        }
-    };  
+        });
+    }
+};  

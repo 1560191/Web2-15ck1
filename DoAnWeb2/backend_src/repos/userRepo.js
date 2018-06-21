@@ -13,6 +13,10 @@ exports.kiemtra = function(email) {
 	var sql = `select * from xinban where Email = '${email}'`;
 	return db.load(sql);
 }
+exports.ktgia = function(id,email) {
+	var sql = `select * from daugia where Email = '${email}' and IDSP = ${id}`;
+	return db.load(sql);
+}
 exports.findUser = function(email,pwd) {
 	var md5_password = md5(pwd);
 	var sql = `select * from taikhoan where Email = '${email}' and Password = '${md5_password}'`;
@@ -46,9 +50,13 @@ exports.dislike = function(_id,email) {
 	var sql = `delete  from  yeuthich where Email = '${email}' and ID = '${_id}'`;
 	return db.load(sql);
 }
-exports.ragia = function(_id,email,gia) {
-	var sql = `insert into daugia(Email,IDSP,Gia) values( '${email}','${_id}','${gia}')`;
-	return db.load(sql);
+exports.creategia = function(_id,gia,email) {
+	var sql = `insert into daugia (Email,IDSP,Gia) values('${email}', ${_id}, ${gia})`;
+	return db.insert(sql);
+}
+exports.setgia = function(_id,gia,email) {
+    var sql = `update daugia SET Gia = ${gia} where IDSP = ${_id} and Email = '${email}'`;
+    return db.update(sql);
 }
 exports.xinban = function (email) {
 	var sql = `insert into xinban(Email,Active) values('${email}',0)`;
