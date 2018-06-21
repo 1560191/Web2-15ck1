@@ -2,8 +2,12 @@ function myFunction(){
   window.location.href = "/user.html";  
 }
 $("#back").hide();
+$("#trangchu2").show();
+$('#dangbansanpham').hide();
 $("#upsanpham").on('click', function() {
-    $("#trangchu").load("banSanPham.html");
+    var source = $('#dangbansanpham').html();
+    $("#trangchu2").hide();
+    $('#dangbansanpham').show();
     $("#home").hide();
     $("#back").show();
 });

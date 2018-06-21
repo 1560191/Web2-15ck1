@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="assets/bootstrap-3.3.7-dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="assets/bootstrap-datepicker/css/bootstrap-datepicker3.min.css">
 <link rel="stylesheet" href="assets/mycss/mycss.css" />
+<script type="text/javascript" src="ckeditor/ckeditor.js"></script>
 <style>
     body {font-family: "Lato", sans-serif;}
     .mySlides {display: none}
@@ -36,7 +37,7 @@
         </div>
     </div>
         <!-- <div id="qltknd"></div> -->
-        <div id="trangchu">
+        <div id="trangchu2">
         <!-- The Main Section -->
         <div id="MainSection" class="w3-container w3-white w3-content w3-center w3-padding-12" style="max-width:2000px">
             <h2 class="w3-wide" style="margin-top:40px">Ferocious-mark
@@ -202,6 +203,89 @@
         </div>
         </div>
     </div>
+    <div id="dangbansanpham">
+    <div class="container">
+    <div class="row">
+
+      <div class="col-sm-12 col-md-12">
+        <form id="frm">
+          <div align="center">
+              <h1>Đăng Bán Sản Phẩm</h1>
+            </div>
+            <br/>
+            <br/>
+            <br/>
+          <div class="form-group">
+            <label for="txtTensp" class="col-sm-2 control-label">Tên Sản Phẩm:*</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control"  id="txtTensp">
+            </div>
+          </div> 
+          <br/>         
+          <div class="form-group">
+            <label for="txtLoaisp" class="col-sm-2 control-label">Loại Sản Phẩm:*</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control"  id="txtLoaisp">
+            </div>
+          </div>
+          <br/>
+          <div class="form-group">
+            <label for="txtGiaBD" class="col-sm-2 control-label">Giá Khởi Điểm:*</label>
+            <div class="col-sm-10">
+              <input type="number" class="form-control"  id="txtGiaBD">
+            </div>
+          </div>
+          <br/>
+          <div class="form-group">
+              <label for="txtBuocGia" class="col-sm-2 control-label">Bước Giá:*</label>
+              <div class="col-sm-10">
+                <input type="number" class="form-control"  id="txtBuocGia">
+              </div>
+          </div>
+          <br/>
+          <div class="form-group">
+            <label for="txtGiaBanNgay" class="col-sm-2 control-label">Giá Bán Ngay:</label>
+            <div class="col-sm-10">
+              <input type="number" class="form-control"  id="txtGiaBanNgay">
+            </div>
+          </div>
+          <br/> 
+          <div class="form-group">
+            <label for="txtThoiGianKetThuc" class="col-sm-2 control-label">Thời Gian Kết Thúc:*</label>
+            <div class="col-sm-10">
+              <input type="number" class="form-control"  id="txtThoiGianKetThuc">
+            </div>
+          </div>
+          <br/>    
+          <div class="form-group">
+            <label for="txtMoTa" class="col-sm-2 control-label">Mô Tả:*</label>
+            <div class="col-sm-10">
+              <textarea name="editor" cols="125" rows="5" id="txtMoTa"></textarea>
+            </div>
+          </div>
+          <script>
+            CKEDITOR.replace('editor');
+          </script>
+          <br/>   
+          <div class="form-group">
+                <label for="txtupload" class="col-sm-2 control-label">Upload Hình Ảnh:*</label>
+                <div class="form-group">
+                    <input id="file" type="file">
+                </div>
+          </div>   
+          <div  class="form-group">
+            <div  align="center"class="col-sm-offset-2 col-sm-5">
+              <button id="btnUp" type="submit" class="btn btn-primary">
+                <span class="glyphicon glyphicon-plus"></span>
+                Đăng Bán
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
     <!-- Footer -->
 
     <footer class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge">
@@ -683,3 +767,4 @@
     </TABLE>
     {{/each}}
 </script>
+
