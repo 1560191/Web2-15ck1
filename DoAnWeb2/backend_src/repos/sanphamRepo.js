@@ -73,7 +73,7 @@ exports.add = function(Ten,Phanloai,Giakhoidiem,Giahientai,Buocgia,Giabanngay,da
 	// 	CatName: 'new name'
 	// }
 	
-	var sql = `insert into sanpham(Ten,Phanloai,Hinhanh,Giakhoidiem,Giahientai,Buocgia,Giabanngay,Soluotragia,Thoigianbatdau,Thoigianketthuc,Mota,Nguoiban) values('${Ten}','${Phanloai}','imgs/ID/main_thumbs.jpg',${Giakhoidiem},${Giahientai},${Buocgia},${Giabanngay},0,NOW(),DATE_ADD(NOW(), INTERVAL ${day} DAY),'${Mota}','${Nguoiban}')`;
+	var sql = `insert into sanpham(Ten,Phanloai,Hinhanh,Giakhoidiem,Giahientai,Buocgia,Giabanngay,Soluotragia,Thoigianbatdau,Thoigianketthuc,Mota,Nguoiban,Nguoimua) values('${Ten}','${Phanloai}','imgs/ID/main_thumbs.jpg',${Giakhoidiem},${Giahientai},${Buocgia},${Giabanngay},0,NOW(),DATE_ADD(NOW(), INTERVAL ${day} DAY),'${Mota}','${Nguoiban}',NULL)`;
 	return db.insert(sql);
 }
 

@@ -35,6 +35,13 @@ CREATE TABLE `danhmuc` (
   `danhmucsp` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+INSERT INTO `danhmuc` (`danhmucsp`) VALUES
+('Áo Quần'),
+('Giày'),
+('Nhẫn'),
+('Điện Thoại'),
+('Khuyên Tai'),
+('Vòng Cổ');
 -- --------------------------------------------------------
 
 --

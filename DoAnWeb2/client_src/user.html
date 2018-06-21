@@ -260,10 +260,11 @@
           <div class="form-group">
             <label for="txtMoTa" class="col-sm-2 control-label">Mô Tả:*</label>
             <div class="col-sm-10">
-              <textarea name="editor" cols="125" rows="5" id="txtMoTa"></textarea>
+              <textarea class="editor" name="editor" cols="125" rows="5" id="editor"></textarea>
+              <input type="hidden" class="form-control"  id="txtMoTa" value="đây là mô tả">
             </div>
           </div>
-          <script>
+          <script type='text/javascript'>
             CKEDITOR.replace('editor');
           </script>
           <br/>   
@@ -275,16 +276,17 @@
           </div>   
           <div  class="form-group">
             <div  align="center"class="col-sm-offset-2 col-sm-5">
-              <button id="btnUp" type="submit" class="btn btn-primary">
+              <a id="btnUp" class="btn btn-primary" href="javascript:btnUp();">
                 <span class="glyphicon glyphicon-plus"></span>
                 Đăng Bán
-              </button>
+              </a>
             </div>
           </div>
         </form>
       </div>
     </div>
   </div>
+  <script src="assets/me/banSanPham.js"></script>
 </div>
     <!-- Footer -->
 
@@ -316,6 +318,7 @@
 <script src="assets/me/daugia.js"></script>
 <script src="assets/me/user.js"></script>
 <script src="assets/me/qlSanPham.js"></script>
+
 
 
 
